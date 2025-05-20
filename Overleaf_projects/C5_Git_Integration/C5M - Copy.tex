@@ -1,0 +1,334 @@
+\documentclass[12pt, a4paper]{article}
+
+\input{Templates/Package}
+\input{Templates/Template}
+
+\newcommand{\drawclock}[2]{
+	\begin{tikzpicture}[scale=1]
+		\draw[thick] (0,0) circle (1.5);
+		\foreach \n in {1,...,12} {
+			\node at ({1.2*sin(30*\n)}, {1.2*cos(30*\n)}) {\n};
+		}
+		\pgfmathsetmacro\hangle{90 - (#1 + #2/60)*30}
+		\pgfmathsetmacro\mangle{90 - #2*6}
+		\draw[thick] (0,0) -- ({0.7*cos(\hangle)}, {0.7*sin(\hangle)});
+		\draw[thick] (0,0) -- ({1.2*cos(\mangle)}, {1.2*sin(\mangle)});
+		\fill (0,0) circle (2pt);
+	\end{tikzpicture}
+}
+
+\newcommand{\piechart}[1]{%
+	\begin{tikzpicture}[scale=2.5]
+		\def\start{90}
+		\foreach \v/\l/\p/\c [count=\i] in {#1} {
+			\pgfmathsetmacro\a{\v*3.6}
+			\pgfmathsetmacro\mid{\start-\a/2}
+			\coordinate (center) at (0,0);
+			\coordinate (labelpt) at (\mid:1.3);
+			\coordinate (percentpt) at (\mid:0.6);
+			\fill[pattern=\p, pattern color=\c, draw=black] (center) -- (\start:1) arc (\start:\start-\a:1) -- cycle;
+			\draw[black] (\mid:1) -- (\mid:1.2);
+			\node at (labelpt) {\l};
+			\node[fill=white, draw=black, rounded corners=1pt, inner sep=1pt] at (percentpt) {\v\%};
+			\xdef\start{\start-\a}
+		}
+\end{tikzpicture}}
+
+\graphicspath{ {C5M - Images/} {C5S - Images/} }
+
+\begin{document}
+
+
+%-----------------------------------------------------------
+%                        Question [  ]
+%-----------------------------------------------------------
+% start-of-question
+\mcqtextbottomOneFour{
+questionnumber={10}, 
+questionTag={C5M03 – DT – Q1},  
+questiontext={Find the square that has one fourth shaded portion. },
+optionA={
+\adjustbox{scale=\scalefactor}{
+\begin{tabular}{|c|c|c|c|}
+		\hline
+		\cellcolor{gray!50}& \\ \hline
+		& \\ \hline
+	\end{tabular} } },
+optionB={
+\adjustbox{scale=\scalefactor}{
+\begin{tabular}{|c|c|c|c|}
+		\hline
+        \cellcolor{gray!50}	& \cellcolor{gray!50}\\ \hline
+	  & \\ \hline
+	\end{tabular} } },
+optionC={
+\adjustbox{scale=\scalefactor}{
+\begin{tabular}{|c|c|c|c|}
+		\hline
+        \cellcolor{gray!50}	& \cellcolor{gray!50}\\ \hline
+	  \cellcolor{gray!50}& \\ \hline
+	\end{tabular} } },
+optionD={
+\adjustbox{scale=\scalefactor}{
+\begin{tabular}{|c|c|c|c|}
+		\hline
+        \cellcolor{gray!50}	& \cellcolor{gray!50}\\ \hline
+	  \cellcolor{gray!50}& \cellcolor{gray!50}\\ \hline
+	\end{tabular} } },
+correctoption={A},
+}
+% end-of-question
+
+%-----------------------------------------------------------
+%                        Question [  ]
+%-----------------------------------------------------------
+% start-of-question
+\mcqtextbottomOneFour{
+questionnumber={11}, 
+questionTag={C5M03 – DT – Q3},  
+questiontext={Find the fraction of shaded portions.\\
+\medskip
+\begin{center}
+\adjustbox{scale=\scalefactor}{
+\begin{tabular}{|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|}
+	\hline
+    \cellcolor{gray!50}	& \cellcolor{gray!50} & & & \\ \hline
+	\cellcolor{gray!50}& \cellcolor{gray!50}& & & \\ \hline
+\end{tabular}}
+\end{center}},
+optionA={$\frac{6}{10}$},
+optionB={$\frac{2}{3}$},
+optionC={$\frac{4}{6}$},
+optionD={$\frac{4}{10}$},
+correctoption={D},
+}
+% end-of-question
+
+%-----------------------------------------------------------
+%                        Question [  ]
+%-----------------------------------------------------------
+% start-of-question
+\mcqimgleftFourOne{
+questionnumber={15}, 
+questionTag={C5M05 – DT – Q1}, 
+questiontext={Identify the number of sides in the given figure.},
+imgtabletikz = { 
+\adjustbox{scale=\scalefactor}{
+\includegraphics[height= 2.5cm, width= 3.5 cm]{C5M05 – DT – Q1.png}}
+},
+optionA={No sides},
+optionB={Six sides},
+optionC={Four sides},
+optionD={Three sides},
+correctoption={C},
+leftmini={0.5},
+rightmini={0.4},
+}
+% end-of-question
+ 
+%-----------------------------------------------------------
+%                        Question [  ]
+%-----------------------------------------------------------
+% start-of-question
+\mcqimgleftFourOne{
+questionnumber={17}, 
+questionTag={C5M05 – DT – Q2},  
+questiontext={Find the length of pencil. },
+imgtabletikz = {
+\adjustbox{scale=\scalefactor}{ \includegraphics[height= 3cm, width= 10 cm]{C5M05 – DT – Q2.png}}},
+optionA={6.5 cm},
+optionB={5.5 cm},
+optionC={5 cm},
+optionD={6 cm},
+correctoption={B},
+leftmini={0.6},
+rightmini={0.3},
+}
+% end-of-question
+
+%-----------------------------------------------------------
+%                        Question [  ]
+%-----------------------------------------------------------
+% start-of-question
+\mcqimgleftFourOne{
+questionnumber={18}, 
+questionTag={C5M05 – DT – Q3},  
+questiontext={In the given figure, the angle formed is \rule{80pt}{0.5pt} the right angle. },
+imgtabletikz = {\adjustbox{scale=\scalefactor}{\drawclock{05}{00}}},
+optionA={Equal to},
+optionB={Greater than},
+optionC={Lesser than},
+optionD={Not equal to},
+correctoption={B},
+leftmini={0.6},
+rightmini={0.3},
+}
+% end-of-question
+
+%-----------------------------------------------------------
+%                        Question [  ]
+%-----------------------------------------------------------
+% start-of-question
+\mcqimgleftFourOne{
+questionnumber={18}, 
+questionTag={C5M08 – DT – Q1},  
+questiontext={Find the area of the following shaded squares, if the side of one square is 1 cm. },
+imgtabletikz = {
+\adjustbox{scale=\scalefactor}{\includegraphics[height= 2.5cm, width= 6 cm]{C5M08 – DT – Q1.png}}},
+optionA={28 sq. cm},
+optionB={56 sq. cm},
+optionC={14 sq. cm},
+optionD={7 sq. cm},
+correctoption={C},
+leftmini={0.6},
+rightmini={0.3},
+}
+% end-of-question
+
+%-----------------------------------------------------------
+%                        Question [  ]
+%-----------------------------------------------------------
+% start-of-question
+\mcqimgleftFourOne{
+questionnumber={20}, 
+questionTag={C5M08 – DT – Q3},  
+questiontext={Find the area of the rectangle. },
+imgtabletikz = { 
+\adjustbox{scale=\scalefactor}{
+\begin{tikzpicture}
+	\tkzDefPoint(0,0){A}
+	\tkzDefPoint(4,0){B}
+	\tkzDefPoint(4,2){C}
+	\tkzDefPoint(0,2){D}
+	\tkzDrawPolygon[fill=gray!50](A,B,C,D)
+			
+	\tkzLabelSegment[above](C,D){$20$ cm}
+	\tkzLabelSegment[right](B,C){$8$ cm}
+\end{tikzpicture} } },
+optionA={12 sq. cm},
+optionB={28 sq. cm},
+optionC={56 sq. cm},
+optionD={160 sq.cm},
+correctoption={D},
+leftmini={0.6},
+rightmini={0.3},
+}
+% end-of-question
+
+%-----------------------------------------------------------
+%                        Question [  ]
+%-----------------------------------------------------------
+% start-of-question
+\mcqtextbottomOneFour{
+questionnumber={21}, 
+questionTag={C5M07 – DT – Q2},  
+questiontext={Pick the shape which is not divided into two mirror halves by the dotted line.\\
+\adjustbox{scale=\scalefactor}{\includegraphics[height= 3.5cm, width= 16 cm]{C5M07 – DT – Q2.png}}
+},
+optionA={i},
+optionB={ii},
+optionC={iii},
+optionD={iv},
+correctoption={B},
+}
+% end-of-question
+
+%-----------------------------------------------------------
+%                        Question [  ]
+%-----------------------------------------------------------
+% start-of-question
+\mcqimgleftFourOne{
+questionnumber={23}, 
+questionTag={C5M06 – DT – Q2},  
+questiontext={ Identify the shape of the following image.},
+imgtabletikz = { 
+\adjustbox{scale=\scalefactor}{
+\begin{tikzpicture}
+	\tkzDefPoint(0,0){A}
+	\tkzDefPoint(3,0){B}
+	\tkzDefPoint(1.5,3){C}
+
+	\tkzDrawSegment(A,C)
+	\tkzDrawSegment(B,C)
+	\draw[dashed] (A) arc[start angle=180,end angle=0,x radius=1.5,y radius=0.5];
+	\draw (A) arc[start angle=180,end angle=360,x radius=1.5,y radius=0.5];
+\end{tikzpicture} } },
+optionA={Cube},
+optionB={Cuboid},
+optionC={Cone},
+optionD={Cylinder},
+correctoption={C},
+leftmini={0.6},
+rightmini={0.3},
+}
+% end-of-question
+
+%-----------------------------------------------------------
+%                        Question [  ]
+%-----------------------------------------------------------
+% start-of-question
+\mcqtextbottomOneFour{
+questionnumber={24}, 
+questionTag={C5M09 – DT – Q1},  
+questiontext={Find the number for the tally mark representation of \adjustbox{scale=\scalefactor}{ \scalebox{2}{\StrokeFive} \scalebox{2}{\StrokeOne} } },
+optionA={8},
+optionB={6},
+optionC={7},
+optionD={5},
+correctoption={B},
+}
+% end-of-question
+
+%-----------------------------------------------------------
+%                        Question [  ]
+%-----------------------------------------------------------
+% start-of-question
+\mcqimgleftFourOne{
+questionnumber={25}, 
+questionTag={C5M09 – DT – Q2},  
+questiontext={Which genre is liked more? },
+imgtabletikz = {\adjustbox{scale=\scalefactor}{ 
+\piechart{
+		5/Horror/north east lines/cyan,
+		15/Action/dots/magenta,
+		35/Comedy/crosshatch/green,
+		25/Romance/bricks/teal,
+		20/Thriller/grid/violet!50
+	} } },
+optionA={Comedy},
+optionB={Horror},
+optionC={Thriller},
+optionD={Romance},
+correctoption={A},
+leftmini={0.6},
+rightmini={0.3},
+}
+% end-of-question
+
+%-----------------------------------------------------------
+%                        Question [  ]
+%-----------------------------------------------------------
+% start-of-question
+\mcqimgleftFourOne{
+questionnumber={25}, 
+questionTag={C5M09 – DT – Q2},  
+questiontext={Which genre is liked more? },
+imgtabletikz = {\adjustbox{scale=\scalefactor}{ 
+\piechart{
+		5/Horror/north east lines/cyan,
+		15/Action/dots/magenta,
+		35/Comedy/crosshatch/green,
+		25/Romance/bricks/teal,
+		20/Thriller/grid/violet!50
+	} } },
+optionA={Comedy},
+optionB={Horror},
+optionC={Thriller},
+optionD={Romance},
+correctoption={A},
+leftmini={0.6},
+rightmini={0.3},
+}
+% end-of-question
+
+\end{document}

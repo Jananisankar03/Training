@@ -1,0 +1,157 @@
+\makeatletter
+\define@key{operation}{number}{\def\operation@number{#1)}}
+\define@key{operation}{operator}{\def\operation@operator{#1}}
+\define@key{operation}{operandOne}{\def\operation@operandOne{#1}}
+\define@key{operation}{operandTwo}{\def\operation@operandTwo{#1}}
+\define@key{operation}{showanswer}{\def\operation@showanswer{#1}}
+\define@key{operation}{answertext}{\def\operation@answertext{#1}}
+
+\newcommand{\operation}[1]{%
+  \setkeys{operation}{#1}%
+  \noindent\makebox[0pt][l]{\operation@number}\hspace{1em}%
+  \ensuremath{%
+    \operation@operandOne\ \operation@operator\ \operation@operandTwo\ =\ 
+    \ifthenelse{\equal{\operation@showanswer}{true}}%
+      {\textcolor{green!70!black}{\operation@answertext}}%
+      {\underline{\hspace{2cm}}}%
+  }\\[0.5cm]
+}
+
+
+\define@key{imgmath}{image}{\def\imgmath@image{#1}}
+\define@key{imgmath}{left}{\def\imgmath@left{#1}}
+\define@key{imgmath}{right}{\def\imgmath@right{#1}}
+\define@key{imgmath}{operator}{\def\imgmath@operator{#1}}
+\define@key{imgmath}{showanswer}[false]{\def\imgmath@showanswer{#1}}
+\define@key{imgmath}{answertext}{\def\imgmath@answertext{#1}}
+
+\def\imgmath@image{}
+\def\imgmath@left{1}
+\def\imgmath@right{1}
+\def\imgmath@operator{+}
+\def\imgmath@showanswer{false}
+\def\imgmath@answertext{}
+
+\newcommand{\imgmath}[1]{%
+  \setkeys{imgmath}{#1}%
+  \noindent
+  \makebox[\linewidth][l]{%
+    \foreach \i in {1,...,\imgmath@left} {%
+      \includegraphics[width=0.7cm]{\imgmath@image}%
+    }%
+    \quad
+
+    $\imgmath@operator$
+    \quad
+
+    \foreach \i in {1,...,\imgmath@right} {%
+      \includegraphics[width=0.7cm]{\imgmath@image}%
+    }%
+    \quad
+
+    \ifthenelse{\equal{\imgmath@showanswer}{true}}{%
+      = \quad \ensuremath{\textcolor{green!70!black}{\imgmath@answertext}}%
+    }{%
+      = \underline{\hspace{1cm}} \quad $\imgmath@operator$ \quad \underline{\hspace{1cm}} \quad = \quad \underline{\hspace{1.5cm}}%
+    }%
+  }%
+}
+
+
+\define@key{fractionQuestion}{questionnumber}{\def\fractionQuestion@number{#1}}
+\define@key{fractionQuestion}{questiontext}{\def\fractionQuestion@text{#1}}
+\define@key{fractionQuestion}{showanswer}{\def\fractionQuestion@showanswer{#1}}
+\define@key{fractionQuestion}{answertext}{\def\fractionQuestion@answertext{#1}}
+
+\newcommand{\fractionQuestion}[1]{%
+  \setkeys{fractionQuestion}{#1}%
+  \noindent\makebox[0pt][l]{\fractionQuestion@number) }\hspace{2em}%
+  $\fractionQuestion@text$ = 
+  \ifthenelse{\equal{\fractionQuestion@showanswer}{true}}%
+    {\small{\textcolor{green!70!black}{\fractionQuestion@answertext}}}%
+    {\hspace{5cm}} \\[1.5cm]%
+}
+
+\define@key{waddkeys}{showanswer}{\def\wadd@showanswer{#1}}
+\define@key{waddkeys}{answertext}{\def\wadd@answertext{#1}}
+
+\define@key{wsubkeys}{showanswer}{\def\wsub@showanswer{#1}}
+\define@key{wsubkeys}{answertext}{\def\wsub@answertext{#1}}
+
+\define@key{wmultikeys}{showanswer}{\def\wmulti@showanswer{#1}}
+\define@key{wmultikeys}{answertext}{\def\wmulti@answertext{#1}}
+
+\newcommand{\splitdigits}[1]{%
+	\def\result{}%
+	\splitloop#1\relax
+	\result
+}
+\def\splitloop#1{%
+	\ifx#1\relax
+	\else
+	\ifx\result\empty
+	\def\result{#1}%
+	\else
+	\edef\result{\result\kern0.3cm#1}
+	\fi
+	\expandafter\splitloop
+	\fi
+}
+
+\newcommand{\wadd}[3][]{%
+	\setkeys{waddkeys}{showanswer=false,answertext={#3},#1}%
+	\begin{tabular}{r}
+		\splitdigits{#2} \\[6pt]
+		$(+)$ \hfill \splitdigits{#3} \\[6pt]
+		\hline
+		\ifthenelse{\equal{\wadd@showanswer}{true}}{%
+			\textcolor{green!70!black}{\splitdigits{\wadd@answertext}} \\[6pt]
+		}{%
+			\phantom{\splitdigits{#2}} \\[6pt]
+		}%
+		\hline
+		\phantom{\splitdigits{#2}} \\[6pt]
+	\end{tabular}
+}
+
+\newcommand{\wsub}[3][]{%
+	\setkeys{wsubkeys}{showanswer=false,answertext={#3},#1}%
+	\begin{tabular}{r}
+		\splitdigits{#2} \\[6pt]
+		$(-)$ \hfill \splitdigits{#3} \\[6pt]
+		\hline
+		\ifthenelse{\equal{\wsub@showanswer}{true}}{%
+			\textcolor{green!70!black}{\splitdigits{\wsub@answertext}} \\[6pt]
+		}{%
+			\phantom{\splitdigits{#2}} \\[6pt]
+		}%
+		\hline
+		\phantom{\splitdigits{#2}} \\[6pt]
+	\end{tabular}
+}
+
+\newcommand{\wmulti}[3][]{%
+	\setkeys{wmultikeys}{showanswer=false,answertext={#3},#1}%
+	\arrayrulecolor{black}%
+	\begin{tabular}{r}
+		\splitdigits{#2} \\[6pt]
+		$(\times)$ \hfill \splitdigits{#3} \\[6pt]
+		\hline
+		\ifthenelse{\equal{\wmulti@showanswer}{true}}{%
+			\textcolor{green!70!black}{\ensuremath{\wmulti@answertext}} \\[6pt]
+		}{%
+			\phantom{\splitdigits{#2}} \\[6pt]
+			\phantom{\splitdigits{#2}} \\[6pt]
+		}%
+		\hline
+		\phantom{\splitdigits{#3}} \\[6pt]
+	\end{tabular}
+}
+
+\newcounter{question}
+\newcommand{\question}[2]{%
+	\stepcounter{question}%
+	\makebox[2em][l]{\textbf{\thequestion.}} #2
+}
+
+\makeatother

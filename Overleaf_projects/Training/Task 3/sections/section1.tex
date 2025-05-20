@@ -1,0 +1,78 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\noindent \underline{{\Large \textbf{Topic Name: Basic Operations}}}
+	\section*{\underline{Section Name:} Multiplication}
+    \textbf{Fill in the blanks.}
+	\begin{multicols}{3}
+		\operation{number=1, operator=+, operandOne=1, operandTwo=4, showanswer=true, answertext=5}
+		\operation{number=2, operator=+, operandOne=6, operandTwo=0, showanswer=false, answertext=6}
+		\operation{number=3, operator=+, operandOne=5, operandTwo=9, showanswer=false, answertext=14}
+		
+		\operation{number=4, operator=-, operandOne=22, operandTwo=5, showanswer=true, answertext=17}
+		\operation{number=5, operator=-, operandOne=12, operandTwo=9, showanswer=false, answertext=3}
+		\operation{number=6, operator=-, operandOne=45, operandTwo=8, showanswer=true, answertext=37}
+		
+		\operation{number=7, operator=×, operandOne=123, operandTwo=12, showanswer=false, answertext=1476}
+		\operation{number=8, operator=×, operandOne=345, operandTwo=19, showanswer=true, answertext=6555}
+		\operation{number=9, operator=×, operandOne=987, operandTwo=40, showanswer=false, answertext=39480}
+	\end{multicols}
+\noindent\text{\textbf{Multiply:}}\\
+
+    \imgmath{image=image, left=4, right=6, operator=+, showanswer=true, answertext=\text{4 + 6 = 10}}
+    
+    \vspace{0.5cm}
+    
+    \imgmath{image=image2, left=4, right=6, operator=\times, showanswer=false, answertext=\text{4 $\times$ 6= 24}}
+    
+    \vspace{0.3cm}
+    
+    \imgmath{image=image3, left=8, right=6, operator=-, showanswer=false, answertext=\text{8 - 6 = 2}}
+    \vspace{0.5cm}\\
+\noindent\text{\textbf{Multiply:}}\\[1cm]
+\begin{tabular}{p{0.3\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
+		\question{1}{\wadd[showanswer=true,answertext=\splitdigits{63}]{56}{7}} &
+		\question{2}{\wadd[showanswer=false, answertext=\splitdigits{99}]{88}{11}} &
+		\question{3}{\wadd[showanswer=true,answertext=\splitdigits{96}]{90}{6}} \\
+	\end{tabular}
+	
+	\vspace{0.5cm}
+	\noindent
+	\begin{tabular}{p{0.3\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
+		\question{4}{\wsub[showanswer=true,answertext=\splitdigits{18}]{93}{75}} &
+		\question{5}{\wsub[showanswer=false, answertext=\splitdigits{495}]{594}{99}} &
+		\question{6}{\wsub[showanswer=true,answertext=\splitdigits{7818}]{7894}{76}} \\
+	\end{tabular}
+	
+	\vspace{1cm}
+	\noindent
+	\begin{tabular}{p{0.3\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
+		\question{7}{\wmulti[showanswer=true,answertext={%
+				\begin{array}{r}
+					\splitdigits{1608} \\
+					\splitdigits{64320} \\
+					\hline
+					\splitdigits{65928} \\
+				\end{array}%
+			}]{804}{82}} &
+		
+		\question{8}{\wmulti[showanswer=true,answertext={%
+				\begin{array}{r}
+					\splitdigits{25060} \\
+					\splitdigits{200480} \\
+					\splitdigits{1503600} \\
+					\hline
+					\splitdigits{1729140} \\
+				\end{array}%
+			}]{5012}{345}} &
+		
+		\question{9}{\wmulti[showanswer=false,answertext={%
+				\begin{array}{r}
+					\splitdigits{41130} \\
+					\splitdigits{457000} \\
+					\hline
+					\splitdigits{498130} \\
+				\end{array}%
+			}]{4570}{109}} \\
+	\end{tabular}
+
+\end{document}
