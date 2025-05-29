@@ -1,0 +1,947 @@
+\makeatletter
+%____________________________vertical bar________________________________
+\newtoks \coords
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  dimensions  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\define@key{VerticalBar}{Width}{\def\VerticalBarwidth{#1}} % Width of Chart
+\define@key{VerticalBar}{Height}{\def\VerticalBarheight{#1}}% Height of Chart
+\define@key{VerticalBar}{Barwidth}{\def\VerticalBarbarwidth{#1}}% BarWidth of Chart
+\define@key{VerticalBar}{Textwidth}{\def\VerticalBartextwidth{#1}}% Text width from axisline
+\define@key{VerticalBar}{Scale}{\def\VerticalBarscale{#1}}% Size of Chart 
+\define@key{VerticalBar}{YMax}{\def\VerticalBarYMax{#1}} % Y Axis Max Value
+\define@key{VerticalBar}{YMin}{\def\VerticalBarYMin{#1}} % Y Axis Min Value
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% labels  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \define@key{VerticalBar}{Xticklabels}{\def\VerticalBarXticklabels{#1}} % X axis Tick Labels 
+\define@key{VerticalBar}{Ylabels}{\def\VerticalBarYlabels{#1}} % Y axis labels
+\define@key{VerticalBar}{Xlabel}{\def\VerticalBarXlabel{#1}} % X axis label
+\define@key{VerticalBar}{Xlabelrotate}{\def\VerticalBarXlabelrotate{#1}} % X tick label rotate
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Axis Values  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\define@key{VerticalBar}{Xtick}{\def\VerticalBarXtick{#1}}% X axis tick values
+\define@key{VerticalBar}{Ytick}{\def\VerticalBarYtick{#1}}% Y axis tick values
+\define@key{VerticalBar}{Barcoords}{\def\VerticalBarcoords{#1}}% Bar cordinates
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\define@key{VerticalBar}{NodeFontsize}{\def\VerticalBarNodeFontSize{#1}}
+\define@key{VerticalBar}{Fontsize}{\def\VerticalBarFontSize{#1}}
+\define@key{VerticalBar}{Title}{\def\VerticalBartitle{#1}} % Title of Chart
+\define@key{VerticalBar}{Suffix}{\def\suffix{#1}} %add Suffix to Average line node value
+\define@key{VerticalBar}{Prefix}{\def\prefix{#1}} %add Prefix to Average line node value
+\define@key{VerticalBar}{Align}{\def\VerticalBarAlign{#1}} %align X tick label
+\define@key{VerticalBar}{Anchor}{\def\VerticalBarAnchor{#1}} %anchor for x tick label
+\define@key{VerticalBar}{Yshift}{\def\VerticalBarYshift{#1}} % vertical positioning of x tick label
+\define@key{VerticalBar}{Xshift}{\def\VerticalBarXshift{#1}} % horizontal positioning of x tick label
+\define@key{VerticalBar}{LegendTopBottom}{\def\VerticalBarLegendYposition{#1}} % vertical positioning of legend
+\define@key{VerticalBar}{LegendLeftRight}{\def\VerticalBarLegendXposition{#1}} % horizontal positioning of legend
+\define@key{VerticalBar}{ColorChoice}{\def\choice{#1}} % to choose digital or print color mode
+\define@key{VerticalBar}{Xenlarge}{\def\VerticalBarXlimitEnLarge{#1}}
+\define@key{VerticalBar}{TitleUpDown}{\def\verticalbartitleupdown{#1}}
+\define@key{VerticalBar}{Averagerightleft}{\def\verticalbarAveragerightleft{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Default command %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\suffix}{\relax} 
+\newcommand{\prefix}{\relax}
+\newcommand{\VerticalBarXlabelrotate}{0}%default
+\newcommand{\VerticalBartextwidth}{2.2}%default
+\newcommand{\VerticalBarAlign}{center}%default
+\newcommand{\VerticalBarNodeFontSize}{\small}%default
+\newcommand{\VerticalBarFontSize}{\normalsize}
+\newcommand{\VerticalBarAnchor}{center}%default
+\newcommand{\VerticalBarYshift}{0}%default
+\newcommand{\VerticalBarXshift}{0}%default
+\newcommand{\VerticalBarLegendYshift}{0}%default
+\newcommand{\VerticalBarLegendXshift}{0}%default
+\newcommand{\VerticalBarXlimitEnLarge}{0.5}
+\newcommand{\choice}{Print}
+\newcommand{\verticalbartitleupdown}{1}
+\newcommand{\verticalbarAveragerightleft}{-4}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\VerticalBar}[4]{
+ \setkeys{VerticalBar}{#1}
+
+\def \barcoords{\VerticalBarcoords}    
+
+    \pgfmathsetmacro{\numOfBars}{{\barcoords}[0]}     
+    \pgfmathsetmacro{\noOfCoords}{{\barcoords}[1]}     
+    \centering
+    \begin{tikzpicture}
+    [scale=\VerticalBarscale]
+                \begin{axis}[
+                    width=\VerticalBarwidth cm,
+                    height=\VerticalBarheight cm,
+                    bar width=\VerticalBarbarwidth cm,
+                    tick style={draw=none},
+                    axis x line*=bottom,
+                    axis y line*=left,
+                    % Modified x-axis setup to show all labels
+                    xtick=\VerticalBarXtick,
+                    xtick distance=1,
+                    x tick label as interval=false,
+                    xticklabels = {#4},
+                    % xticklabels/.expanded=\VerticalBarXticklabels,
+                    xticklabel style={
+                    rotate =\VerticalBarXlabelrotate , 
+                    anchor=\VerticalBarAnchor,
+                    text width=\VerticalBartextwidth cm,
+                    align=\VerticalBarAlign,
+                    font=\VerticalBarNodeFontSize,
+                    yshift=\VerticalBarYshift cm,
+                    xshift=\VerticalBarXshift cm},
+                    % ,rotate=10, anchor=east
+                    ytick=\VerticalBarYtick,
+                    yticklabel style={
+                        font = \VerticalBarFontSize
+                    },
+                    ybar,
+                    ymin=\VerticalBarYMin,
+                    ymax=\VerticalBarYMax,
+                    area legend,
+                    ylabel={\VerticalBarFontSize \VerticalBarYlabels},
+                    xlabel={\VerticalBarFontSize \VerticalBarXlabel},
+                    nodes near coords={
+                         \pgfmathprintnumber[precision=0]{\pgfplotspointmeta}\suffix
+                     },
+                    nodes near coords style={font=\VerticalBarNodeFontSize},
+                    nodes near coords align={vertical},
+                    legend style={at={(\VerticalBarLegendXposition,\VerticalBarLegendYposition)}, draw=none, anchor=north,legend columns=-1,column sep=0.2cm , font = \VerticalBarFontSize},
+                    legend image code/.code={
+                    \draw[] (0cm,-0.3cm) rectangle (1cm,0.3cm);
+                    },
+                    ymajorgrids=true,
+                    xmajorgrids=false,
+                    extra x ticks={1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5,10.5,11.5,12.5,13.5,14.5,15.5,16.5,17.5,18.5}, % Midpoints between x=1,2,3,4,5
+                    extra x tick labels={},
+                    extra x tick style={
+                        grid=major, 
+                        grid style={dashed, gray!50} % Customize as needed
+                    },
+                    title=\textbf{\VerticalBarFontSize\VerticalBartitle},
+                    title style={
+                        yshift=\verticalbartitleupdown cm, 
+                        align=center 
+                    },
+                    % Ensure all x positions are shown
+                    enlarge x limits={abs=\VerticalBarXlimitEnLarge}                    
+                ]
+
+        \colorlet{Color1}{blue!30}
+        \definecolor{Color2}{RGB}{70,189,198}%
+        \definecolor{Color3}{RGB}{248,201,40}%
+
+
+
+        \foreach \i in {1,...,\numOfBars}{
+            \coords{}
+        
+            \foreach \x in {0,...,\inteval{\noOfCoords-1}}{
+                \pgfmathsetmacro{\eachpoint}{{\barcoords}[\i+1][\x]}
+                \global\coords\expandafter{\expanded{\the\coords(\x+1,\eachpoint)}}
+            }
+            \edef \plotting{ \noexpand
+                \addplot[ 
+                    draw=none, 
+                    fill=Color\i
+                ] coordinates {
+                    \the\coords
+                }; \noexpand
+            }
+            
+            \plotting
+
+            \renewcommand{\coords}{{}}
+        }
+         % average line
+        \def\halfBarWidth{\VerticalBarbarwidth}
+        \def\avg{#3} 
+        \ifx\avg\empty{}
+        \else
+        {
+            \draw[thick, dashed, color=red!80] (0,\avg) -- (\noOfCoords + \halfBarWidth + .5,\avg)node[above,xshift=\verticalbarAveragerightleft cm] {\VerticalBarFontSize\prefix \pgfmathprintnumber{\avg} \suffix};
+        }
+        \fi
+
+        \legend{#2}
+                \end{axis}
+            \end{tikzpicture}
+}
+
+
+%%____________________________________________________________________________
+
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                      Math Vertical Bar
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtoks \coords 
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  dimensions  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\define@key{MathVerticalBar}{Width}{\def\MathVerticalBarwidth{#1}} % Width of Chart
+\define@key{MathVerticalBar}{Height}{\def\MathVerticalBarheight{#1}}% Height of Chart
+\define@key{MathVerticalBar}{Barwidth}{\def\MathVerticalBarbarwidth{#1}}% BarWidth of Chart
+\define@key{MathVerticalBar}{Textwidth}{\def\MathVerticalBartextwidth{#1}}% Text width from axisline
+\define@key{MathVerticalBar}{Scale}{\def\MathVerticalBarscale{#1}}% Size of Chart 
+\define@key{MathVerticalBar}{YMax}{\def\MathVerticalBarYMax{#1}} % Y Axis Max Value
+\define@key{MathVerticalBar}{YMin}{\def\MathVerticalBarYMin{#1}} % Y Axis Min Value
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% labels  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \define@key{MathVerticalBar}{Xticklabels}{\def\MathVerticalBarXticklabels{#1}} % X axis Tick Labels 
+\define@key{MathVerticalBar}{Ylabels}{\def\MathVerticalBarYlabels{#1}} % Y axis labels
+\define@key{MathVerticalBar}{Xlabel}{\def\MathVerticalBarXlabel{#1}} % X axis label
+\define@key{MathVerticalBar}{Xlabelrotate}{\def\MathVerticalBarXlabelrotate{#1}} % X tick label rotate
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Axis Values  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\define@key{MathVerticalBar}{Xtick}{\def\MathVerticalBarXtick{#1}}% X axis tick values
+\define@key{MathVerticalBar}{Ytick}{\def\MathVerticalBarYtick{#1}}% Y axis tick values
+\define@key{MathVerticalBar}{Barcoords}{\def\MathVerticalBarcoords{#1}}% Bar cordinates
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\define@key{MathVerticalBar}{Fontsize}{\def\MathVerticalBarFontSize{#1}}
+\define@key{MathVerticalBar}{Title}{\def\MathVerticalBartitle{#1}} % Title of Chart
+\define@key{MathVerticalBar}{Suffix}{\def\mathsuffix{#1}}
+\define@key{MathVerticalBar}{Prefix}{\def\mathprefix{#1}}
+\define@key{MathVerticalBar}{Align}{\def\MathVerticalBarAlign{#1}}
+\define@key{MathVerticalBar}{Anchor}{\def\MathVerticalBarAnchor{#1}}
+\define@key{MathVerticalBar}{Yshift}{\def\MathVerticalBarYshift{#1}}
+\define@key{MathVerticalBar}{Xshift}{\def\MathVerticalBarXshift{#1}}
+\define@key{MathVerticalBar}{LegendTopBottom}{\def\MathVerticalBarLegendYposition{#1}}
+\define@key{MathVerticalBar}{LegendLeftRight}{\def\MathVerticalBarLegendXposition{#1}}
+
+\newcommand{\mathsuffix}{\relax} 
+\newcommand{\mathprefix}{\relax}
+\newcommand{\MathVerticalBarXlabelrotate}{0}%default
+\newcommand{\MathVerticalBartextwidth}{2.2}%default
+\newcommand{\MathVerticalBarAlign}{center}%default
+\newcommand{\MathVerticalBarFontSize}{\normalsize}%default
+\newcommand{\MathVerticalBarAnchor}{center}%default
+\newcommand{\MathVerticalBarYshift}{0}%default
+\newcommand{\MathVerticalBarXshift}{0}%default
+\newcommand{\MathVerticalBarLegendYshift}{0}%default
+\newcommand{\MathVerticalBarLegendXshift}{0}%default
+
+\newcommand{\MathVerticalBar}[4]{
+ \setkeys{MathVerticalBar}{#1}
+
+\def \barcoords{\MathVerticalBarcoords}    
+
+    \pgfmathsetmacro{\numOfBars}{{\barcoords}[0]}     
+    \pgfmathsetmacro{\noOfCoords}{{\barcoords}[1]}     
+    \centering
+    \begin{tikzpicture}
+    [scale=\MathVerticalBarscale]
+                \begin{axis}[
+                    width=\MathVerticalBarwidth cm,
+                    height=\MathVerticalBarheight cm,
+                    bar width=\MathVerticalBarbarwidth cm,
+                    tick style={draw=none},
+                    axis x line*=bottom,
+                    axis y line =none,
+                    ymajorgrids = true,
+                    % Modified x-axis setup to show all labels
+                    xtick=\MathVerticalBarXtick,
+                    xtick distance=1,
+                    x tick label as interval=false,
+                    xticklabels = {#4},
+                    % xticklabels/.expanded=\MathVerticalBarXticklabels,
+                    xticklabel style={
+                    rotate =\MathVerticalBarXlabelrotate , 
+                    anchor=\MathVerticalBarAnchor,
+                    text width=\MathVerticalBartextwidth cm,
+                    align=\MathVerticalBarAlign,
+                    font=\MathVerticalBarFontSize,
+                    yshift=\MathVerticalBarYshift cm,
+                    xshift=\MathVerticalBarXshift cm},
+                    % ,rotate=10, anchor=east
+                    ytick=\MathVerticalBarYtick,
+                    yticklabel = {\empty},
+                    ybar= -.5pt,
+                    ymin=\MathVerticalBarYMin,
+                    ymax=\MathVerticalBarYMax,
+                    area legend,
+                    % ylabel={\MathVerticalBarYlabels},
+                    % ylabel style={
+                        % yshift= -0.65cm
+                    % },
+                    xlabel={\MathVerticalBarXlabel},
+                    nodes near coords={
+                         \pgfmathprintnumber[precision=0]{\pgfplotspointmeta}\mathsuffix
+                     },
+                    nodes near coords style={font=\footnotesize,anchor= center ,rotate = 90,xshift = 3mm},
+                    nodes near coords align={vertical},
+                    legend style={at={(\MathVerticalBarLegendXposition,\MathVerticalBarLegendYposition)}, draw=none, font= \Large ,anchor=north,legend columns=-1,column sep=0.2cm},
+                    title=\textbf{\large\MathVerticalBartitle},
+                    % Ensure all x positions are shown
+                    enlarge x limits={abs=0.5}                    
+                ]
+
+        \colorlet{Color1}{blue!30}
+        \colorlet{Color2}{green!50}
+
+        \foreach \i in {1,...,\numOfBars}{
+            \coords{}
+        
+            \foreach \x in {0,...,\inteval{\noOfCoords-1}}{
+                \pgfmathsetmacro{\eachpoint}{{\barcoords}[\i+1][\x]}
+                \global\coords\expandafter{\expanded{\the\coords(\x+1,\eachpoint)}}
+            }
+            \edef \plotting{ \noexpand
+                \addplot[ 
+                    draw=none, 
+                    fill=Color\i
+                ] coordinates {
+                    \the\coords
+                }; \noexpand
+            }
+            
+            \plotting
+
+            \renewcommand{\coords}{{}}
+        }
+         % average line
+        \def\halfBarWidth{\MathVerticalBarbarwidth}
+        \def\avg{#3} 
+        \ifx\avg\empty{}
+        \else
+        {
+            \draw[thick, dashed, color=red!80] (0,\avg) -- (\noOfCoords + \halfBarWidth,\avg)node[above,xshift=-4 cm] {\mathprefix \pgfmathprintnumber{\avg} \mathsuffix};
+        }
+        \fi
+
+        \legend{#2}
+                \end{axis}
+            \end{tikzpicture}
+}
+
+\makeatother
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%       Question Response Circlula Bar Plot
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% #1 - width (degree) of each sector 360/60(number of question)
+% #2 - min distance from center in mm
+% #3 - max distance from center in cm
+% #4 - questio data in Que no/{wrong,learn_later,correct}
+% #5 - Class 
+% %6 - Subject
+
+\newcommand{\drawLegends}[2]{
+            \centering
+            \begin{tikzpicture}[baseline=(label.base), scale=0.9] % Scale can also be used to reduce size
+                \node[rectangle, draw, inner sep=0.5pt, fill=#2] (label) {\tiny \textcolor{#2}{11}};
+            \end{tikzpicture}
+            {\small #1} % Adjust text size here if needed
+            \hspace{0.2cm} % Reduce spacing
+        }
+
+\newcommand{\queresponselegend}{\centering
+        \scriptsize
+        \drawLegends{Correct}{green!50}
+        \drawLegends{Wrong}{red!30}
+        \drawLegends{Learn Later}{yellow!30!white}\\
+        \vspace{0.5cm}
+        \parbox[c]{7cm}{
+        \begin{scriptsize}
+        \RaggedRight
+        \highyellowred{Q} - Performance <20\% \\
+        \vspace{0.2cm}
+        \highyellow{Q} - Performance between 20\% and 40\% \\
+        \vspace{0.2cm}
+        \highgreen{Q} - Performance > 85\% \\
+        \end{scriptsize}}}
+        
+\newcommand{\queresponsecirculatchart}[6]{
+\centering
+\tikzset{
+        hist 1/.style={fill=red!30}, %wrong
+        hist 2/.style={fill=yellow!30!white}, %learn later
+        hist 3/.style={fill=green!50}, %correct
+      }
+
+      \def\astep{#1} % width (degree) of each sector 360/60(number of question)
+      \def\minA{#2mm} % min distance from center
+      \def\maxA{#3cm} % max distance from center
+
+      \begin{tikzpicture}[scale = 0.8,text=black,font=\footnotesize,]
+        \fill[white] circle(\maxA+1cm);
+
+        \foreach \curlabel/\values [count=\cp] in {#4}
+          % ... (omitting other data for brevity)
+          {
+          \ifthenelse{\equal{\curlabel}{}}{}{
+            % angle for this current label
+            \pgfmathsetmacro{\angle}{(\cp-1)*\astep-90+\astep/2}
+            % distance from center
+            \pgfmathsetmacro{\total}{\minA}
+            \pgfmathsetmacro{\am}{\maxA-\minA}
+            \xdef\total{\total}
+            % histogram
+            \foreach \val [count=\cv] in \values {
+              \pgfmathsetmacro{\nexttotal}{\total pt+\am/100*\val}
+              % sector
+              \filldraw[hist \cv]
+              (\angle+\astep/2:\total pt)
+              arc(\angle+\astep/2:\angle-\astep/2:\total pt)
+              -- (\angle-\astep/2:\nexttotal pt)
+              arc(\angle-\astep/2:\angle+\astep/2:\nexttotal pt)
+              -- cycle;
+              % iteration
+              \xdef\total{\nexttotal}
+              \typeout{\val:\total}
+            }
+            % label (with autorotation)
+            \pgfmathtruncatemacro{\anglenode}{\angle}
+            \ifthenelse{\( \anglenode > 90 \) \AND \( \anglenode < 270 \)}{ 
+              \node[rotate=180+\anglenode,anchor=east,font=\tiny] at (\angle:\maxA) {\curlabel};
+            }{
+              \node[rotate=\anglenode,anchor=west,font=\tiny] at (\angle:\maxA) {\curlabel};
+            }
+          }
+        }
+        \node[align=center, font=\bfseries\scriptsize] at (0,0) {#5 \\ #6};
+      \end{tikzpicture}}
+
+
+
+%%%%%%%%%%%% To Optimised
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%                   Student Percentage Distribution Analysis
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% #1 - Height of the graph in (cm)
+% #2 - Width of the graph in (cm)
+% #3 - Bar width
+% #4 - ymax value
+% #5 - X axis tick labels with separations
+% #6 - Y-axis Label
+% #7 - Graph legends
+% #8 - No of Graph lines, No of plots and Coordinates of the graph
+% Array 0 - No of legends
+% Array 1 - No of plots
+% Array 2 - Coordinates of the graph upto 
+% Array n - Coordinates of the graph
+% #9 - Title of the graph
+
+\newcommand{\studentDistribution}[9]{
+    \def \barcoords{#8}    % No of bars, No of plots and Coordinates of the graph
+
+    \pgfmathsetmacro{\numOfBars}{{\barcoords}[0]}     % No of bars
+    \pgfmathsetmacro{\noOfCoords}{{\barcoords}[1]}     % No of plots
+    
+    \begin{tikzpicture}[scale=0.4]
+    \centering
+    \begin{axis}[
+        ybar=0pt, axis on top,
+        title={\Large #9},
+        height=#1 cm, 
+        width=#2 cm,
+        bar width=#3 cm,
+        ymajorgrids, tick align=outside,
+        major grid style={draw=black,opacity=0.8,dotted},
+        enlarge y limits={value=.1,upper},
+        ymin=0, 
+        ymax=#4, % Adjusted to fit the data range
+        axis x line*=bottom,
+        axis y line*=left,
+        y axis line style={opacity=1},
+        tickwidth=0pt,
+        enlarge x limits=0.1,
+        legend style={
+            at={(0.5,-0.2)},
+            anchor=north,
+            legend columns=-1,
+            /tikz/every even column/.append style={column sep=0.5cm},
+            draw=none
+        },
+        ylabel={\Large #6},
+        xticklabels={#5},
+       xtick=data,
+       xticklabel style={anchor=north,xshift=6mm, font=\small},
+       nodes near coords={
+        \pgfmathprintnumber[precision=0]{\pgfplotspointmeta}
+       },
+       legend image code/.code={
+            \draw [] (0cm,-0.15cm) rectangle (0.15cm,0.15cm);
+        },
+       xticklabel style={font=\small} % Reducing the text size of X-axis labels
+    ]
+
+        \foreach \i in {1,...,\numOfBars}{     % Loop for stacks
+            \coords{}
+        
+            \foreach \x in {0,...,\inteval{\noOfCoords-1}}{     % Loop for plots
+                \pgfmathsetmacro{\eachpoint}{{\barcoords}[\i+1][\x]}
+                \global\coords\expandafter{\expanded{\the\coords(\x+1,\eachpoint)}}
+                % Declare the \coords as global and make it as tokens
+            }
+
+            \renewcommand{\coords}{{}}  % Clear the \coords data for storing the other stack coords
+        }
+        \addplot [draw=blue!60, fill=blue!30] coordinates {\the\coords};
+      
+        \addplot [smooth, update limits=false, red, thick, mark=*] coordinates {\the\coords};
+
+        \legend{#7}
+  \end{axis}
+\end{tikzpicture}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%                   Student Percentage Distribution Analysis
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% #1 - Height of the graph in (cm)
+% #2 - Width of the graph in (cm)
+% #3 - Bar width
+% #4 - ymax value
+% #5 - X axis tick labels with separations
+% #6 - Y-axis Label
+% #7 - Graph legends
+% #8 - No of Graph lines, No of plots and Coordinates of the graph
+% Array 0 - No of legends
+% Array 1 - No of plots
+% Array 2 - Coordinates of the graph upto 
+% Array n - Coordinates of the graph
+% #9 - Title of the graph
+
+\newcommand{\studentDistributionwithoutline}[9]{
+    \def \barcoords{#8}    % No of bars, No of plots and Coordinates of the graph
+
+    \pgfmathsetmacro{\numOfBars}{{\barcoords}[0]}     % No of bars
+    \pgfmathsetmacro{\noOfCoords}{{\barcoords}[1]}     % No of plots
+    
+    \begin{tikzpicture}[scale=0.4]
+    \centering
+    \begin{axis}[
+        ybar=0pt, axis on top,
+        title={\Large \Large #9},
+        height=#1 cm, 
+        width=#2 cm,
+        bar width=#3 cm,
+        ymajorgrids, tick align=outside,
+        major grid style={draw=black,opacity=0.8,dotted},
+        enlarge y limits={value=.1,upper},
+        ymin=0, 
+        ymax=#4, % Adjusted to fit the data range
+        axis x line*=bottom,
+        axis y line*=left,
+        y axis line style={opacity=1},
+        tickwidth=0pt,
+        enlarge x limits=0.1,
+        legend style={
+            at={(0.5,-0.2)},
+            anchor=north,
+            legend columns=-1,
+            /tikz/every even column/.append style={column sep=0.5cm},
+            draw=none
+        },
+        ylabel={\Large #6},
+        xticklabels={#5},
+        xticklabel style={anchor=north,xshift=6mm, font=\small},
+       xtick=data,
+       nodes near coords={
+        \pgfmathprintnumber[precision=0]{\pgfplotspointmeta}
+       },
+       legend image code/.code={
+            \draw [] (0cm,-0.15cm) rectangle (0.15cm,0.15cm);
+        },
+       xticklabel style={font=\small} % Reducing the text size of X-axis labels
+    ]
+
+        \foreach \i in {1,...,\numOfBars}{     % Loop for stacks
+            \coords{}
+        
+            \foreach \x in {0,...,\inteval{\noOfCoords-1}}{     % Loop for plots
+                \pgfmathsetmacro{\eachpoint}{{\barcoords}[\i+1][\x]}
+                \global\coords\expandafter{\expanded{\the\coords(\x+1,\eachpoint)}}
+                % Declare the \coords as global and make it as tokens
+            }
+
+            \renewcommand{\coords}{{}}  % Clear the \coords data for storing the other stack coords
+        }
+        \addplot [draw=blue!60, fill=blue!30] coordinates {\the\coords};
+      
+        % \addplot [sharp plot, update limits=false, red, thick, mark=*] coordinates {\the\coords};
+
+        \legend{#7}
+  \end{axis}
+\end{tikzpicture}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%                       Impact of Fundamentals
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% #1 - Height of the graph in (cm)
+% #2 - Width of the graph in (cm)
+% #3 - Bar width
+% #4 - X axis tick labels with separations
+% #5 - Y-axis Label
+% #6 - Graph legends
+% #7 - No of Graph lines, No of plots and Coordinates of the graph
+% Array 0 - No of legends
+% Array 1 - No of plots
+% Array 2 - Coordinates of the graph upto
+% Array n - Coordinates of the graph
+% #8 - Title of the graph
+% #9 - total sum value
+\newtoks \coords 
+
+\newcommand{\impactOfFundamentals}[9]{
+    \def \barcoords{#7}
+    \pgfmathsetmacro{\numOfStacks}{{\barcoords}[0]}    
+    \pgfmathsetmacro{\noOfCoords}{{\barcoords}[1]}
+
+    \begin{tikzpicture}[scale=0.78]
+        \begin{axis}[
+            ybar stacked,
+            axis on top,
+            title={#8},
+            height=#1 cm, 
+            width=#2 cm,
+            bar width=#3 cm,
+            ymajorgrids, tick align=outside,
+            major grid style={draw=black,opacity=0.8,dotted},
+            enlarge y limits={value=.1,upper},
+            ymin=0, ymax=100,
+            axis x line*=bottom,
+            axis y line*=right,
+            y axis line style={opacity=0},
+            tickwidth=0pt,
+            enlarge x limits=.3,
+            yticklabel={$\pgfmathprintnumber{\tick}\%$},
+            legend style={
+                at={(0.5,-0.1)},
+                anchor=north, 
+                legend columns=-1,
+                /tikz/every even column/.append style={column sep=0.5cm},
+                draw=none
+            },
+            ylabel={#5},
+            xticklabels={#4},
+            xticklabel style = {align=center},
+            xtick=data,
+            nodes near coords align={center},
+            nodes near coords={\pgfmathprintnumber[precision=0]{\pgfplotspointmeta}\%},
+            legend image code/.code={
+                \draw [] (0cm,-0.15cm) rectangle (0.15cm,0.15cm);
+            },
+            legend style={at={(0.5,-0.2)}, draw=none, anchor=north,legend columns=-1,column sep=0.2cm , font = \VerticalBarFontSize},
+            after end axis/.code={
+                \pgfmathsetmacro{\i}{1}
+                \foreach \val in #9 {
+                    \node[anchor=south, font=\small\bfseries, yshift=3pt] 
+                        at (axis cs:\i, \val) {\pgfmathprintnumber[precision=0]{\val}\%};
+                    \pgfmathparse{\i + 1} \global\let\i=\pgfmathresult
+                }
+            }
+        ]
+
+        \foreach \i in {1,...,\numOfStacks}{
+            \coords{}
+            \foreach \x in {0,...,\inteval{\noOfCoords-1}}{
+                \pgfmathsetmacro{\eachpoint}{{\barcoords}[\i+1][\x]}
+                \global\coords\expandafter{\expanded{\the\coords(\x+1,\eachpoint)}}
+            }
+            \ifnum \i = 1
+                \addplot [draw=blue!30, fill=blue!30] coordinates { \the\coords };
+            \else
+                \addplot [pattern=north east lines, draw=blue!30, pattern color=blue!40] coordinates { \the\coords };
+            \fi
+            \renewcommand{\coords}{{}} 
+        }
+
+        \legend{#6}
+        \end{axis}
+    \end{tikzpicture}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%bidirectional graph
+
+
+\newtoks \basecoords    % Tokenization for the base coordinate values
+
+
+%   #1 -- Labels
+%   #2 -- Bar Width in cm
+%   #3 -- Scale value in cm
+%   #4 -- distance of the node value from the coordinates in cm
+%   #5 -- Bar Labels
+%   #6 -- No.of Plots
+%   #7 -- Coordinate values
+
+
+\newcommand{\bidirectionalBarGraph}[9]{
+    \def \labeltext{#1}
+    \pgfmathsetmacro{\leftlabel}{{\labeltext}[0]}     
+    \pgfmathsetmacro{\rightlabel}{{\labeltext}[1]}
+
+    \def \labelbars{#5}
+    \def \nodevaluedistance{#4}
+    \def \numofplots{#6}
+    \def \barcoords{#7}
+
+    \pgfmathsetmacro{\mathaverage}{#8/10}
+    \pgfmathsetmacro{\scienceaverage}{#9/10}
+    
+    % ----------------------------------------------
+    % Defining custom colors 
+    \colorlet{arrowColor}{gray!70}
+    \colorlet{coordtextColor}{black!70}
+    \colorlet{leftbarsColor}{orange!47}
+    \colorlet{rightbarsColor}{blue!50}
+    \colorlet{trendline}{red!45}
+    % ----------------------------------------------
+    
+    \begin{tikzpicture}[
+        labels/.style={
+            text=black,
+            font=\tiny,
+            fill=none
+        },
+        basebarstyle1/.style={
+            pattern=north east lines, 
+            pattern color=leftbarsColor,
+            draw=leftbarsColor,
+            opacity=0.6
+        },
+        basebarstyle2/.style={
+            pattern=north west lines, 
+            pattern color=rightbarsColor,
+            draw=rightbarsColor,
+            opacity=0.6
+        },
+        barstyle1/.style={ 
+            fill=leftbarsColor,
+            draw=leftbarsColor
+        },
+        barstyle2/.style={
+            fill=rightbarsColor,
+            draw=rightbarsColor
+        },
+        plotting/.style={
+            xbar, 
+            bar width=#2 cm
+        },
+        barlabels/.style={
+            text=black, 
+            font=\tiny,
+            fill=white!10,
+            text opacity=10,
+            align=center
+        },
+        coordlabels/.style={
+            text=coordtextColor, 
+            font=\tiny\bfseries, 
+            fill=none, 
+            text opacity=1,
+            align=center
+        },
+        scale=#3
+    ]
+    
+    % Defining the left and right labels
+    \node at (-2,\numofplots+0.2)[labels]{\large \textcolor{orange}{\leftlabel}};
+    \node at (2,\numofplots+0.2)[labels]{\large \textcolor{blue}{\rightlabel}};
+
+    \foreach \i in {1,...,2}{
+        \coords{}
+        \basecoords{}
+        
+        % Reverse loop for plotting bars top-to-bottom
+        \foreach \j in {0,...,\inteval{\numofplots-1}}{
+            \pgfmathsetmacro{\eachpoint}{{\barcoords}[\i-1][\j]}
+            \pgfmathsetmacro{\reducedpoint}{\eachpoint*0.1}
+            
+            \pgfmathsetmacro{\reverseIndex}{\numofplots-\j-1} % Calculate reverse index
+            
+            \ifnum \i = 1
+                \global\coords\expandafter{\expanded{\the\coords(-\reducedpoint,\reverseIndex)}}
+                \global\basecoords\expandafter{\expanded{\the\basecoords(-10,\reverseIndex)}}
+            \else
+                \global\coords\expandafter{\expanded{\the\coords(\reducedpoint,\reverseIndex)}}
+                \global\basecoords\expandafter{\expanded{\the\basecoords(10,\reverseIndex)}}
+            \fi
+        }
+
+        \edef \visual{ \noexpand
+            \draw[behind path, barstyle\i] plot[plotting] coordinates {
+                \the\coords
+            }; \noexpand  
+            \draw[basebarstyle\i] plot[plotting] coordinates {
+                \the\basecoords
+            }; \noexpand
+        }
+        
+        \visual
+        \renewcommand{\basecoords}{{}}
+        \renewcommand{\coords}{{}}
+    }
+
+    % Drawing center axis
+    \draw[<->, color=arrowColor](0,-1) -- (0,\numofplots);
+
+
+
+    % Trend Lines
+    \pgfmathsetmacro{\sciencepercentage}{\scienceaverage*10}
+    \draw[thick, dashed, color=trendline](\scienceaverage,-0.8) -- (\scienceaverage,\numofplots-0.2)node[below,pos= 0,xshift=2mm] { \footnotesize \textcolor{red}{Average = \pgfmathprintnumber{\sciencepercentage}\%}}; % right
+    \pgfmathsetmacro{\mathpercentage}{\mathaverage*10}
+    \draw[thick, dashed, color=trendline](-\mathaverage,-0.8) -- (-\mathaverage,\numofplots-0.2)node[below,pos= 0,xshift=-2mm] { \footnotesize \textcolor{red}{Average = \pgfmathprintnumber{\mathpercentage}\%}}; % left
+
+    % Adding coordinate labels
+    \foreach \x in {1,...,2}{
+        \foreach \y in {0,...,\inteval{\numofplots-1}}{
+            \pgfmathsetmacro{\eachpoint}{{\barcoords}[\x-1][\y]}
+            \pgfmathsetmacro{\reducedpoint}{\eachpoint*0.1}
+            \pgfmathsetmacro{\reverseIndex}{\numofplots-\y-1} % Reverse index
+            
+            \ifnum \x = 1
+                \ifnum \eachpoint > 0
+                    \ifnum \eachpoint < 95
+                        \node at (-\reducedpoint-\nodevaluedistance-.2,\reverseIndex)[coordlabels]{\eachpoint\%};
+                    \else
+                        \node at (-\reducedpoint+\nodevaluedistance,\reverseIndex)[coordlabels]{\eachpoint\%};
+                    \fi
+                \fi
+            \else
+                \ifnum \eachpoint > 0
+                    \ifnum \eachpoint < 95
+                        \node at (\reducedpoint+\nodevaluedistance+.2,\reverseIndex)[coordlabels]{\eachpoint\%};
+                    \else
+                        \node at (\reducedpoint-\nodevaluedistance,\reverseIndex)[coordlabels]{\eachpoint\%};
+                    \fi
+                \fi
+            \fi
+        }
+    }
+
+    % Adding bar labels
+    \foreach \x in {0,...,\inteval{\numofplots-1}}{
+        \pgfmathsetmacro{\reverseIndex}{\numofplots-\x-1} % Reverse index
+        \pgfmathsetmacro \currentlabel{{\labelbars}[\x]}
+        \node at (0,\reverseIndex)[barlabels]{{\currentlabel}};
+    }
+
+    \end{tikzpicture}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% unidirectional Graph %%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\unidirectionalBarGraph}[8]{
+    \def \labeltext{#1}
+    \def\leftlabel{\labeltext}  
+    \def \labelbars{#5}
+    \def \nodevaluedistance{#4}
+    \def \numofplots{#6}
+    \def \barccoords{#7}
+    \pgfmathsetmacro{\mathaverage}{#8/10}
+    
+    \colorlet{arrowColor}{gray!70}
+    \colorlet{coordtextColor}{black!70}
+    \colorlet{leftbarsColor}{blue!47}
+    \colorlet{trendline}{red!45}
+    
+    \begin{tikzpicture}[
+        labels/.style={
+            text=black,
+            font=\tiny,
+            fill=none
+        },
+        basebarstyle1/.style={
+            pattern=north east lines, 
+            pattern color=leftbarsColor,
+            draw=leftbarsColor,
+            opacity=0.6
+        },
+        barstyle1/.style={ 
+            fill=leftbarsColor,
+            draw=leftbarsColor
+        },
+        plotting/.style={
+            xbar, 
+            bar width=#2 cm
+        },
+        barlabels/.style={
+            text=black, 
+            font=\tiny,
+            fill=white!10,
+            text opacity=10,
+            align=center
+        },
+        coordlabels/.style={
+            text=coordtextColor, 
+            font=\tiny\bfseries, 
+            fill=none, 
+            text opacity=1,
+            align=center
+        },
+        scale=#3
+    ]
+    
+    \node at (2,\numofplots+0.2)[labels]{\large \textcolor{blue}{\leftlabel}};
+
+    \foreach \i in {1}{
+        \def\ccoords{}
+        \def\baseccoords{}
+        
+        \foreach \j in {0,...,\numexpr\numofplots-1\relax}{
+            \pgfmathsetmacro{\eachpoint}{{\barccoords}[\j]}
+            \pgfmathsetmacro{\reducedpoint}{\eachpoint*0.1}
+            \pgfmathsetmacro{\reverseIndex}{\numofplots-\j-1}
+            
+            \xdef\ccoords{\ccoords (\reducedpoint,\reverseIndex)}
+            \xdef\baseccoords{\baseccoords (10,\reverseIndex)}
+        }
+
+        \edef \visual{ 
+            \noexpand\draw[behind path, barstyle1] plot[plotting] coordinates {\ccoords};  
+            \noexpand\draw[basebarstyle1] plot[plotting] coordinates {\baseccoords};
+        }
+        \visual
+    }
+
+    \draw[-, color=arrowColor](0,-1) -- (0,\numofplots);
+
+    \pgfmathsetmacro{\mathpercentage}{\mathaverage*10}
+    \draw[thick, dashed, color=trendline](\mathaverage,-0.8) -- (\mathaverage,\numofplots-0.2)
+        node[below,pos=0,xshift=-2mm] {\footnotesize \textcolor{red}{ Average = \pgfmathprintnumber{\mathpercentage}\%}};
+
+    \foreach \y in {0,...,\numexpr\numofplots-1\relax}{
+        \pgfmathsetmacro{\eachpoint}{{\barccoords}[\y]}
+        \pgfmathsetmacro{\reducedpoint}{\eachpoint*0.1}
+        \pgfmathsetmacro{\reverseIndex}{\numofplots-\y-1}
+        \ifnum \eachpoint > 0
+            \ifnum \eachpoint < 95
+                \node at (\reducedpoint+0.6,\reverseIndex)[coordlabels]{\eachpoint\%};
+            \else
+                \node at (\reducedpoint+0.4,\reverseIndex)[coordlabels]{\eachpoint\%};
+            \fi
+        \fi
+    }
+
+    % Corrected student names loop
+    \foreach \name [count=\x from 0] in \labelbars {
+        \pgfmathsetmacro{\reverseIndex}{\numofplots-\x-1}
+        \node at (0,\reverseIndex)[barlabels, anchor=east]{\name};
+    }
+
+    \end{tikzpicture}
+}

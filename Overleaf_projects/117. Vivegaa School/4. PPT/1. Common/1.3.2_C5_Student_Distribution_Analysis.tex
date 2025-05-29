@@ -1,0 +1,65 @@
+\label{1.3.2 C5 Student Distribution Analysis}
+    \renewcommand{\insertclass}{ - Class 5}
+
+    \renewcommand{\insertsubject}{Math \& Science \& English}
+
+    % studentDistribution
+    % #1 - Height of the graph in (cm)
+    % #2 - Width of the graph in (cm)
+    % #3 - Bar width
+    % #4 - ymax value
+    % #5 - X axis tick labels with separations
+    % #6 - Y-axis Label
+    % #7 - Graph legends
+    % #8 - No of Graph lines, No of plots and Coordinates of the graph
+    % Array 0 - No of legends
+    % Array 1 - No of plots
+    % Array 2 - Coordinates of the graph upto 
+    % Array n - Coordinates of the graph
+    % #9 - Title of the graph
+
+    \begin{frame}{Student Percentage Distribution Analysis - Class 5}
+    \begin{minipage}{0.285\paperwidth}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%   Class 5 - Math
+    \studentDistribution
+        {12}
+        {12}
+        {0.95}
+        {37}
+        {10\%,20\%,30\%,40\%,50\%,60\%,70\%,80\%,90\%,100\%}
+        {Number of Students}
+        {}
+        {{1},{10},{0,0,1,2,2,6,7,5,7,1}}
+        {Math}
+    \end{minipage}
+    \begin{minipage}{0.285\paperwidth}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%   Class 5 - Science
+    \studentDistribution
+        {12}
+        {12}
+        {0.95}
+        {37}
+        {10\%,20\%,30\%,40\%,50\%,60\%,70\%,80\%,90\%,100\%}
+        {Number of Students}
+        {}
+        {{1},{10},{0,0,1,1,1,3,4,6,13,2}}
+        {Science}
+    \end{minipage}
+    \begin{minipage}{0.285\paperwidth}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%   Class 5 - English
+    \studentDistributionwithoutline
+        {12}
+        {12}
+        {1}
+        {37}
+        {10\%,20\%,30\%,40\%,50\%,60\%,70\%,80\%,90\%,100\%}
+        {Number of Students}
+        {}
+        {{1},{10},{0,0,1,0,2,0,0,10,0,18}}
+        {English}
+    \end{minipage}
+    
+    \end{frame}
+
+    
+    

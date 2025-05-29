@@ -1,0 +1,336 @@
+%%%%%%%%%%%%%%%%%%%%%%%%% Vertical Bar
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  dimensions  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\define@key{Xbarstack}{Width}{\def\Xbarstackwidth{#1}} % Width of Chart
+\define@key{Xbarstack}{Height}{\def\Xbarstackheight{#1}}% Height of Chart
+\define@key{Xbarstack}{BarWidth}{\def\XbarstackBarWidth{#1}}% BarWidth of Chart
+\define@key{Xbarstack}{Ymax}{\def\Xbarstackymax{#1}} % Y-axis Max Value 
+\define@key{Xbarstack}{Ymin}{\def\Xbarstackymin{#1}} % Y-axis Min Value 
+\define@key{Xbarstack}{Scale}{\def\Xbarstackscale{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% labels  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\define@key{Xbarstack}{Xticklabels}{\def\Xbarstackxticklabels{#1}}% Xtick Labels of Chart
+\define@key{Xbarstack}{Ylabel}{\def\XbarstackYlabel{#1}}% Y labels of chart
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Coordinates %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\define@key{Xbarstack}{Barcoords}{\def\Xbarstackbarcoords{#1}}% Bar Coordinates Of Chart
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Title  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\define@key{Xbarstack}{Title}{\def\Xbarstacktitle{#1}} % Title of Chart
+
+\define@key{Xbarstack}{labelprefix}{\def\labelprefix{#1}} % Title of Chart
+
+\define@key{VerticalBar}{Xlabelrotate}{\def\VerticalBarXlabelrotate{#1}} % X tick label rotate
+
+\define@key{Xbarstack}{Xticklabel}{\def\Xticklabelstyle{#1}} % Title of Chart
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtoks \coords 
+
+\newcommand{\Xbarstack}[2]{
+    \setkeys{Xbarstack}{#1}
+    \def \barcoords{\Xbarstackbarcoords}    % No of stacks, No of plots and Coordinates of the graph
+
+    \pgfmathsetmacro{\numOfStacks}{{\barcoords}[0]}     % No of stacks lines
+    \pgfmathsetmacro{\noOfCoords}{{\barcoords}[1]}     % No of plots
+    
+    \begin{tikzpicture}[scale= \Xbarstackscale]
+    \centering
+        \begin{axis}[
+            ybar stacked, % Changed to ybar stacked for stacking bars
+            axis on top,
+            title={\Xbarstacktitle},
+            height=\Xbarstackheight cm, 
+            width=\Xbarstackwidth cm,
+            bar width=\XbarstackBarWidth cm, % Adjusted bar width for better visualization of stacked bars
+            ymajorgrids, tick align=outside,
+            major grid style={draw=black,opacity=0.8,dotted},
+            enlarge y limits={value=.1,upper},
+            ymin=\Xbarstackymin, ymax=\Xbarstackymax, % Adjusted ymax for potential stacking overflow
+            axis x line*=bottom,
+            axis y line*=right,
+            y axis line style={opacity=0},
+            tickwidth=0pt,
+            enlarge x limits=true,
+            enlarge x limits={abs=0.4},
+            yticklabel={$\pgfmathprintnumber{\tick}\labelprefix$},
+            legend style={
+                at={(0.5,-0.6)},
+                anchor=north, 
+                legend columns=-1,
+                /tikz/every even column/.append style={column sep=0.5cm},
+                draw=none
+            },
+            ylabel={\XbarstackYlabel},
+            xticklabels/.expanded={\Xbarstackxticklabels},
+            xtick=data,
+            nodes near coords align={center},
+            nodes near coords={\pgfmathprintnumber[precision=0]{\pgfplotspointmeta}\labelprefix},
+            legend image code/.code={
+                \draw [] (0cm,-0.15cm) rectangle (0.15cm,0.15cm);
+            },
+            xticklabel style={\Xticklabelstyle},
+        ]
+
+        \foreach \i in {1,...,\numOfStacks}{     % Loop for stacks
+            \coords{}
+        
+            \foreach \x in {0,...,\inteval{\noOfCoords-1}}{     % Loop for plots
+                \pgfmathsetmacro{\eachpoint}{{\barcoords}[\i+1][\x]}
+                \global\coords\expandafter{\expanded{\the\coords(\x+1,\eachpoint)}}
+                % Declare the \coords as global and make it as tokens
+            }
+            % \ifnum \i = 1
+            %     \addplot [draw=Color1, fill=Color1] coordinates { \the\coords};
+            % \else
+            %     \addplot [pattern=north east lines,draw=blue!30,pattern color=blue!40] coordinates { \the\coords };
+            % \fi
+
+            \edef \plotting{ \noexpand
+            \addplot[
+            pattern=north east lines,
+             pattern color=PatternColor\i,
+                 draw=PatternColor\i
+                % fill=Color\i
+                ]
+            coordinates {\the\coords};
+            % \noexpand
+            }
+
+            \plotting{}
+
+            
+            \renewcommand{\coords}{{}}  % Clear the \coords data for storing the other stack coords
+        }
+
+      
+        \legend{#2}
+
+        \end{axis}
+    \end{tikzpicture}
+}
+\makeatother
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%Topic Wise performance analysis %%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+
+% Yello highlight
+\newcommand{\ybarhl}[1]{\colorbox{yellow}{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  dimensions  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\define@key{Ybarstack}{Width}{\def\Ybarstackwidth{#1}} % Width of Chart
+\define@key{Ybarstack}{Height}{\def\Ybarstackheight{#1}}% Height of Chart
+\define@key{Ybarstack}{BarWidth}{\def\YbarstackBarWidth{#1}}% BarWidth of Chart
+\define@key{Ybarstack}{Ymax}{\def\Ybarstackymax{#1}} % Y-axis Max Value 
+\define@key{Ybarstack}{Ymin}{\def\Ybarstackymin{#1}} % Y-axis Min Value 
+\define@key{Ybarstack}{Scale}{\def\Ybarstackscale{#1}}
+\define@key{Ybarstack}{YTextWidth}{\def\Ybarlabeltextwidth{#1}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% labels  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \define@key{Ybarstack}{Yticklabels}{\def\Ybarstackyticklabels{#1}}% Xtick Labels of Chart
+\define@key{Ybarstack}{Xlabel}{\def\YbarstackXlabel{#1}}% Y labels of chart
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Coordinates %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\define@key{Ybarstack}{barcoords}{\def\Ybarstackbarcoords{#1}}% Bar Coordinates Of Chart
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Title  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\define@key{Ybarstack}{Title}{\def\Ybarstacktitle{#1}} % Title of Chart
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtoks \coords 
+
+\newcommand{\Ybarstack}[4]{
+    \setkeys{Ybarstack}{#1}
+    \def \barcoords{\Ybarstackbarcoords}    % No of stacks, No of plots and Coordinates of the graph
+
+    \pgfmathsetmacro{\numOfStacks}{{\barcoords}[0]}     % No of stacks lines
+    \pgfmathsetmacro{\noOfCoords}{{\barcoords}[1]}     % No of plots
+    
+    \begin{tikzpicture}[scale = \Ybarstackscale]
+        \begin{axis}[
+            title={\textbf{\Huge \Ybarstacktitle}},
+            title style={align=center, yshift=.4cm,,text width=25cm},
+            xbar stacked,
+            height=\Ybarstackheight cm,
+            width=\Ybarstackwidth cm,
+            bar width=\YbarstackBarWidth cm,
+            tick align=outside,
+            enlarge x limits={value=.1, upper},
+            xmin=\Ybarstackymin, 
+            xmax=\Ybarstackymax,
+            xtick={0,10,...,100},
+            xticklabels={0\%,10\%,20\%,30\%,40\%,50\%,60\%,70\%,80\%,90\%,100\%},
+            axis x line*=bottom,
+            axis y line*=left,
+            tickwidth=0pt,
+            enlarge y limits = 0.1,
+            legend style={
+                at={(0.5,-0.1)},
+                anchor=north,
+                legend columns=4,
+                /tikz/every even column/.append style={column sep= 1cm},
+                draw=none,
+                yshift=-0.2cm
+            },
+            yticklabel style={text width=\Ybarlabeltextwidth cm, align=right,font=\normalsize},
+             enlarge y limits={abs=0.7},
+            yticklabels={#2},
+            ytick=data,
+            legend cell align = {left},
+            nodes near coords align={center},
+            nodes near coords style={font=\large},
+            nodes near coords={
+                \pgfmathprintnumber[precision=0]{\pgfplotspointmeta}\%
+            }
+        ]
+            
+     % Average Line 
+    \def\halfBarWidth{\YbarstackBarWidth / 3}
+    \def\avg{#4} 
+    \ifx\avg\empty{}
+    \else
+    {
+       \draw[thick, dashed, color=red] (\avg,0) -- (\avg,\noOfCoords + \halfBarWidth)node[above] {\Large Chapter Average - \pgfmathprintnumber{\avg}\%}; 
+    }
+    \fi
+
+        \foreach \i in {1,...,\numOfStacks}{     % Loop for stacks
+            \coords{}
+        
+            \foreach \y in {0,...,\inteval{\noOfCoords-1}}{     % Loop for plots
+                \pgfmathsetmacro{\eachpoint}{{\barcoords}[\i+1][\y]}
+                \global\coords\expandafter{\expanded{\the\coords(\eachpoint,\y+1)}}
+                % Declare the \coords as global and make it as tokens
+            }
+
+            
+                \edef \plotting{ \noexpand
+                    \addplot[ 
+                    pattern=north east lines,
+             pattern color=PatternColor\i,
+                        draw=PatternColor\i 
+                        % fill=Color\i
+                    ] coordinates {
+                        \the\coords     % Expand the tokens as a coordinates
+                    }; \noexpand
+                }
+            
+            \plotting
+            
+            \renewcommand{\coords}{{}}  % Clear the \coords data for storing the other stack coords
+        }
+        
+        \legend{#3}
+        \end{axis}
+    \end{tikzpicture}
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%legends
+
+\newcommand{\drawLegends}[2]{
+            \centering
+            \begin{tikzpicture}[baseline=(label.base)]
+                \node[rectangle, 
+            minimum width=0.3cm,    
+            minimum height=0.4cm,
+                draw, inner sep=2pt, pattern=north east lines,pattern color=#2] (label) {\textcolor{#2}{\qquad}};
+            \end{tikzpicture}
+            #1
+            \hspace{0.4cm}
+        }
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Question Response Distribution
+
+ \newcommand{\queresponsecirculatchart}[6]{
+        \centering
+        \tikzset{
+                hist 1/.style={pattern=north east lines,pattern color=PatternColor2}, %wrong
+                % hist 1/.style={fill=Color2}, %wrong
+                hist 2/.style={fill=white}, %learn later
+                hist 3/.style={pattern=north east lines,pattern color=PatternColor1}, %correct
+            }
+
+            \def\astep{#1} % width (degree) of each sector 360/60(number of question)
+            \def\minA{#2mm} % min distance from center
+            \def\maxA{#3cm} % max distance from center
+
+            \begin{tikzpicture}[text=black,font=\normalsize]
+                \fill[white] circle(\maxA+1cm);
+
+                \foreach \curlabel/\values [count=\cp] in {#4}
+                % ... (omitting other data for brevity)
+                {
+                \ifthenelse{\equal{\curlabel}{}}{}{
+                    % angle for this current label
+                    \pgfmathsetmacro{\angle}{(\cp-1)*\astep-90+\astep/2}
+                    % distance from center
+                    \pgfmathsetmacro{\total}{\minA}
+                    \pgfmathsetmacro{\am}{\maxA-\minA}
+                    \xdef\total{\total}
+                    % histogram
+                    \foreach \val [count=\cv] in \values {
+                    \pgfmathsetmacro{\nexttotal}{\total pt+\am/100*\val}
+                    % sector
+                    \filldraw[hist \cv]
+                    (\angle+\astep/2:\total pt)
+                    arc(\angle+\astep/2:\angle-\astep/2:\total pt)
+                    -- (\angle-\astep/2:\nexttotal pt)
+                    arc(\angle-\astep/2:\angle+\astep/2:\nexttotal pt)
+                    -- cycle;
+                    % iteration
+                    \xdef\total{\nexttotal}
+                    \typeout{\val:\total}
+                    }
+                    % label (with autorotation)
+                    \pgfmathtruncatemacro{\anglenode}{\angle}
+                    \ifthenelse{\( \anglenode > 90 \) \AND \( \anglenode < 270 \)}{ 
+                    \node[rotate=180+\anglenode,anchor=east,font=\normalsize] at (\angle:\maxA) {\curlabel};
+                    }{
+                    \node[rotate=\anglenode,anchor=west,font=\normalsize] at (\angle:\maxA) {\curlabel};
+                    }
+                }
+                }
+                \node[align=center, font=\bfseries\normalsize, text width=2cm] at (0,0) {#5 \\ #6};
+            \end{tikzpicture} \\
+        \medskip     
+        \vspace{1cm}
+        \centering
+        \drawLegends{Correct}{Color1}
+        \drawLegends{Wrong}{Color2}
+        \drawLegends{Learn Later}{white}\\
+        \vspace{0.5cm}
+        \parbox[c]{7cm}{
+        \begin{normalsize}
+        \RaggedRight
+        \highyellowred{Q} - Performance <20\% \\
+        \vspace{0.2cm}
+        \highyellow{Q} - Performance between 20\% and 40\% \\
+        \vspace{0.2cm}
+        \highgreen{Q} - Performance > 85\%
+        
+        \end{normalsize}}                                         
+    }

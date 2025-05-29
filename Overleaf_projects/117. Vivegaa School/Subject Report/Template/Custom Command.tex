@@ -1,0 +1,237 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%colours%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{Color1}{RGB}{106,168,79}%
+\definecolor{Color2}{RGB}{255,136,23}%
+\definecolor{Color3}{RGB}{70,189,198}%
+\definecolor{Color4}{RGB}{248,201,40}%
+\definecolor{Color5}{RGB}{241,55,16}%
+
+%patterncolor
+\definecolor{PatternColor1}{RGB}{0,255,0} %green
+\definecolor{PatternColor2}{RGB}{255,128,0} %orange
+\definecolor{PatternColor3}{RGB}{70,189,198} %sky blue
+
+\definecolor{cellgreen}{rgb}{0.776,0.937,0.808}
+\definecolor{cellred}{rgb}{1,0.78,0.808}
+\definecolor{hrulecolor1}{RGB}{68,114,196}%
+\definecolor{blue}{HTML}{E9EBF5}%
+
+\definecolor{lightcyan}{RGB}{224, 255, 255}   % Light cyan color
+\definecolor{lightpink}{RGB}{255, 182, 193}   % Light pink color
+\definecolor{lightlavender}{RGB}{230, 230, 250} % Light lavender color
+\definecolor{lightblue}{RGB}{173, 216, 230}   % Light blue color
+
+\definecolor{hrulecolor1}{RGB}{68,114,196}%
+
+
+\definecolor{Highlightred}{RGB}{248, 131, 121} % 172, 225, 175
+\definecolor{Highlightgreen}{RGB}{152, 251, 152}
+\definecolor{Highlightyellow}{RGB}{251, 236, 93} %0, 240, 168
+
+\newcommand{\highred}[1]{\sethlcolor{Highlightred}\hl{#1}}%below 40 for correct option Only
+\newcommand{\highgreen}[1]{\sethlcolor{Highlightgreen}\hl{#1}}%Above 75 for correct option Only
+\newcommand{\highyellow}[1]{\sethlcolor{Highlightyellow}\hl{#1}}% In between perctange for correct option Only
+
+\newcommand{\highyellowred}[1]{\sethlcolor{Highlightyellow}\textcolor{red}{\hl{#1}}}
+
+\newcommand{\highno}[1]{{#1}}
+
+\newcommand{\answerkeychaptername}[1]{ 
+    \needspace{5\baselineskip}
+    \begin{center}
+    \medskip
+    \Large  \underline{\textbf{#1}}
+    \medskip
+    \end{center}}
+
+
+%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\examdetails}[5]{
+
+% 1 - School Name
+% 2 - Class section (8A)
+% 3 - subject
+% 4 - Exam Held Date
+% 5 - Exam Tag
+
+\def \schoolname{#1}
+\def \classsection{#2}
+\def \subject{#3}
+\def \examheldon{#4}
+\def \schooltag{#5}
+}
+
+
+
+%%%%%%%%%%%% Index Page Header
+
+\newcommand{\indexpage}{
+\fancypagestyle{indexpage}{
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[L]{}
+\fancyhead[L]{
+    \renewcommand{\arraystretch}{1}
+    \arrayrulecolor{hrulecolor1} 
+    \begin{tabular}{m{3cm} m{0.2cm} >{\centering\arraybackslash}m{13cm}}
+    \includegraphics[width=3cm]{logo.png}  & & \LARGE \textbf{\schoolname} \\
+    \cline{3-3}
+    \small www.learnbasics.fun 
+    & & \medskip \Large \textbf{LaPIS Diagnostic Test Report}  \medskip\\
+    & & \medskip \Large \textbf{Class\;\classsection\;- \subject} \medskip\\
+    \end{tabular}
+    }
+\renewcommand{\footrulewidth}{0pt}}
+}
+
+%%%%%%%%%%% Class Details in Index Page
+
+% 1 - Class Performance
+% 2 - Total Student
+% 3 - Present
+% 4 - Absent
+
+\newcommand{\classdetails}[4]{
+\begin{minipage}[c]{0.3\textwidth}
+    \begin{center}
+    \fbox{\parbox[c]{3.5cm}{\vspace{0.1cm} \centering \textbf{Exam Held On} \\ \vspace{0.1cm} \textbf{\examheldon}\vspace{0.1cm} }}
+    \end{center} 
+\end{minipage}%
+\hfill
+\begin{minipage}[c]{0.3\textwidth}
+    \begin{center}
+    \fbox{\parbox[c]{3.5cm}{\vspace{0.1cm} \centering \textbf{Performance} \\ \vspace{0.1cm} \textbf{#1 \%}\vspace{0.1cm} }}
+    \end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.3\textwidth}
+    \begin{large}
+    \begin{center}
+    \fbox{\parbox[c]{3.5cm}{\vspace{0.1cm} \centering \textbf{Total Student} \\ \vspace{0.1cm} \textbf{#2}\vspace{0.1cm} }} \\
+    \end{center}
+    \begin{center}
+    \fbox{\parbox[c]{1.8cm}{\vspace{0.1cm} \centering \textbf{Present}\\ \vspace{0.1cm} \textbf{#3}\vspace{0.1cm} }} \hspace{2mm}%
+    \fbox{\parbox[c]{1.8cm}{\vspace{0.1cm} \centering \textbf{Absent}\\ \vspace{0.1cm} \textbf{#4}\vspace{0.1cm} }}
+    \end{center}
+    \end{large}
+\end{minipage}}
+
+
+%%%%%%%%%%%%%%%% Header - Common
+
+
+\newcommand{\header}[2]{
+        \fancypagestyle{header#1}{
+        \renewcommand{\headrulewidth}{0pt}
+        \renewcommand{\footrulewidth}{0pt}
+        \fancyhead{
+        }
+        \fancyfoot{
+        }
+        \fancyhead[L]{
+        \vspace{0.2cm}
+        \includegraphics[width = 3cm]{logo.png}
+        }
+        \fancyfoot[L]{
+        \vspace{0cm}
+        Learn Basics%
+        }
+        \fancyfoot[C]{
+        \vspace{0cm}
+        %
+        Class \classsection\;-\;\subject\;- Page \thepage %
+        }
+        \fancyfoot[R]{
+        \vspace{0cm}
+        LaPIS held on \examheldon%
+        }
+        \fancyhead[C]{
+            \begin{center}
+            \Large \textbf{#2}
+            \end{center}   
+        }
+        \renewcommand{\footrulewidth}{1pt}
+        }
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Landscape page Template
+
+%%%%%%%%%%%%%%%% Empty Page
+\newcommand{\emptypage}[1]{
+    \fancypagestyle{emptypage#1}{
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+    \fancyhead{}
+    \fancyfoot{}}
+}
+
+%%%%%%%%%%%%%%% landScape header
+
+\newcommand{\landscapeheader}[1]{
+\begin{minipage}{0.1\linewidth}
+\includegraphics[width=3cm]{logo.png}
+\end{minipage}
+\begin{minipage}{0.8\linewidth}
+\begin{center}  
+    \begin{large}
+        {\Large \textbf{#1}} 
+    \end{large}
+    \end{center}
+\end{minipage}
+}
+
+
+%%%%%%%%%%%%%% Question wise name List 
+
+\newcommand{\namelisttable}[4]{
+\renewcommand{\arraystretch}{#1}
+\begin{tabular}{|>{\centering \arraybackslash} m{#2cm}|}
+\hline
+{\textbf{#3}} \\
+\hline
+\RaggedRight {#4}\\
+\hline
+\end{tabular}
+\vspace{0.2cm}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\pagerotate}[1]{
+    \KOMAoptions{paper=#1, DIV=last}
+    \newgeometry{top=1.8cm,bottom=2cm,left=1cm,right=1cm}%
+    \fancyheadoffset{10pt}
+}
+
+\newcommand{\greentick}{\textcolor[RGB]{0,128,0}{\ding{52}}}
+
+ \newcommand{\redcross}{\textcolor[RGB]{255,0,0}{\ding{55}}}
+
+
+ \newcommand\yellowalert[1][2ex]{%
+ \scaleto{\stackengine{0.3pt}{\scalebox{1.1}[.9]{%
+ \color{yellow}$\blacktriangle$}}{\tiny\bfseries !}{O}{c}{F}{F}{L}}{#1}%
+ }
+
+\newcommand{\topicperformancenote}{
+\bigskip
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\cellcolor{cellgreen} \greentick  & Performance Between 75\% and 100\%  & 
+\yellowalert  & Performance Between 40\% and 75\%  &
+\redcross  & Performance Between 0\% and 40\%   
+\\
+\hline 
+\end{tabular}
+}
+
+\newcommand{\consolidatedmarknote}{
+% \vspace{0.51cm}
+\hspace{1cm}
+\parbox[c]{15cm}{\vspace{0.1cm}
+\textbf{Note:}\\
+We have provided an extra option called \textbf{Learn Later} as \textbf{Option E} which students can select if they are unsure of an answer to a question.}}

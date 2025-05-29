@@ -1,0 +1,641 @@
+\makeatletter
+
+
+
+
+\define@key{maimgleftFourOne}{myanswerquestion}{\def\maimgleftFourOnemyanswerquestion{#1}} 
+\define@key{maimgleftFourOne}{myanswercontent}{\def\maimgleftFourOnemyanswercontent{#1}} 
+
+
+\define@key{maimgleftFourOne}{questionnumber}{\def\maimgleftFourOnequestionnumber{#1}} 
+\define@key{maimgleftFourOne}{questiontext}{\def\maimgleftFourOnequestiontext{#1}}
+\define@key{maimgleftFourOne}{imgtabletikz}{\def\maimgtabletikz{#1}}
+\define@key{maimgleftFourOne}{optionA}{\def\maimgleftFourOneoptionA{#1}}
+\define@key{maimgleftFourOne}{optionB}{\def\maimgleftFourOneoptionB{#1}}
+\define@key{maimgleftFourOne}{optionC}{\def\maimgleftFourOneoptionC{#1}}
+\define@key{maimgleftFourOne}{optionD}{\def\maimgleftFourOneoptionD{#1}}
+\define@key{maimgleftFourOne}{questionTag}{\def\maimgleftFourOnequestionTag{#1}} 
+\define@key{maimgleftFourOne}{correctoption}{\def\maimgleftFourOnecorrectoption{#1}}
+\define@key{maimgleftFourOne}{leftmini}{\def\maimgleftFourOneleftmini{#1}}
+\define@key{maimgleftFourOne}{rightmini}{\def\maimgleftFourOnerightmini{#1}}
+
+% COMMAND FOR maimgleftFourOne 
+
+\newcommand{\maimgleftFourOne}[1]{%
+\setkeys{maimgleftFourOne}{#1}%
+
+
+
+\begin{raggedright}
+\textbf{Question \maimgleftFourOnequestionnumber:} 
+\maimgleftFourOnemyanswerquestion\\
+\centering
+\begin{qanswerbox}
+\centering
+\maimgleftFourOnemyanswercontent
+\end{qanswerbox}
+\RaggedRight
+\maimgleftFourOnequestiontext\\
+\medskip
+\end{raggedright}
+\begin{minipage}[]{\maimgleftFourOneleftmini\linewidth}
+\Centering
+\maimgtabletikz 
+\end{minipage}\hfill
+\begin{minipage}[]{\maimgleftFourOnerightmini\linewidth}
+  (a) \medskip \maimgleftFourOneoptionA\\
+  (b) \medskip \maimgleftFourOneoptionB\\
+  (c) \medskip \maimgleftFourOneoptionC\\
+  (d) \medskip \maimgleftFourOneoptionD\\  
+\end{minipage}
+}
+
+
+
+%-----------------------------------------------------------
+         % My answer text bottom 4 option in 1 row
+%-----------------------------------------------------------
+
+% Define key FOR matextbottomOneFour
+
+\define@key{matextbottomOneFour}{myanswerquestion}{\def\matextbottomOneFourmyanswerquestion{#1}} 
+\define@key{matextbottomOneFour}{myanswercontent}{\def\matextbottomOneFourmyanswercontent{#1}} 
+
+\define@key{matextbottomOneFour}{questionnumber}{\def\matextbottomOneFourquestion{#1}}
+\define@key{matextbottomOneFour}{questiontext}{\def\matextbottomOneFourquestiontext{#1}}
+\define@key{matextbottomOneFour}{optionA}{\def\matextbottomOneFouroptionA{#1}}
+\define@key{matextbottomOneFour}{optionB}{\def\matextbottomOneFouroptionB{#1}}
+\define@key{matextbottomOneFour}{optionC}{\def\matextbottomOneFouroptionC{#1}}
+\define@key{matextbottomOneFour}{optionD}{\def\matextbottomOneFouroptionD{#1}}
+\define@key{matextbottomOneFour}{questionTag}{\def\matextbottomOneFourquestionTag{#1}}
+\define@key{matextbottomOneFour}{correctoption}{\def\matextbottomOneFourcorrectoption{#1}}
+
+% COMMAND FOR matextbottomOneFour %
+
+\newcommand{\matextbottomOneFour}[1]{%
+\setkeys{matextbottomOneFour}{#1}%
+
+
+
+\begin{raggedright}
+\textbf{Question \matextbottomOneFourquestion:} 
+\matextbottomOneFourmyanswerquestion\\
+\centering
+% \workspace{abc}
+\begin{qanswerbox}
+\centering
+\matextbottomOneFourmyanswercontent
+\end{qanswerbox}
+\RaggedRight
+\matextbottomOneFourquestiontext\\
+\RaggedRight
+\begin{multicols}{4}
+  (a) \medskip \matextbottomOneFouroptionA\\
+  (b) \medskip \matextbottomOneFouroptionB\\
+  (c) \medskip \matextbottomOneFouroptionC\\
+  (d) \medskip \matextbottomOneFouroptionD\\
+\end{multicols}
+\end{raggedright}
+}
+
+%-----------------------------------------------------------
+         % My answer text bottom 4 option in 2 row
+%-----------------------------------------------------------
+
+% Define key FOR matextbottomTwoTwo
+
+\define@key{matextbottomTwoTwo}{myanswerquestion}{\def\matextbottomTwoTwomyanswerquestion{#1}} 
+\define@key{matextbottomTwoTwo}{myanswercontent}{\def\matextbottomTwoTwomyanswercontent{#1}} 
+
+\define@key{matextbottomTwoTwo}{questionnumber}{\def\matextbottomTwoTwoquestion{#1}}
+\define@key{matextbottomTwoTwo}{questiontext}{\def\matextbottomTwoTwoquestiontext{#1}}
+\define@key{matextbottomTwoTwo}{optionA}{\def\matextbottomTwoTwooptionA{#1}}
+\define@key{matextbottomTwoTwo}{optionB}{\def\matextbottomTwoTwooptionB{#1}}
+\define@key{matextbottomTwoTwo}{optionC}{\def\matextbottomTwoTwooptionC{#1}}
+\define@key{matextbottomTwoTwo}{optionD}{\def\matextbottomTwoTwooptionD{#1}}
+\define@key{matextbottomTwoTwo}{questionTag}{\def\matextbottomTwoTwoquestionTag{#1}}
+\define@key{matextbottomTwoTwo}{correctoption}{\def\matextbottomTwoTwocorrectoption{#1}}
+
+% COMMAND FOR matextbottomTwoTwo %
+
+\newcommand{\matextbottomTwoTwo}[1]{%
+\setkeys{matextbottomTwoTwo}{#1}%
+
+
+
+\begin{raggedright}
+\textbf{Question \matextbottomTwoTwoquestion:} 
+\matextbottomTwoTwomyanswerquestion\\
+\centering
+% \workspace{abc}
+\begin{qanswerbox}
+\centering
+\matextbottomTwoTwomyanswercontent
+\end{qanswerbox}
+\RaggedRight
+\matextbottomTwoTwoquestiontext\\
+\RaggedRight
+\begin{multicols}{2}
+  (a) \medskip \matextbottomTwoTwooptionA\\
+  (c) \medskip \matextbottomTwoTwooptionC\\
+  \columnbreak
+  (b) \medskip \matextbottomTwoTwooptionB\\
+  (d) \medskip \matextbottomTwoTwooptionD\\
+\end{multicols}
+\end{raggedright}
+}
+
+
+%-----------------------------------------------------------
+         % My answer text bottom 4 option in 1 row
+%-----------------------------------------------------------
+
+% Define key FOR matextbottomFourOne
+
+\define@key{matextbottomFourOne}{myanswerquestion}{\def\matextbottomFourOnemyanswerquestion{#1}} 
+\define@key{matextbottomFourOne}{myanswercontent}{\def\matextbottomFourOnemyanswercontent{#1}} 
+
+\define@key{matextbottomFourOne}{questionnumber}{\def\matextbottomFourOnequestion{#1}}
+\define@key{matextbottomFourOne}{questiontext}{\def\matextbottomFourOnequestiontext{#1}}
+\define@key{matextbottomFourOne}{optionA}{\def\matextbottomFourOneoptionA{#1}}
+\define@key{matextbottomFourOne}{optionB}{\def\matextbottomFourOneoptionB{#1}}
+\define@key{matextbottomFourOne}{optionC}{\def\matextbottomFourOneoptionC{#1}}
+\define@key{matextbottomFourOne}{optionD}{\def\matextbottomFourOneoptionD{#1}}
+\define@key{matextbottomFourOne}{questionTag}{\def\matextbottomFourOnequestionTag{#1}}
+\define@key{matextbottomFourOne}{correctoption}{\def\matextbottomFourOnecorrectoption{#1}}
+
+% COMMAND FOR matextbottomFourOne %
+
+\newcommand{\matextbottomFourOne}[1]{%
+\setkeys{matextbottomFourOne}{#1}%
+
+
+
+\begin{raggedright}
+\textbf{Question \matextbottomFourOnequestion:} 
+\matextbottomFourOnemyanswerquestion\\
+\centering
+% \workspace{abc}
+\begin{qanswerbox}
+\centering
+\matextbottomFourOnemyanswercontent
+\end{qanswerbox}
+\RaggedRight
+\matextbottomFourOnequestiontext\\
+\RaggedRight
+  (a) \medskip \matextbottomFourOneoptionA\\
+  (b) \medskip \matextbottomFourOneoptionB\\
+  (c) \medskip \matextbottomFourOneoptionC\\
+  (d) \medskip \matextbottomFourOneoptionD\\
+\end{raggedright}
+}
+
+%-----------------------------------------------------------
+         % My answer image bottom 4 option in 1 row
+%-----------------------------------------------------------
+
+% Define key FOR maimgbottomOneFour
+\define@key{maimgbottomOneFour}{myanswerquestion}{\def\maimgbottomOneFourmyanswerquestion{#1}} 
+\define@key{maimgbottomOneFour}{myanswercontent}{\def\maimgbottomOneFourmyanswercontent{#1}} 
+
+\define@key{maimgbottomOneFour}{questionnumber}{\def\maimgbottomOneFourquestionnumber{#1}}
+\define@key{maimgbottomOneFour}{questionTag}{\def\maimgbottomOneFourquestionTag{#1}}
+\define@key{maimgbottomOneFour}{questiontext}{\def\maimgbottomOneFourquestiontext{#1}}
+\define@key{maimgbottomOneFour}{optionA}{\def\maimgbottomOneFouroptionA{#1}}
+\define@key{maimgbottomOneFour}{optionB}{\def\maimgbottomOneFouroptionB{#1}}
+\define@key{maimgbottomOneFour}{optionC}{\def\maimgbottomOneFouroptionC{#1}}
+\define@key{maimgbottomOneFour}{optionD}{\def\maimgbottomOneFouroptionD{#1}}
+\define@key{maimgbottomOneFour}{correctoption}{\def\maimgbottomOneFourcorrectoption{#1}}
+
+% COMMAND FOR maimgbottomOneFour %
+
+\newcommand{\maimgbottomOneFour}[1]{%
+\setkeys{maimgbottomOneFour}{#1}%
+
+
+
+\begin{raggedright}
+\textbf{Question \maimgbottomOneFourquestionnumber:} 
+\maimgbottomOneFourmyanswerquestion\\
+\centering
+\begin{qanswerbox}
+\centering
+\maimgbottomOneFourmyanswercontent
+\end{qanswerbox}
+\RaggedRight
+\maimgbottomOneFourquestiontext 
+\begin{multicols}{4}
+  (a) \includegraphics[width=2.5cm, height=2cm]{\maimgbottomOneFouroptionA}  \\
+  (b) \includegraphics[width=2.5cm, height=2cm]{\maimgbottomOneFouroptionB}   \\
+  (c) \includegraphics[width=2.5cm, height=2cm]{\maimgbottomOneFouroptionC}  \\
+  (d) \includegraphics[width=2.5cm, height=2cm]{\maimgbottomOneFouroptionD} 
+\end{multicols}
+\end{raggedright}
+}
+
+%-----------------------------------------------------------
+             % text bottom 4 option in 1 row
+%-----------------------------------------------------------
+
+ \define@key{mcqtextbottomFourOne}{questionnumber}{\def\mcqtextbottomFourOnequestionnumber{#1}} 
+ \define@key{mcqtextbottomFourOne}{questionTag}{\def\mcqtextbottomFourOnequestionTag{#1}}
+\define@key{mcqtextbottomFourOne}{questiontext}{\def\mcqtextbottomFourOnequestiontext{#1}}
+\define@key{mcqtextbottomFourOne}{optionA}{\def\mcqtextbottomFourOneoptionA{#1}}
+\define@key{mcqtextbottomFourOne}{optionB}{\def\mcqtextbottomFourOneoptionB{#1}}
+\define@key{mcqtextbottomFourOne}{optionC}{\def\mcqtextbottomFourOneoptionC{#1}}
+\define@key{mcqtextbottomFourOne}{optionD}{\def\mcqtextbottomFourOneoptionD{#1}}
+\define@key{mcqtextbottomFourOne}{correctoption}{\def\mcqtextbottomFourOnecorrectoption{#1}}
+
+
+\newcommand{\mcqtextbottomFourOne}[1]{%
+  \setkeys{mcqtextbottomFourOne}{#1}%
+
+
+  
+  \begin{raggedright}
+    \textbf{Question \mcqtextbottomFourOnequestionnumber:} \mcqtextbottomFourOnequestiontext \\
+    \medskip
+      (a) \medskip \mcqtextbottomFourOneoptionA\\
+      (b) \medskip \mcqtextbottomFourOneoptionB\\      
+      (c) \medskip \mcqtextbottomFourOneoptionC\\
+      (d) \medskip \mcqtextbottomFourOneoptionD\\
+   \end{raggedright}
+}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% DEFINE KEY FOR mcqtextbottomOneFour %
+
+\define@key{mcqtextbottomOneFour}{questionnumber}{\def\mcqtextbottomOneFourquestionnumber{#1}} 
+\define@key{mcqtextbottomOneFour}{questiontext}{\def\mcqtextbottomOneFourquestiontext{#1}}
+\define@key{mcqtextbottomOneFour}{optionA}{\def\mcqtextbottomOneFouroptionA{#1}}
+\define@key{mcqtextbottomOneFour}{optionB}{\def\mcqtextbottomOneFouroptionB{#1}}
+\define@key{mcqtextbottomOneFour}{optionC}{\def\mcqtextbottomOneFouroptionC{#1}}
+\define@key{mcqtextbottomOneFour}{optionD}{\def\mcqtextbottomOneFouroptionD{#1}}
+\define@key{mcqtextbottomOneFour}{questionTag}{\def\mcqtextbottomOneFourquestionTag{#1}} 
+\define@key{mcqtextbottomOneFour}{correctoption}{\def\mcqtextbottomOneFourcorrectoption{#1}}
+
+% COMMAND FOR mcqtextbottomOneFour %
+
+\newcommand{\mcqtextbottomOneFour}[1]{%
+  \setkeys{mcqtextbottomOneFour}{#1}%
+
+
+  
+  \begin{raggedright}
+    \textbf{Question \mcqtextbottomOneFourquestionnumber:} \mcqtextbottomOneFourquestiontext
+    \begin{multicols}{4}
+      (a) \medskip \mcqtextbottomOneFouroptionA\\
+      (b) \medskip \mcqtextbottomOneFouroptionB\\      
+      (c) \medskip \mcqtextbottomOneFouroptionC\\
+      (d) \medskip \mcqtextbottomOneFouroptionD\\
+    \end{multicols}
+  \end{raggedright}
+}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% Define key FOR mcqtextbottomOneTwo 
+
+\define@key{mcqtextbottomOneTwo}{questionnumber}{\def\mcqtextbottomOneTwoquestion{#1}}
+\define@key{mcqtextbottomOneTwo}{questiontext}{\def\mcqtextbottomOneTwoquestiontext{#1}}
+\define@key{mcqtextbottomOneTwo}{optionA}{\def\mcqtextbottomOneTwooptionA{#1}}
+\define@key{mcqtextbottomOneTwo}{optionB}{\def\mcqtextbottomOneTwooptionB{#1}}
+\define@key{mcqtextbottomOneTwo}{questionTag}{\def\mcqtextbottomOneTwoquestionTag{#1}}
+\define@key{mcqtextbottomOneTwo}{correctoption}{\def\mcqtextbottomOneTwocorrectoption{#1}}
+
+% COMMAND FOR mcqtextbottomOneTwo %
+
+\newcommand{\mcqtextbottomOneTwo}[1]{%
+  \setkeys{mcqtextbottomOneTwo}{#1}%
+
+
+  
+  \begin{raggedright}
+    \textbf{Question \mcqtextbottomOneTwoquestion:} \mcqtextbottomOneTwoquestiontext\\
+    \begin{multicols}{2}
+      (a) \medskip \mcqtextbottomOneTwooptionA\\
+      (b) \medskip \mcqtextbottomOneTwooptionB\\
+    \end{multicols}
+  \end{raggedright}
+}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% Define key FOR mcqtextbottomTwoTwo
+
+\define@key{mcqtextbottomTwoTwo}{questionnumber}{\def\mcqtextbottomTwoTwoquestion{#1}}
+\define@key{mcqtextbottomTwoTwo}{questiontext}{\def\mcqtextbottomTwoTwoquestiontext{#1}}
+\define@key{mcqtextbottomTwoTwo}{optionA}{\def\mcqtextbottomTwoTwooptionA{#1}}
+\define@key{mcqtextbottomTwoTwo}{optionB}{\def\mcqtextbottomTwoTwooptionB{#1}}
+\define@key{mcqtextbottomTwoTwo}{optionC}{\def\mcqtextbottomTwoTwooptionC{#1}}
+\define@key{mcqtextbottomTwoTwo}{optionD}{\def\mcqtextbottomTwoTwooptionD{#1}}
+\define@key{mcqtextbottomTwoTwo}{questionTag}{\def\mcqtextbottomTwoTwoquestionTag{#1}}
+\define@key{mcqtextbottomTwoTwo}{correctoption}{\def\mcqtextbottomTwoTwocorrectoption{#1}}
+
+% COMMAND FOR mcqtextbottomTwoTwo %
+
+\newcommand{\mcqtextbottomTwoTwo}[1]{%
+  \setkeys{mcqtextbottomTwoTwo}{#1}%
+
+
+  
+  \begin{raggedright}
+    \textbf{Question \mcqtextbottomTwoTwoquestion:} \mcqtextbottomTwoTwoquestiontext\\
+    \begin{multicols}{2}
+      (a) \medskip \mcqtextbottomTwoTwooptionA\\
+      (c) \medskip \mcqtextbottomTwoTwooptionC\\
+      \columnbreak
+      (b) \medskip \mcqtextbottomTwoTwooptionB\\
+      (d) \medskip \mcqtextbottomTwoTwooptionD\\
+    \end{multicols}
+  \end{raggedright}
+}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% Define key FOR mcqtextsideFourOne
+
+
+\define@key{mcqtextsideFourOne}{questionnumber}{\def\mcqtextsideFourOnequestionnumber{#1}} 
+\define@key{mcqtextsideFourOne}{questionTag}{\def\mcqtextsideFourOnequestionTag{#1}} 
+\define@key{mcqtextsideFourOne}{questiontext}{\def\mcqtextsideFourOnequestiontext{#1}}
+\define@key{mcqtextsideFourOne}{optionA}{\def\mcqtextsideFourOneoptionA{#1}}
+\define@key{mcqtextsideFourOne}{optionB}{\def\mcqtextsideFourOneoptionB{#1}}
+\define@key{mcqtextsideFourOne}{optionC}{\def\mcqtextsideFourOneoptionC{#1}}
+\define@key{mcqtextsideFourOne}{optionD}{\def\mcqtextsideFourOneoptionD{#1}}
+\define@key{mcqtextsideFourOne}{correctoption}{\def\mcqtextsideFourOnecorrectoption{#1}}
+\define@key{mcqtextsideFourOne}{leftmini}{\def\mcqtextsideFourOneleftmini{#1}}
+\define@key{mcqtextsideFourOne}{rightmini}{\def\mcqtextsideFourOnerightmini{#1}}
+
+% COMMAND FOR mcqtextsideFourOne
+
+\newcommand{\mcqtextsideFourOne}[1]{%
+  \setkeys{mcqtextsideFourOne}{#1}%
+
+
+  
+  \begin{raggedright}
+  \begin{minipage}[t]{\mcqtextsideFourOneleftmini\linewidth}
+    \textbf{Question \mcqtextsideFourOnequestionnumber:} \mcqtextsideFourOnequestiontext\\
+  \end{minipage}\hfill
+  \begin{minipage}[t]{\mcqtextsideFourOnerightmini\linewidth}
+        (a) \medskip \mcqtextsideFourOneoptionA\\
+        (b) \medskip \mcqtextsideFourOneoptionB\\
+        (c) \medskip \mcqtextsideFourOneoptionC\\
+        (d) \medskip \mcqtextsideFourOneoptionD\\
+     \end{minipage}
+   \end{raggedright}
+}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% Define key FOR mcqimgbottomOneFour
+
+\define@key{mcqimgbottomOneFour}{questionnumber}{\def\mcqimgbottomOneFourquestionnumber{#1}}
+\define@key{mcqimgbottomOneFour}{questionTag}{\def\mcqimgbottomOneFourquestionTag{#1}}
+\define@key{mcqimgbottomOneFour}{questiontext}{\def\mcqimgbottomOneFourquestiontext{#1}}
+\define@key{mcqimgbottomOneFour}{optionA}{\def\mcqimgbottomOneFouroptionA{#1}}
+\define@key{mcqimgbottomOneFour}{optionB}{\def\mcqimgbottomOneFouroptionB{#1}}
+\define@key{mcqimgbottomOneFour}{optionC}{\def\mcqimgbottomOneFouroptionC{#1}}
+\define@key{mcqimgbottomOneFour}{optionD}{\def\mcqimgbottomOneFouroptionD{#1}}
+\define@key{mcqimgbottomOneFour}{correctoption}{\def\mcqimgbottomOneFourcorrectoption{#1}}
+
+% COMMAND FOR mcqimgbottomOneFour %
+
+\newcommand{\mcqimgbottomOneFour}[1]{%
+  \setkeys{mcqimgbottomOneFour}{#1}%
+
+
+  
+  \begin{raggedright}
+    \textbf{Question \mcqimgbottomOneFourquestionnumber:} \mcqimgbottomOneFourquestiontext \\
+    \begin{multicols}{4}
+      (a) \includegraphics[width=2.5cm, height=2cm]{\mcqimgbottomOneFouroptionA}  \\
+      (b) \includegraphics[width=2.5cm, height=2cm]{\mcqimgbottomOneFouroptionB}   \\
+      (c) \includegraphics[width=2.5cm, height=2cm]{\mcqimgbottomOneFouroptionC}  \\
+      (d) \includegraphics[width=2.5cm, height=2cm]{\mcqimgbottomOneFouroptionD} 
+    \end{multicols}
+  \end{raggedright}
+}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% Define key FOR mcqimgdbottomOneFour
+
+\define@key{mcqimgdbottomOneFour}{questionnumber}{\def\mcqimgdbottomOneFourquestionnumber{#1}}
+\define@key{mcqimgdbottomOneFour}{questionTag}{\def\mcqimgdbottomOneFourquestionTag{#1}}
+\define@key{mcqimgdbottomOneFour}{questiontext}{\def\mcqimgdbottomOneFourquestiontext{#1}}
+\define@key{mcqimgdbottomOneFour}{optionA}{\def\mcqimgdbottomOneFouroptionA{#1}}
+\define@key{mcqimgdbottomOneFour}{optionAtext}{\def\mcqimgdbottomOneFouroptionAtext{#1}}
+\define@key{mcqimgdbottomOneFour}{optionB}{\def\mcqimgdbottomOneFouroptionB{#1}}
+\define@key{mcqimgdbottomOneFour}{optionBtext}{\def\mcqimgdbottomOneFouroptionBtext{#1}}
+\define@key{mcqimgdbottomOneFour}{optionC}{\def\mcqimgdbottomOneFouroptionC{#1}}
+\define@key{mcqimgdbottomOneFour}{optionCtext}{\def\mcqimgdbottomOneFouroptionCtext{#1}}
+\define@key{mcqimgdbottomOneFour}{optionD}{\def\mcqimgdbottomOneFouroptionD{#1}}
+\define@key{mcqimgdbottomOneFour}{optionDtext}{\def\mcqimgdbottomOneFouroptionDtext{#1}}
+\define@key{mcqimgdbottomOneFour}{correctoption}{\def\mcqimgdbottomOneFourcorrectoption{#1}}
+
+% COMMAND FOR mcqimgdbottomOneFour %
+
+\newcommand{\mcqimgdbottomOneFour}[1]{%
+  \setkeys{mcqimgdbottomOneFour}{#1}%
+
+
+  
+  \begin{raggedright}
+    \textbf{Question \mcqimgdbottomOneFourquestionnumber:} \mcqimgdbottomOneFourquestiontext \\
+    \begin{multicols}{4}
+       \includegraphics[width=2.5cm, height=2cm]{\mcqimgdbottomOneFouroptionA} \\*
+      (a) \mcqimgdbottomOneFouroptionAtext \\
+
+       \includegraphics[width=2.5cm, height=2cm]{\mcqimgdbottomOneFouroptionB} \\*      
+      (b) \mcqimgdbottomOneFouroptionBtext \\
+
+       \includegraphics[width=2.5cm, height=2cm]{\mcqimgdbottomOneFouroptionC} \\*
+      (c) \mcqimgdbottomOneFouroptionCtext \\
+
+       \includegraphics[width=2.5cm, height=2cm]{\mcqimgdbottomOneFouroptionD} \\*
+      (d) \mcqimgdbottomOneFouroptionDtext
+    \end{multicols}
+  \end{raggedright}
+  }
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% Define key FOR mcqimgleftFourOne
+
+\define@key{mcqimgleftFourOne}{questionnumber}{\def\mcqimgleftFourOnequestionnumber{#1}} 
+\define@key{mcqimgleftFourOne}{questiontext}{\def\mcqimgleftFourOnequestiontext{#1}}
+\define@key{mcqimgleftFourOne}{imgtabletikz}{\def\mcqimgtabletikz{#1}}
+\define@key{mcqimgleftFourOne}{optionA}{\def\mcqimgleftFourOneoptionA{#1}}
+\define@key{mcqimgleftFourOne}{optionB}{\def\mcqimgleftFourOneoptionB{#1}}
+\define@key{mcqimgleftFourOne}{optionC}{\def\mcqimgleftFourOneoptionC{#1}}
+\define@key{mcqimgleftFourOne}{optionD}{\def\mcqimgleftFourOneoptionD{#1}}
+\define@key{mcqimgleftFourOne}{questionTag}{\def\mcqimgleftFourOnequestionTag{#1}} 
+\define@key{mcqimgleftFourOne}{correctoption}{\def\mcqimgleftFourOnecorrectoption{#1}}
+\define@key{mcqimgleftFourOne}{leftmini}{\def\mcqimgleftFourOneleftmini{#1}}
+\define@key{mcqimgleftFourOne}{rightmini}{\def\mcqimgleftFourOnerightmini{#1}}
+
+% COMMAND FOR mcqimgleftFourOne 
+
+\newcommand{\mcqimgleftFourOne}[1]{%
+  \setkeys{mcqimgleftFourOne}{#1}%
+
+  
+  \begin{raggedright}
+    \textbf{Question \mcqimgleftFourOnequestionnumber:} \mcqimgleftFourOnequestiontext\\
+    \medskip
+  \end{raggedright}
+  \begin{minipage}[]{\mcqimgleftFourOneleftmini\linewidth}
+  \Centering
+    \mcqimgtabletikz 
+  \end{minipage}\hfill
+  \begin{minipage}[]{\mcqimgleftFourOnerightmini\linewidth}
+      (a) \medskip \mcqimgleftFourOneoptionA\\
+      (b) \medskip \mcqimgleftFourOneoptionB\\
+      (c) \medskip \mcqimgleftFourOneoptionC\\
+      (d) \medskip \mcqimgleftFourOneoptionD\\  
+   \end{minipage}
+   \vspace{2mm}}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% DEFINE KEY FOR mcqfourimg %
+
+\define@key{mcqimgsideFourOne}{questionnumber} {\def\mcqimgsideFourOnequestionnumber{#1} }
+\define@key{mcqimgsideFourOne}{questiontext}{\def\mcqimgsideFourOnequestiontext{#1}}
+\define@key{mcqimgsideFourOne}{imgwidth}{\def\mcqimgsideFourOnewidth{#1}}
+\define@key{mcqimgsideFourOne}{imgheight}{\def\mcqimgsideFourOneheight{#1}}
+\define@key{mcqimgsideFourOne}{img}{\def\mcqimgsideFourOne{#1}}
+\define@key{mcqimgsideFourOne}{optionA}{\def\mcqimgsideFourOneoptionA{#1}}
+\define@key{mcqimgsideFourOne}{optionB}{\def\mcqimgsideFourOneoptionB{#1}}
+\define@key{mcqimgsideFourOne}{optionC}{\def\mcqimgsideFourOneoptionC{#1}}
+\define@key{mcqimgsideFourOne}{optionD}{\def\mcqimgsideFourOneoptionD{#1}}
+\define@key{mcqimgsideFourOne}{questionTag}{\def\mcqimgsideFourOnequestionTag{#1}} 
+\define@key{mcqimgsideFourOne}{correctoption}{\def\mcqimgsideFourOnecorrectoption{#1}}
+\define@key{mcqimgsideFourOne}{leftmini}{\def\mcqimgsideFourOneleftmini{#1}}
+\define@key{mcqimgsideFourOne}{rightmini}{\def\mcqimgsideFourOnerightmini{#1}}
+
+\newcommand{\mcqimgsideFourOne}[1]{
+  \setkeys{mcqimgsideFourOne}{#1}
+
+
+  
+  \begin{raggedright}
+    \begin{minipage}[]{\mcqimgsideFourOneleftmini\textwidth}
+    \textbf{Question \mcqimgsideFourOnequestionnumber:} \mcqimgsideFourOnequestiontext
+    \vspace{2mm} \\
+        (a) \medskip \mcqimgsideFourOneoptionA \\
+        (b) \medskip \mcqimgsideFourOneoptionB \\
+        (c) \medskip \mcqimgsideFourOneoptionC \\
+        (d) \medskip \mcqimgsideFourOneoptionD \\
+    \end{minipage}
+    \begin{minipage}[]{\mcqimgsideFourOnerightmini\textwidth}
+    \includegraphics[width=\mcqimgsideFourOnewidth, height=\mcqimgsideFourOneheight]{\mcqimgsideFourOne}
+    \end{minipage}
+   \end{raggedright}
+         }
+
+%-----------------------------------------------------------
+%               MCQ without Option
+%-----------------------------------------------------------
+
+
+\define@key{mcqdescriptive}{questionnumber}{\def\mcqdescriptivequestionnumber{#1}} 
+\define@key{mcqdescriptive}{questionTag}{\def\mcqdescriptivequestionTag{#1}} 
+\define@key{mcqdescriptive}{questiontext}{\def\mcqdescriptivequestiontext{#1}}
+\define@key{mcqdescriptive}{correctoption}{\def\mcqdescriptivecorrectoption{#1}}
+
+\newcommand{\mcqdescriptive}[1]{%
+  \setkeys{mcqdescriptive}{#1}%
+
+
+  
+\begin{raggedright}
+    \textbf{Question \mcqdescriptivequestionnumber:} \mcqdescriptivequestiontext
+\end{raggedright} 
+}
+
+%-----------------------------------------------------------
+%                        TABLE
+%-----------------------------------------------------------
+\newcolumntype{R}[1]{>{\Centering\arraybackslash}p{#1}}
+
+\makeatother
+
+\newmdenv[
+topline=true,          % Include a top line
+bottomline=true,       % Include a bottom line
+rightline=true,        % Include a right line
+leftline=true,         % Include a left line
+linewidth=1pt,         % Line width of the border
+innertopmargin=0.1cm,   % Inner top margin inside the frame
+innerbottommargin=0cm,% Inner bottom margin inside the frame
+skipabove=0cm,        % Vertical space above the frame
+skipbelow=0cm,        % Vertical space below the frame
+% backgroundcolor=gray!10, % Background color of the frame
+splittopskip=1cm]{answerbox}
+
+\newmdenv[
+topline=true,          % Include a top line
+bottomline=true,       % Include a bottom line
+rightline=true,        % Include a right line
+leftline=true,         % Include a left line
+linewidth=1pt,         % Line width of the border
+innertopmargin=0.2cm,   % Inner top margin inside the frame
+innerbottommargin=0.2cm,% Inner bottom margin inside the frame
+innerleftmargin=0.2cm
+innerrightmargin=0.2cm
+skipabove=0.2cm,        % Vertical space above the frame
+skipbelow=0.2cm,        % Vertical space below the frame
+% backgroundcolor=gray!10, % Background color of the frame
+splittopskip=1cm]{qanswerbox}
+
+
+
+
+\newcommand{\workspace}[2]{%
+    \noindent \zsavepos{ws-#1}
+        #2
+        \noindent \zsavepos{ws-#1-end}
+
+    \FPeval{\scaledx}{round(\zposx{ws-#1} / \scalefactor, 1)}
+    \FPeval{\scaledy}{round(\zposy{ws-#1} / \scalefactor, 1)}
+
+    \FPeval{\scaledxend}{round(\zposx{ws-#1-end} / \scalefactor, 1)}
+    \FPeval{\scaledyend}{round(\zposy{ws-#1-end} / \scalefactor, 1)}
+
+  \immediate\write\coordfile{% Write to file
+    #1,%
+    \scaledx mm,
+    \scaledy mm,
+    \scaledxend mm,
+    \scaledyend mm,
+    \the\value{page}%
+  }%
+
+}
+
+%                        TABLE
+%-----------------------------------------------------------
+\newcolumntype{R}[1]{>{\Centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\Centering\arraybackslash}m{#1}}
+
+\makeatother%

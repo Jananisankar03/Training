@@ -1,0 +1,1603 @@
+\documentclass[10pt,a4paper]{article}%
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
+\usepackage{lmodern}%
+\usepackage{textcomp}%
+\usepackage{lastpage}%
+\usepackage{geometry}%
+\geometry{top=1.8cm,bottom=3.5cm,left=1cm,right=1cm}%
+
+
+
+%
+
+\input{Subject Report/Template/Package}
+\input{Subject Report/Template/Custom Command}
+\input{Subject Report/Template/Question Template}
+%\input{Subject Report/Template/Chart Command}
+\input{Subject Report/Template/Chart Command - Pattern Fill}
+\graphicspath{ {D:/Github - Report/lb-reports/LaPIS AY4/Question Images/}}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{array,booktabs,ragged2e}
+\usepackage{amsmath}
+\usepackage{xkeyval}
+\usepackage{float}
+\usepackage{physics}
+\usepackage{tfrupee}
+\usepackage{mathtools} %underbrace symbol
+\usepackage{adjustbox} 
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{tkz-euclide}
+\usepackage{pgf-pie}
+\usepackage[misc]{ifsym} %Used in tally mark
+\usetikzlibrary{patterns,calc}
+\begin{document}%
+\normalsize%
+\setlength{\headheight}{1.2cm}%
+\SetWatermarkLightness{ 0.95}
+        \SetWatermarkText{ Learn Basics }
+        \SetWatermarkScale{ 0.7}%
+
+        \setlength{\headsep}{3cm} 
+        \pgfplotsset{compat=1.16}%
+        \indexpage
+        \header{conmark}{Consolidated Mark}
+        \emptypage{land}%
+        \header{clschapter}{Chapter Wise Performance Analysis}
+        \header{clstopic}{Topic Wise Performance Analysis}
+        \header{Namelist}{Student Name List for Question Paper Grouping}
+        \header{clsqwuestion}{Question Wise Performance Analysis}
+        \header{clsquestionrespponse}{Question Response Distribution}
+        \header{clsanswerkey}{Answer Key Analysis}
+        \header{clsquestionperformance}{Question Wise Performance Analysis}   
+        %
+\pagestyle{indexpage}%
+    \examdetails{Vivegaa School}{5 A}{Math}{02/04/2025}{VS}
+    \classdetails{69}{19}{17}{3}
+    \centering
+    \parbox[c]{18cm}{\vspace{1cm} \centering \textbf{\ul{Chapters Tested in the Diagnostic Test}}\\ \vspace{0.1cm} 
+    \begin{multicols}{2}
+    
+        \begin{enumerate}
+            \item[] Basic Math
+\item[] 1 - Number System*
+\item[] 2 - Factor and Multiples*
+\item[] 3 - Fractions*
+\item[] 4 - Decimals and their Conversion*
+\item[] 5 - Shapes and Angles*
+\item[] 6 - Visualization*
+\item[] 7 - Symmetry*
+\item[] 8 - Mensuration*
+\item[] 9 - Charts*
+\item[] 17 - Data Handling *
+
+        \end{enumerate}
+        
+        \end{multicols}
+
+        \vspace{0.5cm} }
+        \\        
+
+        \textbf{\ul{List of Reports}}
+
+        \begin{table}[H]
+        \centering
+        \renewcommand{\arraystretch}{2.5}%
+        \begin{tabular}{|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{6cm}|>{\centering\arraybackslash}m{2cm}|}
+        \hline
+        \textbf{S.No.}  & \textbf{Report Name} & \textbf{Page No.} \\
+        \hline 
+        1 & Consolidated Marks & \pageref{Consolidated MarK} \\
+        \hline
+        2 & Student Chapter wise Performance Analysis & \pageref{student} \\
+        \hline
+        3 & Chapter Wise Performance Analysis & \pageref{chapter} \\
+        \hline
+        4 & Question Wise Performance Analysis & \pageref{questionperformance}\\
+        \hline
+        5 & Question Response Distribution & \pageref{questionrespponse}\\
+        \hline
+        6 & Answer Key Analysis & \pageref{AnswerKey}\\
+        \hline
+        
+    \end{tabular}
+    \end{table}%
+    %
+
+    \newpage%
+    \pagestyle{headerconmark}
+    \newgeometry{top=1.5cm,bottom=2.5cm,left=0.5cm,right=0.5cm}%%
+    \setlength{\headsep}{2cm}%%
+    \label{Consolidated MarK}%
+
+    \renewcommand{\arraystretch}{1.5}%
+    \arrayrulecolor{black} 
+    \begin{longtable}%
+    {|>{\centering\arraybackslash}m{1cm}|m{5cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{2.2cm}|>{\centering\arraybackslash}m{2.2cm}|}%
+    \hline%
+    \textbf{S.No}&\centering \textbf{Student Name}&\textbf{Correct (40)}&\textbf{Incorrect (40)}&\textbf{Marked Learn Later (40)}&\textbf{Percentage} \\ \hline \endhead %%
+1 & Aadith A &29 & 11 & 0 & \cellcolor{white}73 \% \\ \hline%%
+2 & Advik S K &33 & 6 & 1 & \cellcolor{cellgreen}83 \% \\ \hline%%
+3 & Asmitha S K &28 & 12 & 0 & \cellcolor{white}70 \% \\ \hline%%
+4 & Avinash Renganathan R & 
+    \multicolumn{4}{c|}{\textcolor{red}{Absent}}
+    \\
+    \hline
+    
+5 & Dharsith S &37 & 3 & 0 & \cellcolor{cellgreen}93 \% \\ \hline%%
+6 & Giftson Jabez S &35 & 5 & 0 & \cellcolor{cellgreen}88 \% \\ \hline%%
+7 & Hari Pon Karthi A S &21 & 13 & 6 & \cellcolor{white}53 \% \\ \hline%%
+8 & Harith S &22 & 15 & 3 & \cellcolor{white}55 \% \\ \hline%%
+9 & Madhusri M S &33 & 5 & 2 & \cellcolor{cellgreen}83 \% \\ \hline%%
+10 & Maha Swetha B &23 & 17 & 0 & \cellcolor{white}58 \% \\ \hline%%
+11 & Mahathi G & 
+    \multicolumn{4}{c|}{\textcolor{red}{Absent}}
+    \\
+    \hline
+    
+12 & Meghna Nair P &28 & 11 & 1 & \cellcolor{white}70 \% \\ \hline%%
+13 & Mohammed Aahil N &22 & 18 & 0 & \cellcolor{white}55 \% \\ \hline%%
+14 & Niranjana S &32 & 7 & 1 & \cellcolor{cellgreen}80 \% \\ \hline%%
+15 & Sai Rithik S &28 & 12 & 0 & \cellcolor{white}70 \% \\ \hline%%
+16 & Sasyashree R P &22 & 17 & 1 & \cellcolor{white}55 \% \\ \hline%%
+17 & Subhashree M &35 & 3 & 2 & \cellcolor{cellgreen}88 \% \\ \hline%%
+18 & Sujith P &26 & 12 & 2 & \cellcolor{white}65 \% \\ \hline%%
+19 & Sumanth R &14 & 26 & 0 & \cellcolor{cellred}35 \% \\ \hline%%
+    \end{longtable}%
+    \parbox[c]{15cm}{\vspace{0.1cm}
+    \textbf{Note:}\\
+    We have provided an extra option called \textbf{Learn Later} as \textbf{Option E} which students can select if they are unsure of an answer to a question.}%
+    %
+
+    \newpage
+    \label{student}%
+
+    \pagestyle{emptypageland}
+
+    \newgeometry{top=1.8cm,bottom=2.5cm,left=0.5cm,right=0.5cm}
+    \setlength{\headsep}{2.5cm}
+    \begin{landscape}
+    \landscapeheader{Student Chapter wise Performance Analysis}
+    \vspace{0.5cm}
+    \renewcommand{\arraystretch}{1.25}%%
+    \arrayrulecolor{black}
+    \fontsize{9}{11}\selectfont
+    \begin{longtable}[H]{|M{0.4cm}%
+    |m{3.5cm}%
+    |M{1.7cm}%
+    *{11}{|M{1.21cm}} 
+    |M{0.8cm}%
+    |}%
+    %
+    \hline
+    \textbf{S. No.} &\centering \textbf{Student Name} & \textbf{Math Score (40)}  & 
+    \textbf{Basic Math} &\textbf{Ch 1} &\textbf{Ch 2} &\textbf{Ch 3} &\textbf{Ch 4} &\textbf{Ch 5} &\textbf{Ch 6} &\textbf{Ch 7} &\textbf{Ch 8} &\textbf{Ch 9} &\textbf{Ch 17} &\textbf{\%} \\%%
+    \hline
+    1 & Aadith A & 29 & 60\% & \cellcolor{cellgreen}88\% & 75\% & \cellcolor{cellred}33\% & 71\% & \cellcolor{cellgreen}100\% & 50\% & \cellcolor{cellgreen}100\% & 67\% & 50\% & \cellcolor{cellgreen}100\% & {73}\% \\ 
+    \hline
+    2 & Advik S K & 33 & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & 75\% & \cellcolor{cellgreen}100\% & 57\% & 67\% & 50\% & \cellcolor{cellgreen}100\% & 67\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}83\% \\ 
+    \hline
+    3 & Asmitha S K & 28 & \cellcolor{cellgreen}100\% & 75\% & 50\% & 67\% & 43\% & 67\% & 50\% & \cellcolor{cellgreen}100\% & 67\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & {70}\% \\ 
+    \hline
+    4 & Avinash Renganathan R  & 
+    \multicolumn{13}{c|}{\textcolor{red}{Absent}} \\
+    \hline5 & Dharsith S & 37 & \cellcolor{cellgreen}80\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}86\% & 67\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}93\% \\ 
+    \hline
+    6 & Giftson Jabez S & 35 & \cellcolor{cellgreen}80\% & \cellcolor{cellgreen}100\% & \cellcolor{cellred}25\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}86\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}88\% \\ 
+    \hline
+    7 & Hari Pon Karthi A S & 21 & \cellcolor{cellred}20\% & 75\% & 50\% & 67\% & 43\% & 67\% & \cellcolor{cellred}0\% & \cellcolor{cellred}0\% & \cellcolor{cellred}33\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & {53}\% \\ 
+    \hline
+    8 & Harith S & 22 & 60\% & 75\% & 50\% & \cellcolor{cellred}33\% & \cellcolor{cellred}29\% & 67\% & 50\% & \cellcolor{cellgreen}100\% & \cellcolor{cellred}33\% & 50\% & \cellcolor{cellgreen}100\% & {55}\% \\ 
+    \hline
+    9 & Madhusri M S & 33 & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & 75\% & \cellcolor{cellgreen}100\% & 43\% & 67\% & 50\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}83\% \\ 
+    \hline
+    10 & Maha Swetha B & 23 & 60\% & \cellcolor{cellgreen}88\% & \cellcolor{cellred}25\% & \cellcolor{cellred}33\% & \cellcolor{cellred}29\% & \cellcolor{cellgreen}100\% & 50\% & \cellcolor{cellred}0\% & 67\% & \cellcolor{cellgreen}100\% & 50\% & {58}\% \\ 
+    \hline
+    11 & Mahathi G  & 
+    \multicolumn{13}{c|}{\textcolor{red}{Absent}} \\
+    \hline12 & Meghna Nair P & 28 & 40\% & \cellcolor{cellgreen}88\% & 75\% & \cellcolor{cellgreen}100\% & 43\% & \cellcolor{cellgreen}100\% & 50\% & \cellcolor{cellgreen}100\% & 67\% & 50\% & \cellcolor{cellgreen}100\% & {70}\% \\ 
+    \hline
+    13 & Mohammed Aahil N & 22 & 40\% & 63\% & \cellcolor{cellred}25\% & 67\% & 71\% & 67\% & 50\% & \cellcolor{cellred}0\% & \cellcolor{cellred}33\% & \cellcolor{cellgreen}100\% & 50\% & {55}\% \\ 
+    \hline
+    14 & Niranjana S & 32 & \cellcolor{cellgreen}80\% & \cellcolor{cellgreen}100\% & 50\% & \cellcolor{cellgreen}100\% & 43\% & 67\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}80\% \\ 
+    \hline
+    15 & Sai Rithik S & 28 & 60\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellred}33\% & 43\% & 67\% & 50\% & \cellcolor{cellgreen}100\% & 67\% & \cellcolor{cellgreen}100\% & 50\% & {70}\% \\ 
+    \hline
+    16 & Sasyashree R P & 22 & 40\% & \cellcolor{cellgreen}100\% & \cellcolor{cellred}25\% & \cellcolor{cellred}33\% & \cellcolor{cellred}14\% & 67\% & 50\% & \cellcolor{cellgreen}100\% & \cellcolor{cellred}33\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & {55}\% \\ 
+    \hline
+    17 & Subhashree M & 35 & \cellcolor{cellgreen}80\% & \cellcolor{cellgreen}100\% & 75\% & \cellcolor{cellgreen}100\% & 71\% & \cellcolor{cellgreen}100\% & 50\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}100\% & \cellcolor{cellgreen}88\% \\ 
+    \hline
+    18 & Sujith P & 26 & \cellcolor{cellgreen}80\% & \cellcolor{cellgreen}88\% & 50\% & \cellcolor{cellred}33\% & 43\% & \cellcolor{cellgreen}100\% & 50\% & \cellcolor{cellgreen}100\% & \cellcolor{cellred}33\% & 50\% & \cellcolor{cellgreen}100\% & {65}\% \\ 
+    \hline
+    19 & Sumanth R & 14 & \cellcolor{cellred}20\% & 75\% & \cellcolor{cellred}0\% & \cellcolor{cellred}33\% & \cellcolor{cellred}14\% & \cellcolor{cellred}33\% & 50\% & \cellcolor{cellred}0\% & \cellcolor{cellred}33\% & 50\% & 50\% & \cellcolor{cellred}35\% \\ 
+    \hline
+    
+    \end{longtable}% 
+    \vspace{0.2cm}
+    \begin{center}
+    \textbf{Chapter Details}
+    \begin{table}[H]
+    \centering
+    \begin{tabular}{|M{1.8cm}|M{7cm}||M{1.8cm}|M{7cm}|}
+    \hline
+    \textbf{Chapter Number}  & \textbf{Chapter Name} & \textbf{Chapter Number}  & \textbf{Chapter Name} \\
+    \hline
+    
+                        Basic Math & Basic Math & Ch 1 & Number System* \\
+                        \hline
+                        Ch 2 & Factor and Multiples* & Ch 3 & Fractions* \\
+                        \hline
+                        Ch 4 & Decimals and their Conversion* & Ch 5 & Shapes and Angles* \\
+                        \hline
+                        Ch 6 & Visualization* & Ch 7 & Symmetry* \\
+                        \hline
+                        Ch 8 & Mensuration* & Ch 9 & Charts* \\
+                        \hline
+                        Ch 17 & Data Handling * &  &  \\
+                        \hline
+    \end{tabular}
+    \end{table}
+    \end{center}
+    \end{landscape}%
+    %
+
+    \newpage
+    \newgeometry{top=1.5cm,bottom=2.5cm,left=0.5cm,right=0.5cm}%%
+    \setlength{\headsep}{2cm}%%
+    \pagestyle{headerclschapter}%%
+    \label{chapter}
+
+    \begin{table}[H]%
+    \centering
+    \renewcommand{\arraystretch}{1.42}%
+    \arrayrulecolor{black} 
+    \centering%
+    \begin{tabular}{|>{\RaggedRight\arraybackslash}m{6.5cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3cm} |>{\centering\arraybackslash}m{3cm}|} %
+    \hline%
+    \multirow{2}{\linewidth}{\bfseries\centering\arraybackslash Chapter Number and Name} & \multicolumn{3}{c|}{\textbf{Class \classsection}} \\%
+    \cline{2-4}%
+    & \textbf{Correct} & \textbf{Incorrect} & \textbf{Marked Learn Later}  \\%
+    \hline%
+            Basic Math & 65\%& 31\% & 5\% \\ \hline
+            1 - Number System* & \highgreen{89\%}& 11\% & 0\% \\ \hline
+            2 - Factor and Multiples* & 54\%& 40\% & 6\% \\ \hline
+            3 - Fractions* & 67\%& 31\% & 2\% \\ \hline
+            4 - Decimals and their Conversion* & 49\%& 45\% & 6\% \\ \hline
+            5 - Shapes and Angles* & 76\%& 22\% & 2\% \\ \hline
+            6 - Visualization* & 56\%& 41\% & 3\% \\ \hline
+            7 - Symmetry* & 76\%& 24\% & 0\% \\ \hline
+            8 - Mensuration* & 65\%& 33\% & 2\% \\ \hline
+            9 - Charts* & \highgreen{85\%}& 15\% & 0\% \\ \hline
+            17 - Data Handling * & \highgreen{88\%}& 12\% & 0\% \\ \hline
+    \end{tabular}%
+    \end{table}%
+    %\vspace{1cm}
+    \Xbarstack
+    {
+    Scale=1,
+    Height={9.5},%height of Chart
+    Width={18},%width of Chart
+    BarWidth={0.7},
+    Xticklabels={{Basic Math} , {1 - Number System*} , {2 - Factor and Multiples*} , {3 - Fractions*} , {4 - Decimals and their Conversion*} , {5 - Shapes and Angles*} , {6 - Visualization*} , {7 - Symmetry*} , {8 - Mensuration*} , {9 - Charts*} , {17 - Data Handling *}},
+    Ylabel={Percentage (\%)},
+    Barcoords = {{3},{11},{65 , 89 , 54 , 67 , 49 , 76 , 56 , 76 , 65 , 85 , 88},{31 , 11 , 40 , 31 , 45 , 22 , 41 , 24 , 33 , 15 , 12},{5 , 0 , 6 , 2 , 6 , 2 , 3 , 0 , 2 , 0 , 0}},
+    Title = {},
+    Ymax = 100,
+    Ymin = 0,
+    labelprefix=\% ,
+    Xticklabel={rotate=70, anchor=east,text width=4.5cm,align=right,xshift=-0.1cm}
+    }
+    {Correct,Wrong,Learn Later} %legends
+    %
+
+    \newpage%
+     \newgeometry{top=1.8cm,bottom=2cm,left=0.5cm,right=0.5cm}
+    \setlength{\headsep}{1.5cm}
+
+    \pagestyle{headerclsquestionperformance}
+
+    \label{questionperformance}
+
+    \renewcommand{\arraystretch}{1.5}  %
+    \begin{longtable}
+    {
+    |>{\centering\arraybackslash}m{4cm}
+    |>{\centering\arraybackslash}m{2.5cm}
+    |>{\centering\arraybackslash}m{2.5cm}
+    |>{\centering\arraybackslash}m{2.5cm}|
+    }
+    \hline     
+    \centering\textbf{Question Number} & \textbf{Correct} & \textbf{Incorrect} & \textbf{Marked Learn Later} \\
+    \hline 
+    \endhead
+    \multicolumn{4}{|>{\centering\arraybackslash}m{13cm}|}{\textbf{Basic Math}} \\
+\hline
+1 & \cellcolor{cellgreen}76\% & 24\% & 0\% \\ 
+\hline
+2 & 65\% & 35\% & 0\% \\ 
+\hline
+5 & \cellcolor{cellred}24\% & 65\% & 12\% \\ 
+\hline
+10 & \cellcolor{cellgreen}94\% & 6\% & 0\% \\ 
+\hline
+35 & 65\% & 24\% & 12\% \\ 
+\hline
+
+
+    \multicolumn{4}{|>{\centering\arraybackslash}m{13cm}|}{\textbf{1 - Number System*}} \\
+\hline
+4 & 71\% & 29\% & 0\% \\ 
+\hline
+12 & \cellcolor{cellgreen}88\% & 12\% & 0\% \\ 
+\hline
+15 & \cellcolor{cellgreen}100\% & 0\% & 0\% \\ 
+\hline
+18 & \cellcolor{cellgreen}94\% & 6\% & 0\% \\ 
+\hline
+20 & \cellcolor{cellgreen}94\% & 6\% & 0\% \\ 
+\hline
+26 & \cellcolor{cellgreen}94\% & 6\% & 0\% \\ 
+\hline
+27 & \cellcolor{cellgreen}76\% & 24\% & 0\% \\ 
+\hline
+30 & \cellcolor{cellgreen}94\% & 6\% & 0\% \\ 
+\hline
+
+
+    \multicolumn{4}{|>{\centering\arraybackslash}m{13cm}|}{\textbf{2 - Factor and Multiples*}} \\
+\hline
+7 & 71\% & 29\% & 0\% \\ 
+\hline
+17 & 65\% & 29\% & 6\% \\ 
+\hline
+31 & \cellcolor{cellred}18\% & 76\% & 6\% \\ 
+\hline
+32 & 65\% & 24\% & 12\% \\ 
+\hline
+
+
+    \multicolumn{4}{|>{\centering\arraybackslash}m{13cm}|}{\textbf{3 - Fractions*}} \\
+\hline
+6 & 71\% & 29\% & 0\% \\ 
+\hline
+13 & 47\% & 47\% & 6\% \\ 
+\hline
+37 & \cellcolor{cellgreen}82\% & 18\% & 0\% \\ 
+\hline
+
+
+    \multicolumn{4}{|>{\centering\arraybackslash}m{13cm}|}{\textbf{4 - Decimals and their Conversion*}} \\
+\hline
+9 & 41\% & 47\% & 12\% \\ 
+\hline
+14 & 59\% & 41\% & 0\% \\ 
+\hline
+19 & \cellcolor{cellred}12\% & 82\% & 6\% \\ 
+\hline
+23 & 41\% & 53\% & 6\% \\ 
+\hline
+33 & \cellcolor{cellgreen}88\% & 12\% & 0\% \\ 
+\hline
+38 & \cellcolor{cellgreen}88\% & 12\% & 0\% \\ 
+\hline
+39 & \cellcolor{cellred}12\% & 71\% & 18\% \\ 
+\hline
+
+
+    \multicolumn{4}{|>{\centering\arraybackslash}m{13cm}|}{\textbf{5 - Shapes and Angles*}} \\
+\hline
+21 & \cellcolor{cellgreen}100\% & 0\% & 0\% \\ 
+\hline
+22 & \cellcolor{cellred}35\% & 59\% & 6\% \\ 
+\hline
+29 & \cellcolor{cellgreen}94\% & 6\% & 0\% \\ 
+\hline
+
+
+    \multicolumn{4}{|>{\centering\arraybackslash}m{13cm}|}{\textbf{6 - Visualization*}} \\
+\hline
+25 & \cellcolor{cellgreen}88\% & 12\% & 0\% \\ 
+\hline
+28 & \cellcolor{cellred}24\% & 71\% & 6\% \\ 
+\hline
+
+
+    \multicolumn{4}{|>{\centering\arraybackslash}m{13cm}|}{\textbf{7 - Symmetry*}} \\
+\hline
+3 & \cellcolor{cellgreen}76\% & 24\% & 0\% \\ 
+\hline
+
+
+    \multicolumn{4}{|>{\centering\arraybackslash}m{13cm}|}{\textbf{8 - Mensuration*}} \\
+\hline
+11 & 47\% & 53\% & 0\% \\ 
+\hline
+24 & 53\% & 47\% & 0\% \\ 
+\hline
+36 & \cellcolor{cellgreen}94\% & 0\% & 6\% \\ 
+\hline
+
+
+    \multicolumn{4}{|>{\centering\arraybackslash}m{13cm}|}{\textbf{9 - Charts*}} \\
+\hline
+16 & \cellcolor{cellgreen}100\% & 0\% & 0\% \\ 
+\hline
+40 & 71\% & 29\% & 0\% \\ 
+\hline
+
+
+    \multicolumn{4}{|>{\centering\arraybackslash}m{13cm}|}{\textbf{17 - Data Handling *}} \\
+\hline
+8 & \cellcolor{cellgreen}82\% & 18\% & 0\% \\ 
+\hline
+34 & \cellcolor{cellgreen}94\% & 6\% & 0\% \\ 
+\hline
+
+
+    
+    \end{longtable}%
+    \parbox[c]{12cm}{\vspace{0.1cm}
+    \textbf{Note:}\\
+    To get know the students better we have included few extra concepts.}%
+
+    %
+
+    \newpage%
+    \pagestyle{headerclsquestionrespponse}%
+    \label{questionrespponse}
+    \queresponsecirculatchart{9.000}{15}{6}{\highno{Q1}/{24,0,76}, \highno{Q2}/{35,0,65}, \highno{Q3}/{24,0,76}, \highno{Q4}/{29,0,71}, \highyellow{Q5}/{65,12,24}, \highno{Q6}/{29,0,71}, \highno{Q7}/{29,0,71}, \highno{Q8}/{18,0,82}, \highno{Q9}/{47,12,41}, \highgreen{Q10}/{6,0,94}, \highno{Q11}/{53,0,47}, \highgreen{Q12}/{12,0,88}, \highno{Q13}/{47,6,47}, \highno{Q14}/{41,0,59}, \highgreen{Q15}/{0,0,100}, \highgreen{Q16}/{0,0,100}, \highno{Q17}/{29,6,65}, \highgreen{Q18}/{6,0,94}, \highyellowred{Q19}/{82,6,12}, \highgreen{Q20}/{6,0,94}, \highgreen{Q21}/{0,0,100}, \highyellow{Q22}/{59,6,35}, \highno{Q23}/{53,6,41}, \highno{Q24}/{47,0,53}, \highgreen{Q25}/{12,0,88}, \highgreen{Q26}/{6,0,94}, \highno{Q27}/{24,0,76}, \highyellow{Q28}/{71,6,24}, \highgreen{Q29}/{6,0,94}, \highgreen{Q30}/{6,0,94}, \highyellowred{Q31}/{76,6,18}, \highno{Q32}/{24,12,65}, \highgreen{Q33}/{12,0,88}, \highgreen{Q34}/{6,0,94}, \highno{Q35}/{24,12,65}, \highgreen{Q36}/{0,6,94}, \highno{Q37}/{18,0,82}, \highgreen{Q38}/{12,0,88}, \highyellowred{Q39}/{71,18,12}, \highno{Q40}/{29,0,71}}{5 A}{Math}%
+
+    \newpage%
+    \pagestyle{headerclsanswerkey}%
+    \label{AnswerKey}
+    \answerkeychaptername{Basic Math}
+
+
+\begin{minipage}{\linewidth}\mcqimgleftFourOne{
+questionnumber={1}, 
+questionTag={C5BM - BM - Q16}, 
+questiontext={Subtract.},
+imgtabletikz  = {
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+& 9 & 8 &6  \\
+$-$ & 6 & 9 & 9\\
+\hline
+& & & \\
+\hline
+\end{tabular}
+\end{table} },
+optionA={313},
+optionB={1685},
+optionC={ 287},
+optionD={397},
+correctoption={C},
+leftmini={0.5},
+rightmini={0.4},
+}
+
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & B (\ding{55}) & \cellcolor{cellgreen} C (\ding{51}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{24\%} & \highno{0\%} & \highgreen{76\%} & \highno{0\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={2}, 
+questionTag={C5BM - BM - Q21}, 
+questiontext={How many digits are greater than 3? \quad 		12667322},
+optionA={4},
+optionB={8},
+optionC={3},
+optionD={0},
+correctoption={C},}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & B (\ding{55}) & \cellcolor{cellgreen} C (\ding{51}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{6\%} & \highno{18\%} & \highno{65\%} & \highno{6\%} & \highno{6\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={5}, 
+questiontext={Find the remainder of the following. \quad 19477 $\divisionsymbol$ 9 },
+optionA={1},
+optionB={0},
+optionC={2164},
+optionD={2184},
+questionTag={C6M01 - DT - Q7}, 
+correctoption={A},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & \cellcolor{cellgreen} A (\ding{51}) & B (\ding{55}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highred{24\%} & \highno{12\%} & \highno{29\%} & \highno{18\%} & \highno{18\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqimgleftFourOne{
+questionnumber={10}, 
+questiontext={Add. },
+imgtabletikz  = {  
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{cccccc}
+  & 8 & 2 & 5 & 7 & 0  \\
+ + & 5 & 8 & 3 & 2 & 0 \\
+ \hline
+ &&&&&\\
+ \hline
+\end{tabular} },
+optionA={1310890},
+optionB={140980},
+optionC={140890},
+optionD={14890},
+questionTag={C6M01 - DT - Q6},
+leftmini={0.5},
+rightmini={0.4},
+correctoption={C},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & B (\ding{55}) & \cellcolor{cellgreen} C (\ding{51}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{0\%} & \highno{0\%} & \highgreen{94\%} & \highno{6\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqimgleftFourOne{
+questionnumber={35}, 
+questiontext={Find the image with an odd number count.},
+imgtabletikz  = {
+
+\tikzset{every picture/.style={line width=0.75pt}} 
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw (178.5,110.5) node  {\includegraphics[width=80pt,height=60pt]{C6M04 - DT - Q1i.png}};
+\draw (374.5,109.5) node  {\includegraphics[width=80pt,height=60pt]{C6M04 - DT - Q1ii.png}};
+\draw (90,155) node [anchor=north west][inner sep=0.75pt]   [align=left] {Number of balls = \rule{40pt}{0.5pt}};
+\draw (295,155) node [anchor=north west][inner sep=0.75pt]   [align=left] {Number of dogs = \rule{40pt}{0.5pt}};
+\end{tikzpicture}  
+},
+optionA={Balls},
+optionB={Dogs},
+optionC={Both balls and dogs},
+optionD={None of these},
+questionTag={C6M04 - DT - Q1}, 
+leftmini={0.5},
+rightmini={0.35},
+correctoption={B},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & \cellcolor{cellgreen} B (\ding{51}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{12\%} & \highno{65\%} & \highno{6\%} & \highno{6\%} & \highno{12\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip\answerkeychaptername{1 - Number System*}
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={4}, 
+questionTag={C5M01 – DT – Q6},  
+questiontext={Express the following in numbers.\\
+\hspace{2cm}Four thousand nine hundred and two. },
+optionA={492},
+optionB={49002},
+optionC={4092},
+optionD={4902},
+correctoption={D},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & B (\ding{55}) & C (\ding{55}) & \cellcolor{cellgreen} D (\ding{51}) & E\\  
+\hline
+5 A & \highno{18\%} & \highno{6\%} & \highno{6\%} & \highno{71\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={12}, 
+questionTag={C5M01 – DT – Q7},  
+questiontext={Arrange the following numbers in descending order.\\ \medskip
+\hspace{4cm}367, 376, 389, 498 },
+optionA={367, 376, 389, 498},
+optionB={498, 389, 376, 367},
+optionC={389, 498, 367, 376},
+optionD={376, 399, 389, 367},
+correctoption={B},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & \cellcolor{cellgreen} B (\ding{51}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{6\%} & \highgreen{88\%} & \highno{6\%} & \highno{0\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomFourOne{
+questionnumber={15}, 
+questionTag={C5M01 – DT – Q10},  
+questiontext={Write the number 79865 in words.},
+optionA={Seven lakh eight hundred and sixty five},
+optionB={Seventy nine eight hundred and sixty five},
+optionC={Seven thousand eight hundred and sixty five},
+optionD={Seventy nine thousand eight hundred and sixty five},
+correctoption={D},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & B (\ding{55}) & C (\ding{55}) & \cellcolor{cellgreen} D (\ding{51}) & E\\  
+\hline
+5 A & \highno{0\%} & \highno{0\%} & \highno{0\%} & \highgreen{100\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={18}, 
+questionTag={C5M01 – DT – Q8},  
+questiontext={Solve the following and find which gives the greatest quotient.\\ \medskip
+\hspace{4cm} i. 25$\divisionsymbol$5 \hspace{1cm} ii. 224$\divisionsymbol$2 \hspace{1cm}
+iii. 66$\divisionsymbol$11},
+optionA={i},
+optionB={ii},
+optionC={iii},
+optionD={All are equal},
+correctoption={B},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & \cellcolor{cellgreen} B (\ding{51}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{6\%} & \highgreen{94\%} & \highno{0\%} & \highno{0\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={20}, 
+questionTag={C5M01 – DT – Q1},  
+questiontext={Find the sum. \qquad	234 + 908 = \rule{80pt}{0.5pt} },
+optionA={1132},
+optionB={1142},
+optionC={1144},
+optionD={11412},
+correctoption={B},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & \cellcolor{cellgreen} B (\ding{51}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{0\%} & \highgreen{94\%} & \highno{6\%} & \highno{0\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={26}, 
+questionTag={C5M01 – DT – Q9},  
+questiontext={Find the sum.\quad 524 + 98 = \rule{80pt}{0.5pt}},
+optionA={612},
+optionB={622},
+optionC={1504},
+optionD={51112},
+correctoption={B},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & \cellcolor{cellgreen} B (\ding{51}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{0\%} & \highgreen{94\%} & \highno{6\%} & \highno{0\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={27}, 
+questionTag={C5M01 – DT – Q3},  
+questiontext={Multiply.	\\ \medskip
+\qquad i. 900 $\times$ 90 = \rule{80pt}{0.5pt} \qquad ii.  8 $\times$ 98 = \rule{80pt}{0.5pt} },
+optionA={i. 8100, ii. 784},
+optionB={i. 81000, ii.  724},
+optionC={i. 81000, ii.  784},
+optionD={i. 8100, ii. 724},
+correctoption={C},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & B (\ding{55}) & \cellcolor{cellgreen} C (\ding{51}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{12\%} & \highno{6\%} & \highgreen{76\%} & \highno{6\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={30}, 
+questionTag={C5M01 – DT – Q5},  
+questiontext={The place value of 5 in the number 05027 is \rule{80pt}{0.5pt} },
+optionA={Hundreds},
+optionB={Thousands},
+optionC={Ones},
+optionD={Tens},
+correctoption={B},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & \cellcolor{cellgreen} B (\ding{51}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{0\%} & \highgreen{94\%} & \highno{6\%} & \highno{0\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip\answerkeychaptername{2 - Factor and Multiples*}
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={7}, 
+questionTag={C5M02 – DT – Q3},  
+questiontext={Identify the prime numbers.},
+optionA={1},
+optionB={0},
+optionC={5},
+optionD={10},
+correctoption={C},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & B (\ding{55}) & \cellcolor{cellgreen} C (\ding{51}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{6\%} & \highno{12\%} & \highno{71\%} & \highno{12\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={17}, 
+questionTag={C5M02 – DT – Q2},  
+questiontext={Find all the factors of 16. },
+optionA={1, 2, 4},
+optionB={1, 2, 4, 8},
+optionC={1, 2, 4, 8, 16, 32},
+optionD={1, 2, 4, 8, 16},
+correctoption={D},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & B (\ding{55}) & C (\ding{55}) & \cellcolor{cellgreen} D (\ding{51}) & E\\  
+\hline
+5 A & \highno{0\%} & \highno{24\%} & \highno{6\%} & \highno{65\%} & \highno{6\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={31}, 
+questionTag={C5M02 – DT – Q1},  
+questiontext={List the first four common multiples of 5 and 10. },
+optionA={5, 10},
+optionB={5, 10, 15, 20},
+optionC={10, 20, 30, 40},
+optionD={5, 15, 25, 35},
+correctoption={C},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & B (\ding{55}) & \cellcolor{cellgreen} C (\ding{51}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{35\%} & \highno{41\%} & \highred{18\%} & \highno{0\%} & \highno{6\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={32}, 
+questionTag={C5M02 – DT – Q4},  
+questiontext={Find the multiples of 6.},
+optionA={18, 24, 30, 36, 42},
+optionB={24, 30, 36, 42, 49},
+optionC={6, 8, 12, 18, 24},
+optionD={6, 12, 16, 60, 66},
+correctoption={A},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & \cellcolor{cellgreen} A (\ding{51}) & B (\ding{55}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{65\%} & \highno{6\%} & \highno{6\%} & \highno{6\%} & \highno{18\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip\answerkeychaptername{3 - Fractions*}
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={6}, 
+questionTag={C5M03 – DT – Q3},  
+questiontext={Find the fraction of shaded portions.\\
+\medskip
+\tikzset{every picture/.style={line width=0.75pt}}
+\hspace{4cm}
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw  [fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (60.5,50.5) -- (120.5,50.5) -- (120.5,79) -- (60.5,79) -- cycle ;
+\draw  [fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (121,50.5) -- (181,50.5) -- (181,79) -- (121,79) -- cycle ;
+\draw   (180.5,50.5) -- (240.5,50.5) -- (240.5,79) -- (180.5,79) -- cycle ;
+\draw   (240.5,50.5) -- (300.5,50.5) -- (300.5,79) -- (240.5,79) -- cycle ;
+\draw   (300.5,50.5) -- (360.5,50.5) -- (360.5,79) -- (300.5,79) -- cycle ;
+\draw  [fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (60.5,80) -- (120.5,80) -- (120.5,108.5) -- (60.5,108.5) -- cycle ;
+\draw  [fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (121,80) -- (181,80) -- (181,108.5) -- (121,108.5) -- cycle ;
+\draw   (180.5,80) -- (240.5,80) -- (240.5,108.5) -- (180.5,108.5) -- cycle ;
+\draw   (240.5,80) -- (300.5,80) -- (300.5,108.5) -- (240.5,108.5) -- cycle ;
+\draw   (300.5,80) -- (360.5,80) -- (360.5,108.5) -- (300.5,108.5) -- cycle ;
+\end{tikzpicture} 
+},
+optionA={$\frac{6}{10}$},
+optionB={$\frac{2}{3}$},
+optionC={$\frac{4}{6}$},
+optionD={$\frac{4}{10}$},
+correctoption={D},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & B (\ding{55}) & C (\ding{55}) & \cellcolor{cellgreen} D (\ding{51}) & E\\  
+\hline
+5 A & \highno{0\%} & \highno{0\%} & \highno{24\%} & \highno{71\%} & \highno{6\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={13}, 
+questionTag={C5M03 – DT – Q1},  
+questiontext={Find the square that has one fourth shaded portion. },
+optionA={
+\tikzset{every picture/.style={line width=0.75pt}} 
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw  [fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (115,139.94) -- (141.28,139.94) -- (141.28,166.22) -- (115,166.22) -- cycle ;
+\draw   (141.28,139.94) -- (167.57,139.94) -- (167.57,166.22) -- (141.28,166.22) -- cycle ;
+\draw   (115,166.22) -- (141.28,166.22) -- (141.28,192.51) -- (115,192.51) -- cycle ;
+\draw   (141.28,166.22) -- (167.57,166.22) -- (167.57,192.51) -- (141.28,192.51) -- cycle ;
+\end{tikzpicture} },
+optionB={
+\tikzset{every picture/.style={line width=0.75pt}}
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw  [fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (178.96,139.94) -- (205.24,139.94) -- (205.24,166.22) -- (178.96,166.22) -- cycle ;
+\draw  [fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (205.24,139.94) -- (231.52,139.94) -- (231.52,166.22) -- (205.24,166.22) -- cycle ; 
+\draw   (178.96,166.22) -- (205.24,166.22) -- (205.24,192.51) -- (178.96,192.51) -- cycle ;
+\draw   (205.24,166.22) -- (231.52,166.22) -- (231.52,192.51) -- (205.24,192.51) -- cycle ;
+\end{tikzpicture}},
+optionC={
+\tikzset{every picture/.style={line width=0.75pt}}
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1] 
+\draw  [fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (242.91,139.94) -- (269.2,139.94) -- (269.2,166.22) -- (242.91,166.22) -- cycle ;
+\draw  [fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (269.2,139.94) -- (295.48,139.94) -- (295.48,166.22) -- (269.2,166.22) -- cycle ;
+\draw  [fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (242.91,166.22) -- (269.2,166.22) -- (269.2,192.51) -- (242.91,192.51) -- cycle ;
+\draw   (269.2,166.22) -- (295.48,166.22) -- (295.48,192.51) -- (269.2,192.51) -- cycle ;
+\end{tikzpicture}},
+optionD={
+\tikzset{every picture/.style={line width=0.75pt}} 
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw  [fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (306.43,139.5) -- (332.72,139.5) -- (332.72,165.78) -- (306.43,165.78) -- cycle ;
+\draw  [fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (332.72,139.5) -- (359,139.5) -- (359,165.78) -- (332.72,165.78) -- cycle ; 
+\draw  [fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (306.43,165.78) -- (332.72,165.78) -- (332.72,192.07) -- (306.43,192.07) -- cycle ; 
+\draw  [fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=1 ] (332.72,165.78) -- (359,165.78) -- (359,192.07) -- (332.72,192.07) -- cycle ;
+\end{tikzpicture}},
+correctoption={A},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & \cellcolor{cellgreen} A (\ding{51}) & B (\ding{55}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{47\%} & \highno{0\%} & \highno{6\%} & \highno{35\%} & \highno{12\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={37}, 
+questionTag={C5M03 – DT – Q2},  
+questiontext={What is the half of 50? },
+optionA={5},
+optionB={50},
+optionC={25},
+optionD={100},
+correctoption={C},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & B (\ding{55}) & \cellcolor{cellgreen} C (\ding{51}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{6\%} & \highno{6\%} & \highgreen{82\%} & \highno{6\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip\answerkeychaptername{4 - Decimals and their Conversion*}
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={9}, 
+questionTag={C5M04 – DT – Q3},  
+questiontext={ Express 25 paise in rupees.},
+optionA={Rs. 0.25},
+optionB={Rs. 2.5},
+optionC={Rs. 2500},
+optionD={Rs. 25},
+correctoption={A},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & \cellcolor{cellgreen} A (\ding{51}) & B (\ding{55}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{41\%} & \highno{24\%} & \highno{12\%} & \highno{12\%} & \highno{12\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={14}, 
+questionTag={C5M04 – DT – Q4},  
+questiontext={10 cm = \rule{80pt}{0.5pt} mm},
+optionA={10 mm},
+optionB={100 mm},
+optionC={1 mm},
+optionD={0.01 mm},
+correctoption={B},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & \cellcolor{cellgreen} B (\ding{51}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{6\%} & \highno{59\%} & \highno{29\%} & \highno{0\%} & \highno{6\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={19}, 
+questionTag={C5M04 – DT – Q2},  
+questiontext={Ram bought 23.5 kg of tomatoes. Help him to represent 23.5 kg in grams. },
+optionA={23500 g},
+optionB={2350 g},
+optionC={23.5000 g},
+optionD={235 g},
+correctoption={A},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & \cellcolor{cellgreen} A (\ding{51}) & B (\ding{55}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highred{12\%} & \highno{24\%} & \highno{35\%} & \highno{24\%} & \highno{6\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={23}, 
+questionTag={C5M04 – DT – Q7},  
+questiontext={Ramu has 5000 ml of water. How many 1-liter bottles will he need to hold it?},
+optionA={5},
+optionB={6},
+optionC={55},
+optionD={100},
+correctoption={A},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & \cellcolor{cellgreen} A (\ding{51}) & B (\ding{55}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{41\%} & \highno{12\%} & \highno{24\%} & \highno{18\%} & \highno{6\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={33}, 
+questionTag={C5M04 – DT – Q1},  
+questiontext={The representation of the fraction {\large{$\frac{1}{100}$}} in decimal form is \rule{80pt}{0.5pt}},
+optionA={0.1},
+optionB={0.01},
+optionC={0.001},
+optionD={1},
+correctoption={B},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & \cellcolor{cellgreen} B (\ding{51}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{0\%} & \highgreen{88\%} & \highno{6\%} & \highno{6\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={38}, 
+questionTag={C5M04 – DT – Q5},  
+questiontext={Which unit is used to measure the quantity of water in a bucket?},
+optionA={Kilometer},
+optionB={Liter},
+optionC={Meter},
+optionD={Decigram},
+correctoption={B},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & \cellcolor{cellgreen} B (\ding{51}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{0\%} & \highgreen{88\%} & \highno{6\%} & \highno{0\%} & \highno{6\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={39}, 
+questionTag={C5M04 – DT – Q6},  
+questiontext={Find the time duration between 9:15 AM and 11:45 AM.},
+optionA={2 hours},
+optionB={1.5 hours},
+optionC={2.25 hours},
+optionD={2.5 hours},
+correctoption={D},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & B (\ding{55}) & C (\ding{55}) & \cellcolor{cellgreen} D (\ding{51}) & E\\  
+\hline
+5 A & \highno{29\%} & \highno{12\%} & \highno{29\%} & \highred{12\%} & \highno{18\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip\answerkeychaptername{5 - Shapes and Angles*}
+
+
+\begin{minipage}{\linewidth}\mcqimgleftFourOne{
+questionnumber={21}, 
+questionTag={C5M05 – DT – Q1}, 
+questiontext={Identify the number of sides in the given figure.},
+imgtabletikz = { \includegraphics[height= 2.5cm, width= 3.5 cm]{C5M05 – DT – Q1.png}},
+optionA={No sides},
+optionB={Six sides},
+optionC={Four sides},
+optionD={Three sides},
+correctoption={C},
+leftmini={0.5},
+rightmini={0.4},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & B (\ding{55}) & \cellcolor{cellgreen} C (\ding{51}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{0\%} & \highno{0\%} & \highgreen{100\%} & \highno{0\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqimgleftFourOne{
+questionnumber={22}, 
+questionTag={C5M05 – DT – Q3},  
+questiontext={In the given figure, the angle formed is \rule{80pt}{0.5pt} the right angle. },
+imgtabletikz = { \includegraphics[height= 3cm, width= 3 cm]{C5M05 – DT – Q3.png}},
+optionA={Equal to},
+optionB={Greater than},
+optionC={Lesser than},
+optionD={Not equal to},
+correctoption={B},
+leftmini={0.6},
+rightmini={0.3},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & \cellcolor{cellgreen} B (\ding{51}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{12\%} & \highred{35\%} & \highno{29\%} & \highno{18\%} & \highno{6\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqimgleftFourOne{
+questionnumber={29}, 
+questionTag={C5M05 – DT – Q2},  
+questiontext={Find the length of pencil. },
+imgtabletikz = { \includegraphics[height= 3cm, width= 10 cm]{C5M05 – DT – Q2.png}},
+optionA={6.5 cm},
+optionB={5.5 cm},
+optionC={5 cm},
+optionD={6 cm},
+correctoption={B},
+leftmini={0.6},
+rightmini={0.3},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & \cellcolor{cellgreen} B (\ding{51}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{6\%} & \highgreen{94\%} & \highno{0\%} & \highno{0\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip\answerkeychaptername{6 - Visualization*}
+
+
+\begin{minipage}{\linewidth}\mcqimgleftFourOne{
+questionnumber={25}, 
+questionTag={C5M06 – DT – Q2},  
+questiontext={ Identify the shape of the following image.},
+imgtabletikz = { \includegraphics[height= 2.5 cm, width= 5 cm]{C5M06 – DT – Q2.png}},
+optionA={Cube},
+optionB={Cuboid},
+optionC={Cone},
+optionD={Cylinder},
+correctoption={C},
+leftmini={0.6},
+rightmini={0.3},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & B (\ding{55}) & \cellcolor{cellgreen} C (\ding{51}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{0\%} & \highno{12\%} & \highgreen{88\%} & \highno{0\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={28}, 
+questionTag={C5M06 – DT – Q1},  
+questiontext={Ajaykanth got a salary of Rs.10,000 in January month, Rs.12,000 in February month, Rs. 14,000 in March month and the pattern continued. How much he had earned in the month of June? },
+optionA={Rs. 18,000},
+optionB={Rs. 16,000},
+optionC={Rs. 15,000},
+optionD={Rs. 20,000},
+correctoption={D},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & B (\ding{55}) & C (\ding{55}) & \cellcolor{cellgreen} D (\ding{51}) & E\\  
+\hline
+5 A & \highno{12\%} & \highno{53\%} & \highno{6\%} & \highred{24\%} & \highno{6\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip\answerkeychaptername{7 - Symmetry*}
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={3}, 
+questionTag={C5M07 – DT – Q2},  
+questiontext={Pick the shape which is not divided into two mirror halves by the dotted line.\\
+\includegraphics[height= 3.5cm, width= 16 cm]{C5M07 – DT – Q2.png}
+},
+optionA={i},
+optionB={ii},
+optionC={iii},
+optionD={iv},
+correctoption={B},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & \cellcolor{cellgreen} B (\ding{51}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{6\%} & \highgreen{76\%} & \highno{12\%} & \highno{6\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip\answerkeychaptername{8 - Mensuration*}
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={11}, 
+questionTag={C5M08 – DT – Q2},  
+questiontext={Find the perimeter of the rectangle if its length and breadth is 10 cm and 4 cm respectively. },
+optionA={14 cm},
+optionB={28 cm},
+optionC={40 cm},
+optionD={104 cm},
+correctoption={B},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & \cellcolor{cellgreen} B (\ding{51}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{18\%} & \highno{47\%} & \highno{29\%} & \highno{6\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqimgleftFourOne{
+questionnumber={24}, 
+questionTag={C5M08 – DT – Q3},  
+questiontext={Find the area of the rectangle. },
+imgtabletikz = { 
+\tikzset{every picture/.style={line width=0.75pt}} 
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
+\draw  [fill={rgb, 255:red, 155; green, 155; blue, 155 }  ,fill opacity=0.48 ] (122,102) -- (294,102) -- (294,179) -- (122,179) -- cycle ;
+\draw (186,80) node [anchor=north west][inner sep=0.75pt]   [align=left] {20 cm};
+\draw (299,127) node [anchor=north west][inner sep=0.75pt]   [align=left] {8 cm};
+\end{tikzpicture} },
+optionA={12 sq. cm},
+optionB={28 sq. cm},
+optionC={56 sq. cm},
+optionD={160 sq.cm},
+correctoption={D},
+leftmini={0.6},
+rightmini={0.3},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & B (\ding{55}) & C (\ding{55}) & \cellcolor{cellgreen} D (\ding{51}) & E\\  
+\hline
+5 A & \highno{0\%} & \highno{24\%} & \highno{24\%} & \highno{53\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqimgleftFourOne{
+questionnumber={36}, 
+questionTag={C5M08 – DT – Q1},  
+questiontext={Find the area of the following shaded squares, if the side of one square is 1 cm. },
+imgtabletikz = { \includegraphics[height= 2.5cm, width= 6 cm]{C5M08 – DT – Q1.png}},
+optionA={28 sq. cm},
+optionB={56 sq. cm},
+optionC={14 sq. cm},
+optionD={7 sq. cm},
+correctoption={C},
+leftmini={0.6},
+rightmini={0.3},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & B (\ding{55}) & \cellcolor{cellgreen} C (\ding{51}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{0\%} & \highno{0\%} & \highgreen{94\%} & \highno{0\%} & \highno{6\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip\answerkeychaptername{9 - Charts*}
+
+
+\begin{minipage}{\linewidth}\mcqimgleftFourOne{
+questionnumber={16}, 
+questionTag={C5M09 – DT – Q2},  
+questiontext={Which genre is liked more? },
+imgtabletikz = { \includegraphics[height= 4cm, width= 10 cm]{C5M09 – DT – Q2.png}},
+optionA={Comedy},
+optionB={Horror},
+optionC={Thriller},
+optionD={Romance},
+correctoption={A},
+leftmini={0.6},
+rightmini={0.3},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & \cellcolor{cellgreen} A (\ding{51}) & B (\ding{55}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highgreen{100\%} & \highno{0\%} & \highno{0\%} & \highno{0\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqtextbottomOneFour{
+questionnumber={40}, 
+questionTag={C5M09 – DT – Q1},  
+questiontext={Find the number for the tally mark representation of \tikzset{every picture/.style={line width=0.75pt}} 
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1] 
+\draw    (98.33,161.14) -- (98.33,183.39) ;
+\draw    (110.28,161) -- (110.28,183.25) ;
+\draw    (121.36,161.28) -- (121.36,183.53) ;
+\draw    (133.31,161.42) -- (133.31,183.67) ;
+\draw    (133.31,161.42) -- (98.33,183.39) ;
+\draw    (145.26,161) -- (145.26,183.25) ;
+\end{tikzpicture} },
+optionA={8},
+optionB={6},
+optionC={7},
+optionD={5},
+correctoption={B},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & \cellcolor{cellgreen} B (\ding{51}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{6\%} & \highno{71\%} & \highno{0\%} & \highno{24\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip\answerkeychaptername{17 - Data Handling *}
+
+
+\begin{minipage}{\linewidth}\mcqimgleftFourOne{
+questionnumber={8}, 
+questionTag={C6M17 – DT – Q8}, 
+questiontext={Find the day in which the least number of fruits are sold.},
+imgtabletikz = { 
+\includegraphics[width=13cm, height=6.5cm]{C6M17 - DT - Q3.png}},
+optionA={Monday},
+optionB={Wednesday},
+optionC={Friday},
+optionD={Saturday},
+leftmini={0.65},
+rightmini={0.25},
+correctoption={A},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & \cellcolor{cellgreen} A (\ding{51}) & B (\ding{55}) & C (\ding{55}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highgreen{82\%} & \highno{0\%} & \highno{0\%} & \highno{18\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip
+
+
+\begin{minipage}{\linewidth}\mcqimgleftFourOne{
+questionnumber={34}, 
+questiontext={Observe the given pictograph and find the number of roses sold on Thursday.},
+imgtabletikz  = {
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|c|c|}
+\hline
+  Days & Number of roses sold (1 \smiley = 1 rose)  \\
+  \hline
+  Monday& \smiley \smiley \smiley  \\
+  \hline
+  Tuesday  & \smiley \smiley \smiley \smiley \smiley \smiley \smiley  \\
+  \hline
+  Wednesday & \smiley \smiley \smiley \smiley \smiley \smiley \smiley \smiley \\
+  \hline
+  Thursday & \smiley \smiley \smiley \smiley \smiley \smiley \\
+  \hline
+\end{tabular}  },
+optionA={0},
+optionB={8},
+optionC={6},
+optionD={7},
+questionTag={C6M17 - DT - Q2}, 
+leftmini={0.5},
+rightmini={0.3},
+correctoption={C},
+}
+
+\smallskip\centering
+            \renewcommand{\arraystretch}{1.25}
+            \begin{tabular}{|M{2cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|M{1cm}|}
+            \hline
+Option & A (\ding{55}) & B (\ding{55}) & \cellcolor{cellgreen} C (\ding{51}) & D (\ding{55}) & E\\  
+\hline
+5 A & \highno{0\%} & \highno{0\%} & \highgreen{94\%} & \highno{6\%} & \highno{0\%} \\            \hline
+\end{tabular}
+
+\end{minipage}
+
+\bigskip%
+\end{document}
