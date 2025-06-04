@@ -1,0 +1,537 @@
+\documentclass[11pt,a4paper]{article}%
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
+\usepackage{lmodern}%
+\usepackage{textcomp}%
+\usepackage{lastpage}%
+\usepackage{geometry}%
+\geometry{top=1.5cm,bottom=1cm,left=1cm,right=1cm}%
+\usepackage{draftwatermark}%
+\usepackage{fancyhdr}%
+%
+
+        \usepackage{geometry}
+        \usepackage{graphicx}
+        \usepackage{multicol}
+        \usepackage{multirow}
+        \usepackage{tikz}
+        \usepackage{tabularx}
+        \usepackage{float}
+        \usepackage{array,booktabs,ragged2e}
+        \usepackage{amsmath}
+        \usepackage{siunitx}
+        \usepackage{physics}
+        \usepackage{xcolor}
+        \usepackage{wasysym}
+        \usepackage{ulem} %tallymarks
+        \usepackage{xkeyval}
+        
+        \usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{array,booktabs,ragged2e}
+\usepackage{amsmath}
+\usepackage{xkeyval}
+\usepackage{float}
+\usepackage{physics}
+\usepackage{tfrupee}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{pgfkeys}
+        %
+
+                                          
+                                          
+
+\makeatletter
+%-----------------------------------------------------------
+             % text bottom 4 option in 1 row
+%-----------------------------------------------------------
+
+ \define@key{mcqtextbottomFourOne}{questionnumber}{\def\mcqtextbottomFourOnequestionnumber{#1}} 
+ \define@key{mcqtextbottomFourOne}{questionTag}{\def\mcqtextbottomFourOnequestionTag{#1}}
+\define@key{mcqtextbottomFourOne}{questiontext}{\def\mcqtextbottomFourOnequestiontext{#1}}
+\define@key{mcqtextbottomFourOne}{optionA}{\def\mcqtextbottomFourOneoptionA{#1}}
+\define@key{mcqtextbottomFourOne}{optionB}{\def\mcqtextbottomFourOneoptionB{#1}}
+\define@key{mcqtextbottomFourOne}{optionC}{\def\mcqtextbottomFourOneoptionC{#1}}
+\define@key{mcqtextbottomFourOne}{optionD}{\def\mcqtextbottomFourOneoptionD{#1}}
+\define@key{mcqtextbottomFourOne}{correctoption}{\def\mcqtextbottomFourOnecorrectoption{#1}}
+
+
+\newcommand{\mcqtextbottomFourOne}[1]{%
+  \setkeys{mcqtextbottomFourOne}{#1}%
+  \vspace{1mm}
+ 
+  \vspace{\baselineskip}
+  \begin{raggedright}
+    \textbf{Question \mcqtextbottomFourOnequestionnumber:} \mcqtextbottomFourOnequestiontext\\
+    \medskip
+      (a) \medskip \mcqtextbottomFourOneoptionA\\
+      (b) \medskip \mcqtextbottomFourOneoptionB\\      
+      (c) \medskip \mcqtextbottomFourOneoptionC\\
+      (d) \medskip \mcqtextbottomFourOneoptionD\\
+   \end{raggedright}
+}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% DEFINE KEY FOR mcqtextbottomOneFour %
+
+\define@key{mcqtextbottomOneFour}{questionnumber}{\def\mcqtextbottomOneFourquestionnumber{#1}} 
+\define@key{mcqtextbottomOneFour}{questiontext}{\def\mcqtextbottomOneFourquestiontext{#1}}
+\define@key{mcqtextbottomOneFour}{optionA}{\def\mcqtextbottomOneFouroptionA{#1}}
+\define@key{mcqtextbottomOneFour}{optionB}{\def\mcqtextbottomOneFouroptionB{#1}}
+\define@key{mcqtextbottomOneFour}{optionC}{\def\mcqtextbottomOneFouroptionC{#1}}
+\define@key{mcqtextbottomOneFour}{optionD}{\def\mcqtextbottomOneFouroptionD{#1}}
+\define@key{mcqtextbottomOneFour}{questionTag}{\def\mcqtextbottomOneFourquestionTag{#1}} 
+\define@key{mcqtextbottomOneFour}{correctoption}{\def\mcqtextbottomOneFourcorrectoption{#1}}
+
+% COMMAND FOR mcqtextbottomOneFour %
+
+\newcommand{\mcqtextbottomOneFour}[1]{%
+  \setkeys{mcqtextbottomOneFour}{#1}%
+  \vspace{1mm}
+  \vspace{\baselineskip}
+  \begin{raggedright}
+    \textbf{Question \mcqtextbottomOneFourquestionnumber:} \mcqtextbottomOneFourquestiontext
+    \begin{multicols}{4}
+      (a) \medskip \mcqtextbottomOneFouroptionA\\
+      (b) \medskip \mcqtextbottomOneFouroptionB\\      
+      (c) \medskip \mcqtextbottomOneFouroptionC\\
+      (d) \medskip \mcqtextbottomOneFouroptionD\\
+    \end{multicols}
+  \end{raggedright}
+}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% Define key FOR mcqtextbottomOneTwo 
+
+\define@key{mcqtextbottomOneTwo}{questionnumber}{\def\mcqtextbottomOneTwoquestion{#1}}
+\define@key{mcqtextbottomOneTwo}{questiontext}{\def\mcqtextbottomOneTwoquestiontext{#1}}
+\define@key{mcqtextbottomOneTwo}{optionA}{\def\mcqtextbottomOneTwooptionA{#1}}
+\define@key{mcqtextbottomOneTwo}{optionB}{\def\mcqtextbottomOneTwooptionB{#1}}
+\define@key{mcqtextbottomOneTwo}{questionTag}{\def\mcqtextbottomOneTwoquestionTag{#1}}
+\define@key{mcqtextbottomOneTwo}{correctoption}{\def\mcqtextbottomOneTwocorrectoption{#1}}
+
+% COMMAND FOR mcqtextbottomOneTwo %
+
+\newcommand{\mcqtextbottomOneTwo}[1]{%
+  \setkeys{mcqtextbottomOneTwo}{#1}%
+  \vspace{1mm}
+
+  \vspace{\baselineskip}
+  \begin{raggedright}
+    \textbf{Question \mcqtextbottomOneTwoquestion:} \mcqtextbottomOneTwoquestiontext\\
+    \begin{multicols}{2}
+      (a) \medskip \mcqtextbottomOneTwooptionA\\
+      (b) \medskip \mcqtextbottomOneTwooptionB\\
+    \end{multicols}
+  \end{raggedright}
+}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% Define key FOR mcqtextbottomTwoTwo
+
+\define@key{mcqtextbottomTwoTwo}{questionnumber}{\def\mcqtextbottomTwoTwoquestion{#1}}
+\define@key{mcqtextbottomTwoTwo}{questiontext}{\def\mcqtextbottomTwoTwoquestiontext{#1}}
+\define@key{mcqtextbottomTwoTwo}{optionA}{\def\mcqtextbottomTwoTwooptionA{#1}}
+\define@key{mcqtextbottomTwoTwo}{optionB}{\def\mcqtextbottomTwoTwooptionB{#1}}
+\define@key{mcqtextbottomTwoTwo}{optionC}{\def\mcqtextbottomTwoTwooptionC{#1}}
+\define@key{mcqtextbottomTwoTwo}{optionD}{\def\mcqtextbottomTwoTwooptionD{#1}}
+\define@key{mcqtextbottomTwoTwo}{questionTag}{\def\mcqtextbottomTwoTwoquestionTag{#1}}
+\define@key{mcqtextbottomTwoTwo}{correctoption}{\def\mcqtextbottomTwoTwocorrectoption{#1}}
+
+% COMMAND FOR mcqtextbottomTwoTwo %
+
+\newcommand{\mcqtextbottomTwoTwo}[1]{%
+  \setkeys{mcqtextbottomTwoTwo}{#1}%
+  \vspace{1mm}
+  
+  \vspace{\baselineskip}
+  \begin{raggedright}
+    \textbf{Question \mcqtextbottomTwoTwoquestion:} \mcqtextbottomTwoTwoquestiontext\\
+    \begin{multicols}{2}
+      (a) \medskip \mcqtextbottomTwoTwooptionA\\
+      (c) \medskip \mcqtextbottomTwoTwooptionC\\
+      \columnbreak
+      (b) \medskip \mcqtextbottomTwoTwooptionB\\
+      (d) \medskip \mcqtextbottomTwoTwooptionD\\
+    \end{multicols}
+  \end{raggedright}
+}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% Define key FOR mcqtextsideFourOne
+
+
+\define@key{mcqtextsideFourOne}{questionnumber}{\def\mcqtextsideFourOnequestionnumber{#1}} 
+\define@key{mcqtextsideFourOne}{questionTag}{\def\mcqtextsideFourOnequestionTag{#1}} 
+\define@key{mcqtextsideFourOne}{questiontext}{\def\mcqtextsideFourOnequestiontext{#1}}
+\define@key{mcqtextsideFourOne}{optionA}{\def\mcqtextsideFourOneoptionA{#1}}
+\define@key{mcqtextsideFourOne}{optionB}{\def\mcqtextsideFourOneoptionB{#1}}
+\define@key{mcqtextsideFourOne}{optionC}{\def\mcqtextsideFourOneoptionC{#1}}
+\define@key{mcqtextsideFourOne}{optionD}{\def\mcqtextsideFourOneoptionD{#1}}
+\define@key{mcqtextsideFourOne}{correctoption}{\def\mcqtextsideFourOnecorrectoption{#1}}
+\define@key{mcqtextsideFourOne}{leftmini}{\def\mcqtextsideFourOneleftmini{#1}}
+\define@key{mcqtextsideFourOne}{rightmini}{\def\mcqtextsideFourOnerightmini{#1}}
+
+% COMMAND FOR mcqtextsideFourOne
+
+\newcommand{\mcqtextsideFourOne}[1]{%
+  \setkeys{mcqtextsideFourOne}{#1}%
+  \vspace{1mm}
+
+  \vspace{\baselineskip}
+  \begin{raggedright}
+  \begin{minipage}[t]{\mcqtextsideFourOneleftmini\linewidth}
+    \textbf{Question \mcqtextsideFourOnequestionnumber:} \mcqtextsideFourOnequestiontext\\
+  \end{minipage}\hfill
+  \begin{minipage}[t]{\mcqtextsideFourOnerightmini\linewidth}
+        (a) \medskip \mcqtextsideFourOneoptionA\\
+        (b) \medskip \mcqtextsideFourOneoptionB\\
+        (c) \medskip \mcqtextsideFourOneoptionC\\
+        (d) \medskip \mcqtextsideFourOneoptionD\\
+     \end{minipage}
+   \end{raggedright}
+}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% Define key FOR mcqimgbottomOneFour
+
+\define@key{mcqimgbottomOneFour}{questionnumber}{\def\mcqimgbottomOneFourquestionnumber{#1}}
+\define@key{mcqimgbottomOneFour}{questionTag}{\def\mcqimgbottomOneFourquestionTag{#1}}
+\define@key{mcqimgbottomOneFour}{questiontext}{\def\mcqimgbottomOneFourquestiontext{#1}}
+\define@key{mcqimgbottomOneFour}{optionA}{\def\mcqimgbottomOneFouroptionA{#1}}
+\define@key{mcqimgbottomOneFour}{optionB}{\def\mcqimgbottomOneFouroptionB{#1}}
+\define@key{mcqimgbottomOneFour}{optionC}{\def\mcqimgbottomOneFouroptionC{#1}}
+\define@key{mcqimgbottomOneFour}{optionD}{\def\mcqimgbottomOneFouroptionD{#1}}
+\define@key{mcqimgbottomOneFour}{correctoption}{\def\mcqimgbottomOneFourcorrectoption{#1}}
+
+% COMMAND FOR mcqimgbottomOneFour %
+
+\newcommand{\mcqimgbottomOneFour}[1]{%
+  \setkeys{mcqimgbottomOneFour}{#1}%
+  \vspace{1mm}
+
+  \vspace{\baselineskip}
+  \begin{raggedright}
+    \textbf{Question \mcqimgbottomOneFourquestionnumber:} \mcqimgbottomOneFourquestiontext \\
+    \begin{multicols}{4}
+      (a) \includegraphics[width=2.5cm, height=2cm]{\mcqimgbottomOneFouroptionA}  \\
+      (b) \includegraphics[width=2.5 cm, height=2cm]{\mcqimgbottomOneFouroptionB}   \\
+      (c) \includegraphics[width=2.5cm, height=2cm]{\mcqimgbottomOneFouroptionC}  \\
+      (d) \includegraphics[width=2.5cm, height=2cm]{\mcqimgbottomOneFouroptionD} 
+    \end{multicols}
+  \end{raggedright}
+}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% Define key FOR mcqimgdbottomOneFour
+
+\define@key{mcqimgdbottomOneFour}{questionnumber}{\def\mcqimgdbottomOneFourquestionnumber{#1}}
+\define@key{mcqimgdbottomOneFour}{questionTag}{\def\mcqimgdbottomOneFourquestionTag{#1}}
+\define@key{mcqimgdbottomOneFour}{questiontext}{\def\mcqimgdbottomOneFourquestiontext{#1}}
+\define@key{mcqimgdbottomOneFour}{optionA}{\def\mcqimgdbottomOneFouroptionA{#1}}
+\define@key{mcqimgdbottomOneFour}{optionAtext}{\def\mcqimgdbottomOneFouroptionAtext{#1}}
+\define@key{mcqimgdbottomOneFour}{optionB}{\def\mcqimgdbottomOneFouroptionB{#1}}
+\define@key{mcqimgdbottomOneFour}{optionBtext}{\def\mcqimgdbottomOneFouroptionBtext{#1}}
+\define@key{mcqimgdbottomOneFour}{optionC}{\def\mcqimgdbottomOneFouroptionC{#1}}
+\define@key{mcqimgdbottomOneFour}{optionCtext}{\def\mcqimgdbottomOneFouroptionCtext{#1}}
+\define@key{mcqimgdbottomOneFour}{optionD}{\def\mcqimgdbottomOneFouroptionD{#1}}
+\define@key{mcqimgdbottomOneFour}{optionDtext}{\def\mcqimgdbottomOneFouroptionDtext{#1}}
+\define@key{mcqimgdbottomOneFour}{correctoption}{\def\mcqimgdbottomOneFourcorrectoption{#1}}
+
+% COMMAND FOR mcqimgdbottomOneFour %
+
+\newcommand{\mcqimgdbottomOneFour}[1]{%
+  \setkeys{mcqimgdbottomOneFour}{#1}%
+  \vspace{1mm}
+
+  \vspace{\baselineskip}
+  \begin{raggedright}
+    \textbf{Question \mcqimgdbottomOneFourquestionnumber:} \mcqimgdbottomOneFourquestiontext \\
+    \begin{multicols}{4}
+       \includegraphics[width=2.5cm, height=2cm]{\mcqimgdbottomOneFouroptionA} \\*
+      (a) \mcqimgdbottomOneFouroptionAtext \\
+
+       \includegraphics[width=2.5cm, height=2cm]{\mcqimgdbottomOneFouroptionB} \\*      
+      (b) \mcqimgdbottomOneFouroptionBtext \\
+
+       \includegraphics[width=2.5cm, height=2cm]{\mcqimgdbottomOneFouroptionC} \\*
+      (c) \mcqimgdbottomOneFouroptionCtext \\
+
+       \includegraphics[width=2.5cm, height=2cm]{\mcqimgdbottomOneFouroptionD} \\*
+      (d) \mcqimgdbottomOneFouroptionDtext
+    \end{multicols}
+  \end{raggedright}
+  }
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% Define key FOR mcqimgleftFourOne
+
+\define@key{mcqimgleftFourOne}{questionnumber}{\def\mcqimgleftFourOnequestionnumber{#1}} 
+\define@key{mcqimgleftFourOne}{questiontext}{\def\mcqimgleftFourOnequestiontext{#1}}
+\define@key{mcqimgleftFourOne}{imgtabletikz}{\def\mcqimgtabletikz{#1}}
+\define@key{mcqimgleftFourOne}{optionA}{\def\mcqimgleftFourOneoptionA{#1}}
+\define@key{mcqimgleftFourOne}{optionB}{\def\mcqimgleftFourOneoptionB{#1}}
+\define@key{mcqimgleftFourOne}{optionC}{\def\mcqimgleftFourOneoptionC{#1}}
+\define@key{mcqimgleftFourOne}{optionD}{\def\mcqimgleftFourOneoptionD{#1}}
+\define@key{mcqimgleftFourOne}{questionTag}{\def\mcqimgleftFourOnequestionTag{#1}} 
+\define@key{mcqimgleftFourOne}{correctoption}{\def\mcqimgleftFourOnecorrectoption{#1}}
+\define@key{mcqimgleftFourOne}{leftmini}{\def\mcqimgleftFourOneleftmini{#1}}
+\define@key{mcqimgleftFourOne}{rightmini}{\def\mcqimgleftFourOnerightmini{#1}}
+
+% COMMAND FOR mcqimgleftFourOne 
+
+\newcommand{\mcqimgleftFourOne}[1]{%
+  \setkeys{mcqimgleftFourOne}{#1}%
+  \vspace{1mm}
+
+  \vspace{\baselineskip}
+  \begin{raggedright}
+    \textbf{Question \mcqimgleftFourOnequestionnumber:} \mcqimgleftFourOnequestiontext\\
+    \medskip
+  \end{raggedright}
+  \begin{minipage}[]{\mcqimgleftFourOneleftmini\linewidth}
+  \Centering
+    \mcqimgtabletikz 
+  \end{minipage}\hfill
+  \begin{minipage}[]{\mcqimgleftFourOnerightmini\linewidth}
+      (a) \medskip \mcqimgleftFourOneoptionA\\
+      (b) \medskip \mcqimgleftFourOneoptionB\\
+      (c) \medskip \mcqimgleftFourOneoptionC\\
+      (d) \medskip \mcqimgleftFourOneoptionD\\  
+   \end{minipage}
+   \vspace{2mm}}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% DEFINE KEY FOR mcqfourimg %
+
+\define@key{mcqimgsideFourOne}{questionnumber} {\def\mcqimgsideFourOnequestionnumber{#1} }
+\define@key{mcqimgsideFourOne}{questiontext}{\def\mcqimgsideFourOnequestiontext{#1}}
+\define@key{mcqimgsideFourOne}{imgwidth}{\def\mcqimgsideFourOnewidth{#1}}
+\define@key{mcqimgsideFourOne}{imgheight}{\def\mcqimgsideFourOneheight{#1}}
+\define@key{mcqimgsideFourOne}{img}{\def\mcqimgsideFourOne{#1}}
+\define@key{mcqimgsideFourOne}{optionA}{\def\mcqimgsideFourOneoptionA{#1}}
+\define@key{mcqimgsideFourOne}{optionB}{\def\mcqimgsideFourOneoptionB{#1}}
+\define@key{mcqimgsideFourOne}{optionC}{\def\mcqimgsideFourOneoptionC{#1}}
+\define@key{mcqimgsideFourOne}{optionD}{\def\mcqimgsideFourOneoptionD{#1}}
+\define@key{mcqimgsideFourOne}{questionTag}{\def\mcqimgsideFourOnequestionTag{#1}} 
+\define@key{mcqimgsideFourOne}{correctoption}{\def\mcqimgsideFourOnecorrectoption{#1}}
+\define@key{mcqimgsideFourOne}{leftmini}{\def\mcqimgsideFourOneleftmini{#1}}
+\define@key{mcqimgsideFourOne}{rightmini}{\def\mcqimgsideFourOnerightmini{#1}}
+
+\newcommand{\mcqimgsideFourOne}[1]{
+  \setkeys{mcqimgsideFourOne}{#1}
+  \vspace{1mm}
+
+  \vspace{\baselineskip}
+  \begin{raggedright}
+    \begin{minipage}[]{\mcqimgsideFourOneleftmini\textwidth}
+    \textbf{Question \mcqimgsideFourOnequestionnumber:} \mcqimgsideFourOnequestiontext
+    \vspace{2mm} \\
+        (a) \medskip \mcqimgsideFourOneoptionA \\
+        (b) \medskip \mcqimgsideFourOneoptionB \\
+        (c) \medskip \mcqimgsideFourOneoptionC \\
+        (d) \medskip \mcqimgsideFourOneoptionD \\
+    \end{minipage}
+    \begin{minipage}[]{\mcqimgsideFourOnerightmini\textwidth}
+    \includegraphics[width=\mcqimgsideFourOnewidth, height=\mcqimgsideFourOneheight]{\mcqimgsideFourOne}
+    \end{minipage}
+   \end{raggedright}
+         }
+
+%-----------------------------------------------------------
+%               MCQ without Option
+%-----------------------------------------------------------
+
+
+\define@key{mcqdescriptive}{questionnumber}{\def\mcqdescriptivequestionnumber{#1}} 
+\define@key{mcqdescriptive}{questionTag}{\def\mcqdescriptivequestionTag{#1}} 
+\define@key{mcqdescriptive}{questiontext}{\def\mcqdescriptivequestiontext{#1}}
+\define@key{mcqdescriptive}{correctoption}{\def\mcqdescriptivecorrectoption{#1}}
+
+\newcommand{\mcqdescriptive}[1]{%
+  \setkeys{mcqdescriptive}{#1}%
+  \vspace{1mm}
+
+  \vspace{\baselineskip}
+\begin{raggedright}
+    \textbf{Question \mcqdescriptivequestionnumber:} \mcqdescriptivequestiontext
+\end{raggedright} 
+}
+
+
+
+
+
+%-----------------------------------------------------------
+%                        TABLE
+%-----------------------------------------------------------
+\newcolumntype{R}[1]{>{\Centering\arraybackslash}p{#1}}
+
+\makeatother
+        %
+\newcommand{\hdrb}[2]{
+            {\Large \centering \textbf{#1}} \\ 
+            
+                }%
+\fancypagestyle{bodypage}{%
+\renewcommand{\headrulewidth}{0pt}%
+\renewcommand{\footrulewidth}{0pt}%
+\fancyhead{%
+}%
+\fancyfoot{%
+}%
+\fancyfoot[R]{%
+\vspace{0cm}%
+Page \thepage%
+}%
+\fancyhead[L]{%
+\includegraphics[width = 3.0cm, height=1.125cm]{logo.png}%
+}%
+\fancyhead[C]{%
+\hdrb{XYZ School}{Enhanced by Learn Basics}%
+}%
+\fancyfoot[C]{%
+\vspace{cm}%
+www.learnbasics.fun%
+}%
+\fancyfoot[L]{%
+LaPIS%
+}%
+\renewcommand{\footrulewidth}{1pt}%
+\renewcommand{\headrulewidth}{1pt}%
+}%
+
+
+\begin{document}%
+\normalsize%
+\thispagestyle{bodypage}%
+\SetWatermarkLightness{ 0.95 }
+        \SetWatermarkText{Learn Basics}
+        \SetWatermarkScale{ 0.7 }%
+\setlength{\headsep}{0.5cm}%
+                                    \begin{minipage}{\textwidth}
+                                    %
+\mcqtextbottomTwoTwo{
+questionnumber={1}, 
+questionTag={}, 
+questiontext={Choose the correct sentence using the given words. \\
+\qquad \qquad \qquad \qquad	at / teacher / the / looking / students / were 
+},
+optionA={The teacher and students were looking},
+optionB={Were the looking teacher at students},
+optionC={The students were looking at the teacher},
+optionD={Students looking the teacher at were},
+correctoption={C},
+}
+
+                                    \end{minipage}
+                                    %
+
+                                    \begin{minipage}{\textwidth}
+                                    %
+\mcqimgleftFourOne{
+questionnumber={2}, 
+questiontext={Choose the correct sentence by observing the given image.},
+imgtabletikz  = { \includegraphics[width = 6.0cm, height=5.0cm]{English1.png}},
+optionA={Remo loves to sea the sunset over the see.
+},
+optionB={Remo loves to sew the sunset over the sea.
+},
+optionC={Remo loves to see the sunset over the sea.
+},
+optionD={Remo loves to see the sunset over the see.
+},
+questionTag={}, 
+correctoption={C},
+leftmini={0.5},
+rightmini={0.5}
+}
+
+                                    \end{minipage}
+                                    %
+
+\vspace{0.5cm} 
+\large{\textbf{Read the passage and answer the questions.}} \\
+Arun and Varun lived in the same village. Varun owned the biggest jewelry shop, while Arun was a poor farmer. Arun decided to move to the city with his large family for a better life. Arun’s family left the village for the city and camped under a tree, where a thief was hiding above. When Arun’s wife asked what they would eat, Arun raised his hands to heaven and said, “Don’t worry, God will help us.” The thief got scared upon seeing the family’s unity and fled, dropping his stolen jewels into Arun’s lap. Overjoyed, Arun’s family returned to the village rich. Seeing this, wealthy Varun tried the same, but his family lacked unity. The thief jumped down and stole everything they had, leaving Varun and his family empty-handed.
+
+
+                               
+                                    
+                                    \begin{minipage}{\textwidth}
+                                    %
+\mcqtextbottomOneFour{
+questionnumber={3}, 
+questionTag={}, 
+questiontext={Whose family is united?
+},
+optionA={Arun and Varun},
+optionB={Arun},
+optionC={Varun },
+optionD={Arun and thief},
+correctoption={B},
+}
+                                    \end{minipage}
+                                    %
+
+                                    \begin{minipage}{\textwidth}
+                                    %
+\mcqtextbottomOneFour{
+questionnumber={4}, 
+questionTag={}, 
+questiontext={Why did Arun’s family decide to move to the city?},
+optionA={Luxury life},
+optionB={Thief},
+optionC={Poverty},
+optionD={Robbery},
+correctoption={C},
+}
+                                    \end{minipage}
+                                    %
+
+                                    \begin{minipage}{\textwidth}
+                                    %
+\mcqtextbottomFourOne{
+questionnumber={5}, 
+questionTag={}, 
+questiontext={What might have happened if Varun's family had shown unity like Arun's?},
+optionA={They might have got the jewels},
+optionB={They would have become richer than Arun's family},
+optionC={They could have scared the thief and kept their belongings},
+optionD={All the above },
+correctoption={c},
+}
+
+                                    \end{minipage}
+                                    %
+
+
+\end{document}

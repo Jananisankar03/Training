@@ -1,0 +1,484 @@
+% \pgfplotsset{compat=1.18}
+
+\newtoks \coords 
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  dimensions  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\define@key{VerticalBar}{Width}{\def\VerticalBarwidth{#1}} % Width of Chart
+\define@key{VerticalBar}{Height}{\def\VerticalBarheight{#1}}% Height of Chart
+\define@key{VerticalBar}{Barwidth}{\def\VerticalBarbarwidth{#1}}% BarWidth of Chart
+\define@key{VerticalBar}{Textwidth}{\def\VerticalBartextwidth{#1}}% Text width from axisline
+\define@key{VerticalBar}{Scale}{\def\VerticalBarscale{#1}}% Size of Chart 
+\define@key{VerticalBar}{YMax}{\def\VerticalBarYMax{#1}} % Y Axis Max Value
+\define@key{VerticalBar}{YMin}{\def\VerticalBarYMin{#1}} % Y Axis Min Value
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% labels  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\define@key{VerticalBar}{Xticklabels}{\def\VerticalBarXticklabels{#1}} % X axis Tick Labels 
+\define@key{VerticalBar}{Ylabels}{\def\VerticalBarYlabels{#1}} % Y axis labels
+\define@key{VerticalBar}{Xlabel}{\def\VerticalBarXlabel{#1}} % X axis label
+\define@key{VerticalBar}{Xlabelrotate}{\def\VerticalBarXlabelrotate{#1}} % X tick label rotate
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Axis Values  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\define@key{VerticalBar}{Xtick}{\def\VerticalBarXtick{#1}}% X axis tick values
+\define@key{VerticalBar}{Ytick}{\def\VerticalBarYtick{#1}}% Y axis tick values
+\define@key{VerticalBar}{Barcoords}{\def\VerticalBarcoords{#1}}% Bar cordinates
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\define@key{VerticalBar}{Title}{\def\VerticalBartitle{#1}} % Title of Chart
+
+
+
+
+
+
+\newcommand{\VerticalBar}[3]{
+ \setkeys{VerticalBar}{#1}
+
+\def \barcoords{\VerticalBarcoords}    
+
+    \pgfmathsetmacro{\numOfBars}{{\barcoords}[0]}     
+    \pgfmathsetmacro{\noOfCoords}{{\barcoords}[1]}     
+    \centering
+    \begin{tikzpicture}
+    [scale=\VerticalBarscale]
+                \begin{axis}[
+                    width=\VerticalBarwidth cm,
+                    height=\VerticalBarheight cm,
+                    bar width=\VerticalBarbarwidth pt,
+                    tick style={draw=none},
+                    axis x line*=bottom,
+                    axis y line*=left,
+                    % Modified x-axis setup to show all labels
+                    xtick=\VerticalBarXtick,
+                    xtick distance=1,
+                    x tick label as interval=false,
+                    xticklabels/.expanded=\VerticalBarXticklabels,
+                    xticklabel style={text width=\VerticalBartextwidth cm,align=center},
+                    % ,rotate=10, anchor=east
+                    ytick=\VerticalBarYtick,
+                    ybar,
+                    ymin=\VerticalBarYMin,
+                    ymax=\VerticalBarYMax,
+                    area legend,
+                    ylabel={\VerticalBarYlabels},
+                    xlabel={\VerticalBarXlabel},
+                    nodes near coords,
+                    nodes near coords style={font=\large},
+                    nodes near coords align={vertical},
+                    legend style={at={(0.5,-0.3)}, draw=none, anchor=north,legend columns=-1,column sep=0.2cm},
+                    ymajorgrids=true,
+                    title=\textbf{\VerticalBartitle},
+                    % Ensure all x positions are shown
+                    enlarge x limits={abs=0.5},
+                    x tick label style={rotate=\VerticalBarXlabelrotate},
+                ]
+
+        \colorlet{Color1}{blue!30}
+        \colorlet{Color2}{green!50}
+
+        \foreach \i in {1,...,\numOfBars}{
+            \coords{}
+        
+            \foreach \x in {0,...,\inteval{\noOfCoords-1}}{
+                \pgfmathsetmacro{\eachpoint}{{\barcoords}[\i+1][\x]}
+                \global\coords\expandafter{\expanded{\the\coords(\x+1,\eachpoint)}}
+            }
+            \edef \plotting{ \noexpand
+                \addplot[ 
+                    draw=none, 
+                    fill=Color\i
+                ] coordinates {
+                    \the\coords
+                }; \noexpand
+            }
+            
+            \plotting
+
+            \renewcommand{\coords}{{}}
+        }
+        \def\avg{#3} 
+        \ifx\avg\empty{}
+        \else
+        {
+            \draw[thick, dashed, color=red] (0,\avg) -- (\VerticalBarwidth,\avg);
+        }
+        \fi
+
+        \legend{#2}
+                \end{axis}
+            \end{tikzpicture}
+}
+
+
+%-----------------------------------------------------------
+     % text bottom 4 option in 1 row
+%-----------------------------------------------------------
+
+\define@key{mcqtextbottomFourOne}{questionnumber}{\def\mcqtextbottomFourOnequestionnumber{#1}} 
+\define@key{mcqtextbottomFourOne}{questionTag}{\def\mcqtextbottomFourOnequestionTag{#1}}
+\define@key{mcqtextbottomFourOne}{questiontext}{\def\mcqtextbottomFourOnequestiontext{#1}}
+\define@key{mcqtextbottomFourOne}{optionA}{\def\mcqtextbottomFourOneoptionA{#1}}
+\define@key{mcqtextbottomFourOne}{optionB}{\def\mcqtextbottomFourOneoptionB{#1}}
+\define@key{mcqtextbottomFourOne}{optionC}{\def\mcqtextbottomFourOneoptionC{#1}}
+\define@key{mcqtextbottomFourOne}{optionD}{\def\mcqtextbottomFourOneoptionD{#1}}
+\define@key{mcqtextbottomFourOne}{correctoption}{\def\mcqtextbottomFourOnecorrectoption{#1}}
+
+
+\newcommand{\mcqtextbottomFourOne}[1]{%
+\setkeys{mcqtextbottomFourOne}{#1}%
+\vspace{2.5mm}
+\begin{raggedright}
+\textbf{Question Tag:} \mcqtextbottomFourOnequestionTag \hfill \textbf{Correct Option:} \mcqtextbottomFourOnecorrectoption\\
+\end{raggedright}
+\vspace{\baselineskip}
+\begin{raggedright}
+\textbf{Question \mcqtextbottomFourOnequestionnumber:} \mcqtextbottomFourOnequestiontext\\
+\medskip
+(a) \medskip \mcqtextbottomFourOneoptionA\\
+(b) \medskip \mcqtextbottomFourOneoptionB\\      
+(c) \medskip \mcqtextbottomFourOneoptionC\\
+(d) \medskip \mcqtextbottomFourOneoptionD\\
+\end{raggedright}
+}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% DEFINE KEY FOR mcqtextbottomOneFour %
+
+\define@key{mcqtextbottomOneFour}{questionnumber}{\def\mcqtextbottomOneFourquestionnumber{#1}} 
+\define@key{mcqtextbottomOneFour}{questiontext}{\def\mcqtextbottomOneFourquestiontext{#1}}
+\define@key{mcqtextbottomOneFour}{optionA}{\def\mcqtextbottomOneFouroptionA{#1}}
+\define@key{mcqtextbottomOneFour}{optionB}{\def\mcqtextbottomOneFouroptionB{#1}}
+\define@key{mcqtextbottomOneFour}{optionC}{\def\mcqtextbottomOneFouroptionC{#1}}
+\define@key{mcqtextbottomOneFour}{optionD}{\def\mcqtextbottomOneFouroptionD{#1}}
+\define@key{mcqtextbottomOneFour}{questionTag}{\def\mcqtextbottomOneFourquestionTag{#1}} 
+\define@key{mcqtextbottomOneFour}{correctoption}{\def\mcqtextbottomOneFourcorrectoption{#1}}
+\define@key{mcqtextbottomOneFour}{coloredquestion}{\def\mcqtextbottomOneFourcolororblackwhite{#1}}
+
+% COMMAND FOR mcqtextbottomOneFour %
+
+\newcommand{\mcqtextbottomOneFour}[1]{%
+\setkeys{mcqtextbottomOneFour}{#1}%
+\vspace{2.5mm}
+\begin{raggedright}
+\textbf{Question Tag:} \mcqtextbottomOneFourquestionTag \hfill \textbf{Correct Option:} \mcqtextbottomOneFourcorrectoption\\
+\end{raggedright}
+\vspace{\baselineskip}
+\begin{raggedright}
+\textbf{Question \mcqtextbottomOneFourquestionnumber:} \mcqtextbottomOneFourquestiontext
+\begin{multicols}{4}
+(a) \medskip \mcqtextbottomOneFouroptionA\\
+(b) \medskip \mcqtextbottomOneFouroptionB\\      
+(c) \medskip \mcqtextbottomOneFouroptionC\\
+(d) \medskip \mcqtextbottomOneFouroptionD\\
+\end{multicols}
+\end{raggedright}
+}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% Define key FOR mcqtextbottomOneTwo 
+
+\define@key{mcqtextbottomOneTwo}{questionnumber}{\def\mcqtextbottomOneTwoquestion{#1}}
+\define@key{mcqtextbottomOneTwo}{questiontext}{\def\mcqtextbottomOneTwoquestiontext{#1}}
+\define@key{mcqtextbottomOneTwo}{optionA}{\def\mcqtextbottomOneTwooptionA{#1}}
+\define@key{mcqtextbottomOneTwo}{optionB}{\def\mcqtextbottomOneTwooptionB{#1}}
+\define@key{mcqtextbottomOneTwo}{questionTag}{\def\mcqtextbottomOneTwoquestionTag{#1}}
+\define@key{mcqtextbottomOneTwo}{correctoption}{\def\mcqtextbottomOneTwocorrectoption{#1}}
+
+% COMMAND FOR mcqtextbottomOneTwo %
+
+\newcommand{\mcqtextbottomOneTwo}[1]{%
+\setkeys{mcqtextbottomOneTwo}{#1}%
+\vspace{2.5mm}
+\begin{raggedright}
+\textbf{Question Tag:} \mcqtextbottomOneTwoquestionTag \hfill \textbf{Correct Option:} \mcqtextbottomOneTwocorrectoption\\
+\end{raggedright}
+\vspace{\baselineskip}
+\begin{raggedright}
+\textbf{Question \mcqtextbottomOneTwoquestion:} \mcqtextbottomOneTwoquestiontext\\
+\begin{multicols}{2}
+(a) \medskip \mcqtextbottomOneTwooptionA\\
+(b) \medskip \mcqtextbottomOneTwooptionB\\
+\end{multicols}
+\end{raggedright}
+}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% Define key FOR mcqtextbottomTwoTwo
+
+\define@key{mcqtextbottomTwoTwo}{questionnumber}{\def\mcqtextbottomTwoTwoquestion{#1}}
+\define@key{mcqtextbottomTwoTwo}{questiontext}{\def\mcqtextbottomTwoTwoquestiontext{#1}}
+\define@key{mcqtextbottomTwoTwo}{optionA}{\def\mcqtextbottomTwoTwooptionA{#1}}
+\define@key{mcqtextbottomTwoTwo}{optionB}{\def\mcqtextbottomTwoTwooptionB{#1}}
+\define@key{mcqtextbottomTwoTwo}{optionC}{\def\mcqtextbottomTwoTwooptionC{#1}}
+\define@key{mcqtextbottomTwoTwo}{optionD}{\def\mcqtextbottomTwoTwooptionD{#1}}
+\define@key{mcqtextbottomTwoTwo}{questionTag}{\def\mcqtextbottomTwoTwoquestionTag{#1}}
+\define@key{mcqtextbottomTwoTwo}{correctoption}{\def\mcqtextbottomTwoTwocorrectoption{#1}}
+
+% COMMAND FOR mcqtextbottomTwoTwo %
+
+\newcommand{\mcqtextbottomTwoTwo}[1]{%
+\setkeys{mcqtextbottomTwoTwo}{#1}%
+\vspace{1.5mm}
+\begin{raggedright}
+\textbf{Question Tag:} \mcqtextbottomTwoTwoquestionTag \hfill \textbf{Correct Option:} \mcqtextbottomTwoTwocorrectoption\\
+\end{raggedright}
+\vspace{\baselineskip}
+\begin{raggedright}
+\textbf{Question \mcqtextbottomTwoTwoquestion:} \mcqtextbottomTwoTwoquestiontext\\
+\begin{multicols}{2}
+(a) \medskip \mcqtextbottomTwoTwooptionA\\
+(c) \medskip \mcqtextbottomTwoTwooptionC\\
+\columnbreak
+(b) \medskip \mcqtextbottomTwoTwooptionB\\
+(d) \medskip \mcqtextbottomTwoTwooptionD\\
+\end{multicols}
+\end{raggedright}
+\vspace{5mm}
+}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% Define key FOR mcqtextsideFourOne
+
+
+\define@key{mcqtextsideFourOne}{questionnumber}{\def\mcqtextsideFourOnequestionnumber{#1}} 
+\define@key{mcqtextsideFourOne}{questionTag}{\def\mcqtextsideFourOnequestionTag{#1}} 
+\define@key{mcqtextsideFourOne}{questiontext}{\def\mcqtextsideFourOnequestiontext{#1}}
+\define@key{mcqtextsideFourOne}{optionA}{\def\mcqtextsideFourOneoptionA{#1}}
+\define@key{mcqtextsideFourOne}{optionB}{\def\mcqtextsideFourOneoptionB{#1}}
+\define@key{mcqtextsideFourOne}{optionC}{\def\mcqtextsideFourOneoptionC{#1}}
+\define@key{mcqtextsideFourOne}{optionD}{\def\mcqtextsideFourOneoptionD{#1}}
+\define@key{mcqtextsideFourOne}{correctoption}{\def\mcqtextsideFourOnecorrectoption{#1}}
+\define@key{mcqtextsideFourOne}{leftmini}{\def\mcqtextsideFourOneleftmini{#1}}
+\define@key{mcqtextsideFourOne}{rightmini}{\def\mcqtextsideFourOnerightmini{#1}}
+
+% COMMAND FOR mcqtextsideFourOne
+
+\newcommand{\mcqtextsideFourOne}[1]{%
+\setkeys{mcqtextsideFourOne}{#1}%
+\vspace{2.5mm}
+\begin{raggedright}
+\textbf{Question Tag:} \mcqtextsideFourOnequestionTag \hfill \textbf{Correct Option:} \mcqtextsideFourOnecorrectoption\\
+\end{raggedright}
+\vspace{\baselineskip}
+\begin{raggedright}
+\begin{minipage}[t]{\mcqtextsideFourOneleftmini\linewidth}
+\textbf{Question \mcqtextsideFourOnequestionnumber:} \mcqtextsideFourOnequestiontext\\
+\end{minipage}\hfill
+\begin{minipage}[t]{\mcqtextsideFourOnerightmini\linewidth}
+(a) \medskip \mcqtextsideFourOneoptionA\\
+(b) \medskip \mcqtextsideFourOneoptionB\\
+(c) \medskip \mcqtextsideFourOneoptionC\\
+(d) \medskip \mcqtextsideFourOneoptionD\\
+\end{minipage}
+\end{raggedright}
+}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% Define key FOR mcqimgbottomOneFour
+
+\define@key{mcqimgbottomOneFour}{questionnumber}{\def\mcqimgbottomOneFourquestionnumber{#1}}
+\define@key{mcqimgbottomOneFour}{questionTag}{\def\mcqimgbottomOneFourquestionTag{#1}}
+\define@key{mcqimgbottomOneFour}{questiontext}{\def\mcqimgbottomOneFourquestiontext{#1}}
+\define@key{mcqimgbottomOneFour}{optionA}{\def\mcqimgbottomOneFouroptionA{#1}}
+\define@key{mcqimgbottomOneFour}{optionB}{\def\mcqimgbottomOneFouroptionB{#1}}
+\define@key{mcqimgbottomOneFour}{optionC}{\def\mcqimgbottomOneFouroptionC{#1}}
+\define@key{mcqimgbottomOneFour}{optionD}{\def\mcqimgbottomOneFouroptionD{#1}}
+\define@key{mcqimgbottomOneFour}{correctoption}{\def\mcqimgbottomOneFourcorrectoption{#1}}
+
+% COMMAND FOR mcqimgbottomOneFour %
+
+\newcommand{\mcqimgbottomOneFour}[1]{%
+\setkeys{mcqimgbottomOneFour}{#1}%
+\vspace{2.5mm}
+\begin{raggedright}
+\textbf{Question Tag:} \mcqimgbottomOneFourquestionTag \hfill \textbf{Correct Option:} \mcqimgbottomOneFourcorrectoption\\
+\end{raggedright}
+\vspace{\baselineskip}
+\begin{raggedright}
+\textbf{Question \mcqimgbottomOneFourquestionnumber:} \mcqimgbottomOneFourquestiontext \\
+\begin{multicols}{4}
+(a) \includegraphics[width=\linewidth, height=3cm]{\mcqimgbottomOneFouroptionA}  \\
+(b) \includegraphics[width=\linewidth, height=3cm]{\mcqimgbottomOneFouroptionB}   \\
+(c) \includegraphics[width=\linewidth, height=3cm]{\mcqimgbottomOneFouroptionC}  \\
+(d) \includegraphics[width=\linewidth, height=3cm]{\mcqimgbottomOneFouroptionD} 
+\end{multicols}
+\end{raggedright}
+}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% Define key FOR mcqimgdbottomOneFour
+
+\define@key{mcqimgdbottomOneFour}{questionnumber}{\def\mcqimgdbottomOneFourquestionnumber{#1}}
+\define@key{mcqimgdbottomOneFour}{questionTag}{\def\mcqimgdbottomOneFourquestionTag{#1}}
+\define@key{mcqimgdbottomOneFour}{questiontext}{\def\mcqimgdbottomOneFourquestiontext{#1}}
+\define@key{mcqimgdbottomOneFour}{optionA}{\def\mcqimgdbottomOneFouroptionA{#1}}
+\define@key{mcqimgdbottomOneFour}{optionAtext}{\def\mcqimgdbottomOneFouroptionAtext{#1}}
+\define@key{mcqimgdbottomOneFour}{optionB}{\def\mcqimgdbottomOneFouroptionB{#1}}
+\define@key{mcqimgdbottomOneFour}{optionBtext}{\def\mcqimgdbottomOneFouroptionBtext{#1}}
+\define@key{mcqimgdbottomOneFour}{optionC}{\def\mcqimgdbottomOneFouroptionC{#1}}
+\define@key{mcqimgdbottomOneFour}{optionCtext}{\def\mcqimgdbottomOneFouroptionCtext{#1}}
+\define@key{mcqimgdbottomOneFour}{optionD}{\def\mcqimgdbottomOneFouroptionD{#1}}
+\define@key{mcqimgdbottomOneFour}{optionDtext}{\def\mcqimgdbottomOneFouroptionDtext{#1}}
+\define@key{mcqimgdbottomOneFour}{correctoption}{\def\mcqimgdbottomOneFourcorrectoption{#1}}
+
+% COMMAND FOR mcqimgdbottomOneFour %
+
+\newcommand{\mcqimgdbottomOneFour}[1]{%
+\setkeys{mcqimgdbottomOneFour}{#1}%
+\vspace{2.5mm}
+\begin{raggedright}
+\textbf{Question Tag:} \mcqimgdbottomOneFourquestionTag \hfill \textbf{Correct Option:} \mcqimgdbottomOneFourcorrectoption\\
+\end{raggedright}
+\vspace{\baselineskip}
+\begin{raggedright}
+\textbf{Question \mcqimgdbottomOneFourquestionnumber:} \mcqimgdbottomOneFourquestiontext \\
+\begin{multicols}{4}
+\includegraphics[width=\linewidth, height=3cm]{\mcqimgdbottomOneFouroptionA} 
+(a) \mcqimgdbottomOneFouroptionAtext \\
+
+\includegraphics[width=\linewidth, height=3cm]{\mcqimgdbottomOneFouroptionB}       
+(b) \mcqimgdbottomOneFouroptionBtext \\
+
+\includegraphics[width=\linewidth, height=3cm]{\mcqimgdbottomOneFouroptionC} 
+(c) \mcqimgdbottomOneFouroptionCtext \\
+
+\includegraphics[width=\linewidth, height=3cm]{\mcqimgdbottomOneFouroptionD} 
+(d) \mcqimgdbottomOneFouroptionDtext
+\end{multicols}
+\end{raggedright}
+}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% Define key FOR mcqimgleftFourOne
+
+\define@key{mcqimgleftFourOne}{questionnumber}{\def\mcqimgleftFourOnequestionnumber{#1}} 
+\define@key{mcqimgleftFourOne}{questiontext}{\def\mcqimgleftFourOnequestiontext{#1}}
+\define@key{mcqimgleftFourOne}{imgtabletikz}{\def\mcqimgtabletikz{#1}}
+\define@key{mcqimgleftFourOne}{optionA}{\def\mcqimgleftFourOneoptionA{#1}}
+\define@key{mcqimgleftFourOne}{optionB}{\def\mcqimgleftFourOneoptionB{#1}}
+\define@key{mcqimgleftFourOne}{optionC}{\def\mcqimgleftFourOneoptionC{#1}}
+\define@key{mcqimgleftFourOne}{optionD}{\def\mcqimgleftFourOneoptionD{#1}}
+\define@key{mcqimgleftFourOne}{questionTag}{\def\mcqimgleftFourOnequestionTag{#1}} 
+\define@key{mcqimgleftFourOne}{correctoption}{\def\mcqimgleftFourOnecorrectoption{#1}}
+\define@key{mcqimgleftFourOne}{leftmini}{\def\mcqimgleftFourOneleftmini{#1}}
+\define@key{mcqimgleftFourOne}{rightmini}{\def\mcqimgleftFourOnerightmini{#1}}
+
+% COMMAND FOR mcqimgleftFourOne 
+
+\newcommand{\mcqimgleftFourOne}[1]{%
+\setkeys{mcqimgleftFourOne}{#1}%
+\vspace{1.5mm}
+\begin{raggedright}
+\textbf{Question Tag:} \mcqimgleftFourOnequestionTag \hfill \textbf{Correct Option:} \mcqimgleftFourOnecorrectoption\\
+\end{raggedright}
+\vspace{\baselineskip}
+\begin{raggedright}
+\textbf{Question \mcqimgleftFourOnequestionnumber:} \mcqimgleftFourOnequestiontext\\
+\medskip
+\end{raggedright}
+\begin{minipage}[]{\mcqimgleftFourOneleftmini\linewidth}
+\Centering
+\mcqimgtabletikz 
+\end{minipage}\hfill
+\begin{minipage}[]{\mcqimgleftFourOnerightmini\linewidth}
+(a) \medskip \mcqimgleftFourOneoptionA\\
+(b) \medskip \mcqimgleftFourOneoptionB\\
+(c) \medskip \mcqimgleftFourOneoptionC\\
+(d) \medskip \mcqimgleftFourOneoptionD\\      
+\end{minipage}
+\vspace{3mm}
+}
+
+%-----------------------------------------------------------
+
+%-----------------------------------------------------------
+
+% DEFINE KEY FOR mcqfourimg %
+
+\define@key{mcqimgsideFourOne}{questionnumber} {\def\mcqimgsideFourOnequestionnumber{#1} }
+\define@key{mcqimgsideFourOne}{questiontext}{\def\mcqimgsideFourOnequestiontext{#1}}
+\define@key{mcqimgsideFourOne}{imgwidth}{\def\mcqimgsideFourOnewidth{#1}}
+\define@key{mcqimgsideFourOne}{imgheight}{\def\mcqimgsideFourOneheight{#1}}
+\define@key{mcqimgsideFourOne}{img}{\def\mcqimgsideFourOne{#1}}
+\define@key{mcqimgsideFourOne}{optionA}{\def\mcqimgsideFourOneoptionA{#1}}
+\define@key{mcqimgsideFourOne}{optionB}{\def\mcqimgsideFourOneoptionB{#1}}
+\define@key{mcqimgsideFourOne}{optionC}{\def\mcqimgsideFourOneoptionC{#1}}
+\define@key{mcqimgsideFourOne}{optionD}{\def\mcqimgsideFourOneoptionD{#1}}
+\define@key{mcqimgsideFourOne}{questionTag}{\def\mcqimgsideFourOnequestionTag{#1}} 
+\define@key{mcqimgsideFourOne}{correctoption}{\def\mcqimgsideFourOnecorrectoption{#1}}
+\define@key{mcqimgsideFourOne}{leftmini}{\def\mcqimgsideFourOneleftmini{#1}}
+\define@key{mcqimgsideFourOne}{rightmini}{\def\mcqimgsideFourOnerightmini{#1}}
+
+\newcommand{\mcqimgsideFourOne}[1]{
+\setkeys{mcqimgsideFourOne}{#1}
+\vspace{2.5mm}
+\begin{raggedright}
+\textbf{Question Tag:} \mcqimgsideFourOnequestionTag \hfill \textbf{Correct Option:} \mcqimgsideFourOnecorrectoption \\
+\end{raggedright}
+\vspace{\baselineskip}
+\begin{raggedright}
+\begin{minipage}[]{\mcqimgsideFourOneleftmini\textwidth}
+\textbf{Question \mcqimgsideFourOnequestionnumber:} \mcqimgsideFourOnequestiontext
+\vspace{2mm} \\
+(a) \medskip \mcqimgsideFourOneoptionA \\
+(b) \medskip \mcqimgsideFourOneoptionB \\
+(c) \medskip \mcqimgsideFourOneoptionC \\
+(d) \medskip \mcqimgsideFourOneoptionD \\
+\end{minipage}
+\begin{minipage}[]{\mcqimgsideFourOnerightmini\textwidth}
+\includegraphics[width=\mcqimgsideFourOnewidth, height=\mcqimgsideFourOneheight]{\mcqimgsideFourOne}
+\end{minipage}
+\end{raggedright}
+\vspace{5mm}
+ }
+
+%-----------------------------------------------------------
+%               MCQ without Option
+%-----------------------------------------------------------
+
+
+\define@key{mcqdescriptive}{questionnumber}{\def\mcqdescriptivequestionnumber{#1}} 
+\define@key{mcqdescriptive}{questionTag}{\def\mcqdescriptivequestionTag{#1}} 
+\define@key{mcqdescriptive}{questiontext}{\def\mcqdescriptivequestiontext{#1}}
+\define@key{mcqdescriptive}{correctoption}{\def\mcqdescriptivecorrectoption{#1}}
+
+\newcommand{\mcqdescriptive}[1]{%
+\setkeys{mcqdescriptive}{#1}%
+\vspace{2.5mm}
+\begin{raggedright}
+\textbf{Question Tag:} \mcqdescriptivequestionTag \hfill \textbf{Correct Option:} \mcqdescriptivecorrectoption\\
+\end{raggedright}
+\vspace{\baselineskip}
+\begin{raggedright}
+\textbf{Question \mcqdescriptivequestionnumber:} \mcqdescriptivequestiontext
+\end{raggedright}
+\vspace{5mm}}
+
+
+%-----------------------------------------------------------
+%                        TABLE
+%-----------------------------------------------------------
+\newcolumntype{R}[1]{>{\Centering\arraybackslash}p{#1}}
+\makeatother
